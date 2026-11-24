@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Components/Overview" />
+
+# Components
+
+分類與名稱對齊 Figma 元件庫。每個分類一頁，Docs 分頁有 props 表（主元件 + 同分類的其他元件）。
+
+| 分類 | Vue 元件 | 狀態 |
+|---|---|---|
+| Action Sheet | `KgiSheet`、`KgiSheetOptions` | ✅ |
+| Accordion | `KgiCollapsibleCard`、`KgiExpandButton`、`KgiExpandToggle` | ✅ |
+| Avatar | — | 尚未實作 |
+| Badge | — | 尚未實作 |
+| Banner | `KgiNoticeCard` | ✅ 對照待確認 |
+| Bottom Navigation | `KgiBottomNav` | ✅ |
+| Button（2026/10 更新） | `KgiButton`、`KgiIconAction` | ✅ 需對照 2026/10 版 |
+| Calculation | `KgiAmountField`、`KgiQtyStepper` | ✅ 對照待確認 |
+| Card | `KgiSummaryCard`、`KgiDetailCard`、`KgiDetailPanel`、`KgiDetailRow`、`KgiFeeCard`、`KgiStatementCard`、`KgiStockPickCard`、`KgiServiceCardList`、`KgiAmountHero`、`KgiStatGroup` | ✅ |
+| Carousel | `KgiCarousel` | ✅ |
+| Chart | — | 尚未實作 |
+| Checkbox（2026/10 更新） | `KgiCheckbox`、`KgiCheckboxHeader`、`KgiSelectableItem` | ✅ 需對照 2026/10 版 |
+| Credit Card Picker | — | 尚未實作 |
+| Coach Mark Hint | — | 尚未實作 |
+| Dialog（2026/10 更新） | `KgiDialog`、`KgiInfoDialog` | ✅ 需對照 2026/10 版 |
+| Divider | — | 尚未實作（目前用 `border-container-general-divider`） |
+| Empty State | `KgiEmptyState` | ✅ |
+| FAQ | `KgiAccordion` | ✅ |
+| Filter | `KgiFilterPill` | ✅ |
+| Input | `KgiNumberField` | ✅（只有數字輸入） |
+| List | `KgiListTable`、`KgiListRow`、`KgiStockName`、`KgiAmountCell`、`KgiDateTimeLines` | ✅ |
+| Picker | `KgiPickerField`、`KgiAccountPicker` | ✅ |
+| Progress Bar（2026/10 更新） | `KgiStepBar` | ✅ 需對照 2026/10 版 |
+| Radio Button | `KgiRadioGroup` | ✅ |
+| Search | `KgiSearchField`、`KgiSearchIcon` | ✅ |
+| Snowflake | — | 尚未實作 |
+| System Message | `KgiNoticeBar` | ✅ 對照待確認 |
+| Toast/Snackbar（2026/10 更新） | `KgiToast` | ✅ 只有 Toast，沒有 Snackbar |
+| Tab | `KgiTextTabs`、`KgiSegmentedTabs` | ✅ |
+| Tag | `KgiTag` | ✅ |
+| Tooltips（2026/10 更新） | `KgiInfoLabel` | ⚠️ 目前用 Dialog，不是氣泡 |
+| Top Navigation | `KgiPageHeader` | ✅ |
+| Toggle | — | 尚未實作 |
+
+不在 Figma 元件分類裡的：
+
+- **Foundations › Icon**：`KgiIcon`、`KgiSearchIcon`
+- **Patterns › Page Layout**：`KgiFlowPage`、`KgiResultPage`、`KgiBottomActions`、`KgiStickyFooter`、`KgiTotalBar`、`KgiSectionHeader`

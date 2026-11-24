@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Foundations/Overview" />
+
+# Foundations
+
+One KGI Design Guideline 的基礎規範。數值只存在 `guideline/`，這一區的頁面直接讀 Guideline 原檔產生，Guideline 更新後自動同步。
+
+| 頁面 | 內容 | 來源 |
+|---|---|---|
+| Color | 語意色（Surface / Content / Container）、Hover、圖表色、原始色票 | `guideline/Color_20261016 update/colors.css` |
+| Typography | 字體堆疊、字級層級（Web / mWeb / iOS / Android） | `guideline/Typography/` |
+| Icon | 全部 icon、跟著文字層級的尺寸、換色 | `public/kgi/icons/*.svg` |
+| Illustration | 彩色插圖（服務、捷徑、功能、結果頁） | `public/kgi/icons/*.png`、`success.svg` |
+| Grid System | 版面寬度、斷點、頁面邊界與區塊間距 | `guideline/Spacing/spacing-guideline.md` |
+| Spacing, Radius, Shadow | 間距、圓角、陰影 token | `guideline/Spacing`、`Radius`、`Shadow` |
+| Rules | 使用規範：token 怎麼寫成 class、禁止事項、顏色與交易狀態、字級、間距表、Grid、Figma 讀稿 | `plugins/kgi-ui-kit/skills/generate-ui/rules.md`（唯一一份，AI 生成頁面也讀這份） |

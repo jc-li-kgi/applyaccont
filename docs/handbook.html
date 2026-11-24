@@ -1,0 +1,453 @@
+<title>KGI UI Kit 工作手冊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Noto+Sans+TC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* 版面：左側固定目錄 + 右側章節；每條流程是一列有角色標籤的步驟卡。配色取自 One KGI Guideline（surface-blue、active-primary、navy 文字）。 */
+:root {
+  --bg: #F2F6FF;
+  --card: #FFFFFF;
+  --ink: #030616;
+  --ink-2: #4C5466;
+  --ink-3: #6E788B;
+  --line: #E2E2E2;
+  --accent: #0044AD;
+  --accent-soft: #DCEAFF;
+  --code-bg: #F6F6F6;
+  --r-maint-fg: #0044AD; --r-maint-bg: #DCEAFF;
+  --r-design-fg: #09751C; --r-design-bg: #EDF9EC;
+  --r-eng-fg: #4C5466; --r-eng-bg: #EEF0F4;
+  --r-ai-fg: #A33A0B; --r-ai-bg: #FEF1E7;
+  --r-auto-fg: #0044AD; --r-auto-bg: transparent;
+  --ok: #09751C; --no: #D42300;
+  --font-display: "Montserrat", "Noto Sans TC", system-ui, sans-serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A0F1C; --card: #121A2C; --ink: #E9EDF6; --ink-2: #B3BBCC; --ink-3: #8790A4; --line: #263049;
+    --accent: #8DB8FF; --accent-soft: #19294A; --code-bg: #0D1424;
+    --r-maint-fg: #A9C9FF; --r-maint-bg: #1A2B4E; --r-design-fg: #8FD99B; --r-design-bg: #12301A;
+    --r-eng-fg: #C3C9D6; --r-eng-bg: #222B3E; --r-ai-fg: #FFB48A; --r-ai-bg: #3A2214;
+    --r-auto-fg: #8DB8FF; --ok: #8FD99B; --no: #FF8C73;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A0F1C; --card: #121A2C; --ink: #E9EDF6; --ink-2: #B3BBCC; --ink-3: #8790A4; --line: #263049;
+  --accent: #8DB8FF; --accent-soft: #19294A; --code-bg: #0D1424;
+  --r-maint-fg: #A9C9FF; --r-maint-bg: #1A2B4E; --r-design-fg: #8FD99B; --r-design-bg: #12301A;
+  --r-eng-fg: #C3C9D6; --r-eng-bg: #222B3E; --r-ai-fg: #FFB48A; --r-ai-bg: #3A2214;
+  --r-auto-fg: #8DB8FF; --ok: #8FD99B; --no: #FF8C73;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 32px 80px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+header.top { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 4vw, 36px); line-height: 1.25; margin: 0; text-wrap: balance; }
+.lede { color: var(--ink-2); max-width: 64ch; margin: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--ink-3); font-size: 13px; }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+nav.toc .group { font-size: 12px; color: var(--ink-3); letter-spacing: .06em; margin: 14px 0 4px; }
+nav.toc .group:first-child { margin-top: 0; }
+nav.toc a { color: var(--ink-2); text-decoration: none; padding: 4px 10px; border-radius: 6px; }
+nav.toc a:hover, nav.toc a:focus-visible { background: var(--accent-soft); color: var(--accent); outline: none; }
+main { display: flex; flex-direction: column; gap: 56px; min-width: 0; }
+section { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 24px; min-width: 0; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 22px; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; text-wrap: balance; }
+h2 .when { font-family: var(--font-body); font-weight: 400; font-size: 13px; color: var(--ink-3); }
+h3 { font-size: 16px; font-weight: 500; margin: 8px 0 0; }
+p { margin: 0; max-width: 68ch; }
+.muted { color: var(--ink-2); }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--code-bg); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; line-height: 1; padding: 5px 8px; border-radius: 999px; white-space: nowrap; font-weight: 500; }
+.r-maint { color: var(--r-maint-fg); background: var(--r-maint-bg); }
+.r-design { color: var(--r-design-fg); background: var(--r-design-bg); }
+.r-eng { color: var(--r-eng-fg); background: var(--r-eng-bg); }
+.r-ai { color: var(--r-ai-fg); background: var(--r-ai-bg); }
+.r-auto { color: var(--r-auto-fg); background: var(--r-auto-bg); border: 1px dashed currentColor; padding: 4px 7px; }
+
+/* 全貌圖 */
+.map { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) 40px minmax(0, 1fr); align-items: stretch; gap: 0; }
+.node { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.node .name { font-family: var(--font-mono); font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.node ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
+.node.kit { border-color: var(--accent); }
+.arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink-3); font-size: 11px; text-align: center; gap: 2px; }
+.arrow::after { content: "→"; font-size: 20px; line-height: 1; color: var(--accent); }
+.side-flows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.side { border: 1px dashed var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px; }
+.side b { color: var(--ink); font-weight: 500; }
+
+/* 流程 */
+ol.flow { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; counter-reset: step; }
+ol.flow > li { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 14px; padding-bottom: 18px; counter-increment: step; }
+ol.flow > li::before { content: counter(step); font-family: var(--font-display); font-weight: 600; font-size: 13px; width: 32px; height: 32px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; z-index: 1; font-variant-numeric: tabular-nums; }
+ol.flow > li:not(:last-child)::after { content: ""; position: absolute; left: 15.25px; top: 32px; bottom: 0; width: 1.5px; background: var(--line); }
+ol.flow > li.decide::before { content: "?"; border-radius: 6px; transform: rotate(45deg) scale(.8); background: var(--accent-soft); }
+.step { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.step-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.step-title { font-weight: 500; }
+.step p, .step ul { color: var(--ink-2); font-size: 14px; }
+.step ul { margin: 0; padding-left: 18px; }
+.sub { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.sub span.s { background: var(--code-bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; }
+.sub span.to { color: var(--ink-3); }
+
+/* 程式碼 */
+.code { position: relative; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.code pre { margin: 0; padding: 12px 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--ink); }
+.code .label { font-size: 12px; color: var(--ink-3); padding: 8px 14px 0; font-family: var(--font-mono); }
+.copy { position: absolute; top: 6px; right: 6px; font: 500 12px var(--font-body); color: var(--accent); background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+details > summary { cursor: pointer; padding: 10px 16px; font-weight: 500; list-style-position: inside; }
+details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details .inner { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+/* 表格 */
+.table { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; font-weight: 500; color: var(--ink-3); letter-spacing: .04em; background: var(--code-bg); }
+tr:last-child td { border-bottom: 0; }
+td.yes { color: var(--ok); }
+td.no { color: var(--no); }
+
+.say { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.say div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
+.say div span { color: var(--ink-3); font-size: 12px; font-family: var(--font-mono); }
+.note { border-left: 3px solid var(--accent); padding: 8px 14px; background: var(--card); color: var(--ink-2); font-size: 14px; border-radius: 0; }
+
+@media (max-width: 860px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  nav.toc { position: static; flex-direction: row; overflow-x: auto; gap: 4px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+  nav.toc .group { display: none; }
+  nav.toc a { white-space: nowrap; }
+  .map { grid-template-columns: minmax(0, 1fr); }
+  .arrow { flex-direction: row; padding: 4px 0; gap: 6px; }
+  .arrow::after { content: "↓"; }
+  .side-flows { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">@kgi/ui-kit · v0.2.0</div>
+    <h1>KGI UI Kit 工作手冊</h1>
+    <p class="lede">用 KGI UI kit 做前端畫面、交給工程師的完整流程：第一次安裝、開新專案、每天做畫面、交付，以及 kit 本身怎麼維護。</p>
+    <div class="legend">
+      <span>誰做：</span>
+      <span class="chip r-maint">kit 維護者</span>
+      <span class="chip r-design">設計師</span>
+      <span class="chip r-eng">工程師</span>
+      <span class="chip r-ai">Claude</span>
+      <span class="chip r-auto">自動（腳本）</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="目錄">
+    <div class="group">開始</div>
+    <a href="#overview">全貌</a>
+    <a href="#first-time">第一次安裝</a>
+    <div class="group">每個專案</div>
+    <a href="#new-project">開新專案</a>
+    <a href="#join">加入專案</a>
+    <a href="#daily">每次做畫面</a>
+    <a href="#handoff">交給工程師</a>
+    <div class="group">維護 kit</div>
+    <a href="#figma">補 Foundation／元件</a>
+    <a href="#release">kit 發版與升級</a>
+    <a href="#automation">自動化</a>
+    <a href="#ai-files">AI 會讀的檔案</a>
+    <div class="group">守則</div>
+    <a href="#safety">套件與資安</a>
+  </nav>
+
+  <main>
+    <!-- 全貌 -->
+    <section id="overview">
+      <h2>全貌</h2>
+      <p class="muted">分成兩種 repo。kit 由維護者管理、打 tag 發版；每個專案各有一個畫面 repo，設計師只在裡面做頁面，不改 kit。這樣工程師拿到的 kit 和設計師做畫面時用的一定是同一版。</p>
+      <div class="map" role="img" aria-label="kgi-ui-kit repo 打 tag 發版給專案畫面 repo，專案畫面 repo 用 branch 或 tag 交給工程師">
+        <div class="node kit">
+          <span class="chip r-maint" style="align-self:flex-start">kit 維護者</span>
+          <div class="name">kgi-ui-kit repo</div>
+          <ul><li>元件、<code>rules.md</code>、<code>guideline/</code></li><li>Storybook、檢查腳本</li><li>kgi-ui-kit plugin 原始檔</li></ul>
+        </div>
+        <div class="arrow">打 tag<br>v0.x.y</div>
+        <div class="node">
+          <span class="chip r-design" style="align-self:flex-start">設計師</span>
+          <div class="name">專案畫面 repo</div>
+          <ul><li>一個專案一個</li><li>只放 <code>app/pages/</code></li><li><code>package.json</code> 寫明 kit 版本</li></ul>
+        </div>
+        <div class="arrow">branch<br>或 tag</div>
+        <div class="node">
+          <span class="chip r-eng" style="align-self:flex-start">工程師</span>
+          <div class="name">交付</div>
+          <ul><li><code>npm ci</code> 拿到同一版 kit 與規則</li><li>頁面文案是假資料，標 TODO</li></ul>
+        </div>
+      </div>
+      <div class="side-flows">
+        <div class="side"><b>Figma → kit（sync-figma）</b>維護者在 kit repo 裡從 Figma 補 Foundation、元件，更新 kit 後發新版。見「補 Foundation／元件」。</div>
+        <div class="side"><b>kit → 畫面（generate-ui）</b>設計師在專案畫面 repo 裡，讓 Claude 照規則生成介面。兩個 skill 都在組織的 kgi-ui-kit plugin，改了就要重新發佈。</div>
+      </div>
+      <div class="table">
+        <table>
+          <thead><tr><th>角色</th><th>kgi-ui-kit repo</th><th>專案畫面 repo</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chip r-maint">kit 維護者</span></td><td>讀寫</td><td>讀寫、審 PR</td></tr>
+            <tr><td><span class="chip r-design">設計師</span></td><td><b>讀</b>（<code>npm ci</code> 要下載 kit）</td><td>讀寫（branch + PR）</td></tr>
+            <tr><td><span class="chip r-eng">工程師</span></td><td><b>讀</b>（沒有權限 <code>npm ci</code> 會失敗）</td><td>讀</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 第一次安裝 -->
+    <section id="first-time">
+      <h2>第一次安裝 <span class="when">每人每台電腦一次</span></h2>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">安裝 Git</span><span class="chip r-design">設計師</span><span class="chip r-eng">工程師</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">安裝 nvm，再用它安裝 Node.js 22</span></div>
+          <p>Windows 用 nvm-windows。不要用 <code>npm install -g</code> 裝全域套件。</p>
+          <div class="code"><button class="copy" type="button">複製</button><pre>nvm install 22</pre></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">安裝 VS Code 與擴充套件「Vue - Official」</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">安裝 Claude Code，用公司帳號登入</span></div>
+          <p>從組織 plugin 庫安裝 <b>kgi-ui-kit</b>，裡面有兩個 skill：<b>generate-ui</b>（生成介面）、<b>sync-figma</b>（從 Figma 補充 kit）。也可以在 Claude Code 從 <code>/plugin</code> 的 Marketplaces 加入組織 plugin 庫後執行：</p>
+          <div class="code"><button class="copy" type="button">複製</button><pre>/plugin install kgi-ui-kit@claudeai-organization-library</pre></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">只有要同步 Figma 的人：連上 Figma</span><span class="chip r-maint">kit 維護者</span></div>
+          <p>在 Claude Code 用 <code>/mcp</code> 連上 Figma 並登入。</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 開新專案 -->
+    <section id="new-project">
+      <h2>開新專案 <span class="when">每個專案一次</span></h2>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">在公司 Git 建立專案畫面 repo</span><span class="chip r-maint">kit 維護者</span></div>
+          <p>例如 <code>&lt;子公司&gt;-&lt;專案&gt;-screens</code>。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">放入 5 個檔案後 push</span><span class="chip r-maint">kit 維護者</span></div>
+          <p>kit 用 git 網址加 tag 鎖定版本。範本展開如下。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">本機跑一次 npm install，把 package-lock.json 一起 commit</span><span class="chip r-maint">kit 維護者</span></div>
+          <p>之後大家用 <code>npm ci</code> 照它安裝，版本完全一致。</p></div></li>
+      </ol>
+      <details>
+        <summary>5 個檔案的範本</summary>
+        <div class="inner">
+          <div class="code"><div class="label">package.json</div><button class="copy" type="button">複製</button><pre>{
+  "name": "&lt;子公司&gt;-&lt;專案&gt;-screens",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "postinstall": "nuxt prepare",
+    "check:tokens": "node node_modules/@kgi/ui-kit/scripts/check-tokens.mjs ."
+  },
+  "dependencies": {
+    "@kgi/ui-kit": "git+https://&lt;公司 Git&gt;/&lt;群組&gt;/kgi-ui-kit.git#v0.1.0",
+    "nuxt": "~4.5.2",
+    "vue": "~3.5.45"
+  }
+}</pre></div>
+          <div class="code"><div class="label">nuxt.config.ts</div><button class="copy" type="button">複製</button><pre>export default defineNuxtConfig({ extends: ['@kgi/ui-kit'] })</pre></div>
+          <div class="code"><div class="label">.nvmrc</div><button class="copy" type="button">複製</button><pre>22</pre></div>
+          <div class="code"><div class="label">.gitignore</div><button class="copy" type="button">複製</button><pre>node_modules
+.nuxt
+.output
+.data
+.DS_Store
+*.log</pre></div>
+          <div class="code"><div class="label">CLAUDE.md（讓 Claude 讀到 kit 的規則；GitHub Copilot 不會讀這個檔）</div><button class="copy" type="button">複製</button><pre># &lt;專案名稱&gt; 畫面
+
+用 @kgi/ui-kit 做前端畫面，交給工程師。頁面放 `app/pages/`，一頁一個檔案。
+- 生成頁面用 generate-ui skill；沒有安裝時，照 `node_modules/@kgi/ui-kit/plugins/kgi-ui-kit/skills/generate-ui/SKILL.md` 的流程。
+- **不要修改 `node_modules/@kgi/ui-kit/`**。kit 缺元件或規則不清楚時，在頁面標 TODO 並在回報裡列出，由 kit 維護者更新。
+- 交付前跑 `npm run check:tokens`。
+
+@node_modules/@kgi/ui-kit/plugins/kgi-ui-kit/skills/generate-ui/rules.md</pre></div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 加入專案 -->
+    <section id="join">
+      <h2>加入專案 <span class="when">每人每個專案一次</span></h2>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">取得專案並安裝</span><span class="chip r-design">設計師</span></div>
+          <div class="code"><button class="copy" type="button">複製</button><pre>git clone &lt;專案畫面 repo 網址&gt;
+cd &lt;專案資料夾&gt;
+nvm use
+npm ci</pre></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">確認跑得起來</span><span class="chip r-design">設計師</span></div>
+          <div class="code"><button class="copy" type="button">複製</button><pre>npm run dev</pre></div>
+          <p>打開 <code>http://localhost:3000</code>。</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 每次做畫面 -->
+    <section id="daily">
+      <h2>每次做畫面</h2>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">拉最新</span><span class="chip r-design">設計師</span></div><p><code>git pull</code></p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">開 branch</span><span class="chip r-design">設計師</span></div><p>例如 <code>design/loan-apply</code>。先分好誰負責哪幾頁，一頁一個檔案，就不會衝突。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">請 Claude 用 ui kit 生成介面</span><span class="chip r-ai">Claude</span></div>
+          <p>說「用 ui kit 生成介面…」或「用 kgi-ui-kit 做…」，generate-ui skill 會照這個順序做：</p>
+          <div class="sub"><span class="s">讀描述／Figma</span><span class="to">→</span><span class="s">推斷頁面類型與版型</span><span class="to">→</span><span class="s">缺必要資訊時一次追問完</span><span class="to">→</span><span class="s">選元件</span><span class="to">→</span><span class="s">照 rules.md 寫頁面</span><span class="to">→</span><span class="s">檢查</span><span class="to">→</span><span class="s">回報推斷與預設</span></div>
+          <p>描述可以照 <code>page-spec.md</code> 範本寫。間距、顏色、字級不會問，一律照規則。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">看畫面</span><span class="chip r-design">設計師</span></div><p><code>npm run dev</code>，用 375／768／1024 寬度看手機、平板、桌機。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">規範檢查</span><span class="chip r-auto">自動</span></div><p><code>npm run check:tokens</code>：抓出寫死的數值、色碼、Tailwind 預設字級。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">commit、push、發 PR</span><span class="chip r-design">設計師</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">審核後合併</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+      </ol>
+      <h3>不熟 git，直接跟 Claude 說</h3>
+      <div class="say">
+        <div>「拉最新的」<span>git pull</span></div>
+        <div>「開一個分支做借款申請」<span>建 branch</span></div>
+        <div>「commit 並推上去發 PR」<span>commit · push · PR</span></div>
+        <div>「有衝突，幫我看」<span>比對兩邊並說明</span></div>
+      </div>
+      <p class="note">只改 <code>app/pages/</code>（和必要的假資料檔），不改 kit。kit 缺元件或規則不清楚，請 Claude 在頁面標 TODO，再回報給 kit 維護者。</p>
+    </section>
+
+    <!-- 交給工程師 -->
+    <section id="handoff">
+      <h2>交給工程師</h2>
+      <div class="table">
+        <table>
+          <thead><tr><th>給</th><th>不用給</th></tr></thead>
+          <tbody>
+            <tr><td class="yes">專案 repo 網址 + branch 或 tag</td><td>元件、CSS、guideline（工程師 <code>npm ci</code> 後就有）</td></tr>
+            <tr><td class="yes">kit repo 的讀取權限</td><td>整包資料夾複本</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="muted" style="margin:0;padding-left:18px">
+        <li>kit 版本已寫在專案的 <code>package.json</code>，工程師拿到的是同一版 kit 與規則。</li>
+        <li>規則與元件說明在 <code>node_modules/@kgi/ui-kit/plugins/kgi-ui-kit/skills/generate-ui/rules.md</code>；建議把 kit 的 Storybook（<code>npm run build-storybook</code> → <code>storybook-static/</code>）部署成內部網站給工程師、PM 查。</li>
+        <li>頁面裡的文案、數值是假資料，標 <code>// TODO: 待替換文案</code>。</li>
+      </ul>
+    </section>
+
+    <!-- Figma -->
+    <section id="figma">
+      <h2>補 Foundation／元件 <span class="when">kit 維護者 · sync-figma skill</span></h2>
+      <p class="muted">在 kgi-ui-kit repo 裡做（產品或畫面專案裡的 kit 在 <code>node_modules</code>，不能改）。給連結並說「從 Figma 補到 ui kit」「補 foundation」「更新元件」，sync-figma 會照下面的步驟做。</p>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">給 Figma section 連結</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">讀稿</span><span class="chip r-ai">Claude</span></div>
+          <p>Figma MCP：<code>get_metadata</code>、<code>get_variable_defs</code>、<code>get_screenshot</code>。只讀連結的 section、跳過隱藏圖層、只看實際套用的值。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">回報差異</span><span class="chip r-ai">Claude</span></div><p>Figma 和 Guideline、元件不同的地方，只列出兩邊的值。</p></div></li>
+        <li class="decide"><div class="step"><div class="step-head"><span class="step-title">決定以誰為準</span><span class="chip r-maint">kit 維護者</span></div><p><code>guideline/</code> 只有維護者說要改時才改。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">修改</span><span class="chip r-ai">Claude</span></div>
+          <ul><li>改 Guideline：<code>guideline/*</code></li><li>改元件：<code>app/components/&lt;分類&gt;/Kgi*.vue</code>、<code>stories/</code>、<code>app/kgi.ts</code></li></ul></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">產生</span><span class="chip r-auto">自動</span></div><p><code>npm run theme</code>（改了 guideline）、<code>npm run components</code>（改了元件或 story）</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">檢查</span><span class="chip r-auto">自動</span></div><p><code>npm run theme:check</code>、<code>npm run check:tokens</code>、<code>npm run typecheck</code></p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">Storybook 看畫面</span><span class="chip r-maint">kit 維護者</span></div><p><code>npm run storybook</code></p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">記錄、commit、發版</span><span class="chip r-maint">kit 維護者</span></div><p>寫 <code>CHANGELOG.md</code>（Guideline 改動記在「規範」）。接著照「kit 發版與升級」。</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 發版 -->
+    <section id="release">
+      <h2>kit 發版與升級</h2>
+      <h3>kit 發新版</h3>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">更新 CHANGELOG.md 與 package.json 的 version</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">打 tag、push</span><span class="chip r-maint">kit 維護者</span></div><p>例如 <code>v0.2.0</code>。</p></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">有改 skill 就重新發佈 kgi-ui-kit plugin</span><span class="chip r-maint">kit 維護者</span></div><p>同時更新 <code>plugin.json</code> 的 <code>version</code>。</p></div></li>
+      </ol>
+      <h3>專案要升級 kit 時</h3>
+      <ol class="flow">
+        <li><div class="step"><div class="step-head"><span class="step-title">把專案 package.json 的 #v0.1.0 改成新 tag</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">npm install</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">看 CHANGELOG 的 ⚠️ 不相容變更，檢查畫面</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+        <li><div class="step"><div class="step-head"><span class="step-title">commit package.json 與 package-lock.json</span><span class="chip r-maint">kit 維護者</span></div></div></li>
+      </ol>
+      <p class="note">專案不升級就維持舊版，不會被突然改壞。</p>
+    </section>
+
+    <!-- 自動化 -->
+    <section id="automation">
+      <h2>自動化</h2>
+      <div class="table">
+        <table>
+          <thead><tr><th>指令</th><th>讀</th><th>產生</th><th>何時跑</th></tr></thead>
+          <tbody>
+            <tr><td><code>npm run theme</code></td><td><code>guideline/</code></td><td>Tailwind preset（只剩 Guideline token）、hover 色、<code>.t-*</code>／<code>.n-*</code> 字級 class</td><td>改 guideline 後；<code>npm run build</code> 會先跑</td></tr>
+            <tr><td><code>npm run components</code></td><td>元件原始碼、story 標題</td><td><code>components.json</code>、<code>components-api.md</code>；檢查元件資料夾 = Storybook 分類</td><td>改元件或 story 後</td></tr>
+            <tr><td><code>npm run check:tokens</code></td><td><code>app/</code></td><td>報告：寫死的色碼、px、Tailwind 預設字級</td><td>每次改完、交付前</td></tr>
+            <tr><td><code>npm run theme:check</code></td><td>上面的產生器 + <code>rules.md</code></td><td>產生的檔案不是最新、規則被重抄、規則清單和 guideline 不一致時報錯</td><td>commit 前、CI</td></tr>
+            <tr><td><code>npm run storybook</code></td><td><code>guideline/</code>、<code>rules.md</code>、<code>CHANGELOG.md</code>、元件</td><td>Color、Typography、Spacing、Rules 頁直接讀來源；props 表；Changelog 頁</td><td>看規範、看元件</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">不是自動的：Figma 讀稿與比對、差異決策、<code>CLAUDE.md</code>、<code>rules.md</code>、<code>components.md</code>、<code>SKILL.md</code>、<code>page-spec.md</code>、<code>CHANGELOG.md</code>、story 檔、plugin 發佈、commit。</p>
+    </section>
+
+    <!-- AI 會讀的檔案 -->
+    <section id="ai-files">
+      <h2>AI 會讀的檔案</h2>
+      <p class="muted">generate-ui 的檔案在 <code>plugins/kgi-ui-kit/skills/generate-ui/</code>；sync-figma 只有一個 <code>SKILL.md</code>（<code>plugins/kgi-ui-kit/skills/sync-figma/</code>），讀稿與規範也照同一份 <code>rules.md</code>。規則只有 <code>rules.md</code> 一份，<code>CLAUDE.md</code>、Storybook 的 Rules 頁都是引用它。</p>
+      <div class="table">
+        <table>
+          <thead><tr><th>檔案</th><th>內容</th><th>維護方式</th></tr></thead>
+          <tbody>
+            <tr><td><code>SKILL.md</code></td><td>流程、推斷規則、必問、預設、追問規則</td><td>手寫</td></tr>
+            <tr><td><code>rules.md</code></td><td>唯一一份使用規範：class 寫法、禁止、顏色與交易狀態、字級、間距表、Grid、Figma 讀稿</td><td>手寫，<code>theme:check</code> 會比對 guideline</td></tr>
+            <tr><td><code>components.md</code></td><td>叫法 → 元件、選用規則、kit 還沒有的元件</td><td>手寫</td></tr>
+            <tr><td><code>components-api.md</code></td><td>每個元件的 props、v-model、事件、slot、說明</td><td><span class="chip r-auto">自動</span> <code>npm run components</code></td></tr>
+            <tr><td><code>page-spec.md</code></td><td>頁面描述範本</td><td>手寫</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">線上 plugin 只帶這個資料夾，不帶 <code>CLAUDE.md</code>、<code>guideline/</code>、元件原始碼。本機改了這些檔案，要重新發佈 plugin，其他專案才會讀到新版。</p>
+    </section>
+
+    <!-- 資安 -->
+    <section id="safety">
+      <h2>套件與資安</h2>
+      <div class="table">
+        <table>
+          <thead><tr><th>要做</th><th>不要做</th></tr></thead>
+          <tbody>
+            <tr><td class="yes">一個專案一個資料夾，各自 <code>node_modules</code></td><td class="no">全域安裝（<code>npm install -g</code>）；要執行工具用 <code>npx</code></td></tr>
+            <tr><td class="yes">用 nvm 切 Node 版本，專案放 <code>.nvmrc</code></td><td class="no">同一個專案混用 npm／yarn／pnpm</td></tr>
+            <tr><td class="yes">平常用 <code>npm ci</code>（照 <code>package-lock.json</code> 安裝）</td><td class="no">刪掉或不 commit <code>package-lock.json</code></td></tr>
+            <tr><td class="yes">新增套件先問 kit 維護者或 IT</td><td class="no">隨意 <code>npm install &lt;新套件&gt;</code></td></tr>
+            <tr><td class="yes">定期跑 <code>npm audit</code>，結果給 IT 判斷</td><td class="no"><code>npm audit fix --force</code>（會升大版本，偏離規定的技術版本）</td></tr>
+            <tr><td class="yes">用 git clone 取得 kit／專案</td><td class="no">複製整包資料夾（會帶到 <code>node_modules</code>、<code>.nuxt</code>、<code>.output</code>、<code>storybook-static</code>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">安裝時會執行腳本的套件只有 3 個：<code>@kgi/ui-kit</code>（<code>nuxt prepare</code>）、<code>esbuild</code>、<code>vue-demi</code>。較新的 npm 會提示「install scripts not yet covered by allowScripts」，這 3 個是預期內的。</p>
+    </section>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var pre = btn.parentElement.querySelector('pre');
+    var text = pre.textContent;
+    var done = function () { btn.textContent = '已複製'; setTimeout(function () { btn.textContent = '複製'; }, 1500); };
+    var fallback = function () {
+      var range = document.createRange(); range.selectNodeContents(pre);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent = '已選取，按 ⌘C 複製';
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>

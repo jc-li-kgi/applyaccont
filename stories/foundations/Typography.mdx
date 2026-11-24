@@ -1,0 +1,163 @@
+import { useState } from 'react'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { LEVELS, PLATFORMS, spec, FONT_STACK, WEIGHT_NAME } from './typography-data'
+
+<Meta title="Foundations/Typography" />
+
+export const Spec = ({ s }) => s
+  ? <span className="n-caption-regular text-content-general-secondary">{s.size}{s.unit}・{s.weight} {WEIGHT_NAME[s.weight] ?? ''}・{Math.round(s.lineHeight * 100)}%</span>
+  : <span className="n-caption-regular text-content-general-tertiary">—</span>
+export const Sample = ({ level, platform, lang, scale, text }) => {
+  const s = spec(level, platform, lang, scale)
+  if (!s) return null
+  return <span style={{ fontFamily: FONT_STACK[platform][lang], fontSize: `${s.size}px`, fontWeight: s.weight, lineHeight: s.lineHeight, whiteSpace: 'nowrap' }}>{text}</span>
+}
+export const ScaleTable = () => {
+  const [scale, setScale] = useState('standard')
+  const [platform, setPlatform] = useState('mweb')
+  const Btn = ({ on, onClick, children }) => (
+    <button type="button" onClick={onClick} className={`rounded-full px-16 py-4 t-body-regular ${on ? 'bg-container-general-active-primary text-content-general-light-active' : 'bg-container-general-active-secondary text-content-general-active'}`}>{children}</button>
+  )
+  return (
+    <div className="sb-unstyled flex flex-col gap-16">
+      <div className="flex flex-wrap items-center gap-8">
+        <span className="t-caption-regular text-content-general-secondary">字級版本</span>
+        <Btn on={scale === 'standard'} onClick={() => setScale('standard')}>標準字級</Btn>
+        <Btn on={scale === 'large'} onClick={() => setScale('large')}>加大字級</Btn>
+        <span className="ml-16 t-caption-regular text-content-general-secondary">樣本平台</span>
+        {PLATFORMS.map((p) => <Btn key={p.key} on={platform === p.key} onClick={() => setPlatform(p.key)}>{p.label}</Btn>)}
+      </div>
+      <div className="overflow-x-auto">
+        <div className="grid min-w-[880px] grid-cols-[150px_repeat(4,1fr)] gap-x-16 border-b border-container-general-divider py-8 t-caption-regular text-content-general-secondary">
+          <span>層級 / class</span>
+          {PLATFORMS.map((p) => <span key={p.key}>{p.label}<br />{p.note}</span>)}
+        </div>
+        {LEVELS.map((l) => (
+          <div key={l.level} className="min-w-[880px] border-b border-container-general-divider py-16">
+            <div className="flex flex-wrap items-baseline gap-24 overflow-hidden pb-12 text-content-general-primary">
+              <Sample level={l.level} platform={platform} lang="tc" scale={scale} text="中華開發金控" />
+              <Sample level={l.level} platform={platform} lang="en" scale={scale} text="Abc 1,234.56" />
+            </div>
+            <div className="grid grid-cols-[150px_repeat(4,1fr)] gap-x-16">
+              <div className="flex flex-col gap-2">
+                <span className="t-body-bold text-content-general-primary">{l.label}</span>
+                <code className="n-caption-regular text-content-general-active">.t-{l.cls}</code>
+                <code className="n-caption-regular text-content-general-active">.n-{l.cls}</code>
+              </div>
+              {PLATFORMS.map((p) => (
+                <div key={p.key} className="flex flex-col gap-2">
+                  <span className="t-caption-regular text-content-general-tertiary">中文</span>
+                  <Spec s={spec(l.level, p.key, 'tc', scale)} />
+                  <span className="t-caption-regular text-content-general-tertiary">英數</span>
+                  <Spec s={spec(l.level, p.key, 'en', scale)} />
+                </div>
+              ))}
+            </div>
+            <p className="pt-8 t-caption-regular text-content-general-secondary">{l.use}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+# Typography
+
+來源：Figma **MDS_Foundation › Typography、Typography Scale**；數值讀自 `guideline/Typography/kgi-typography.css`，Guideline 更新後本頁自動同步。1 rem = 16px。
+
+## 1. 字型 Font Family
+
+| 環境 | 中文 | 英文、數字 | 取得方式 |
+|---|---|---|---|
+| Web（含 Mobile web） | 思源黑體 Noto Sans TC | Montserrat | [Noto Sans TC](https://fonts.google.com/noto/specimen/Noto+Sans+TC)、[Montserrat](https://fonts.google.com/specimen/Montserrat)（Google Fonts） |
+| iOS 原生 | 蘋方 PingFang TC | SF Pro | 系統內建，不需打包（[SF Pro](https://developer.apple.com/fonts/)） |
+| Android 原生 | 思源黑體 Noto Sans CJK TC | Roboto | 系統內建；部分廠牌（三星、小米）會覆蓋系統字型，要求一致時把 Noto Sans TC 打包進 App |
+| In-App WebView | 跟隨所在平台的原生字型 | 同左 | App 在 `<html>` 加 `data-platform="ios"` 或 `"android"` |
+
+**設定原則**
+
+- 全站只在根層設定一次字型：英數字型放第一順位、中文字型放第二順位；遇到中文時瀏覽器自動改用下一個字型。
+- 元件、頁面**不要個別指定字體**。kit 只在 `base.css` 用 `var(--font-sans)` 設定一次（`npm run check:tokens` 會擋 `font-family`）。
+- `--font-en`、`--font-tc` 只用在確定單一語言的元素（純數字金額、純英文品牌字、純中文標題）。
+- `<html lang="zh-Hant-TW">` 必加，避免中文出現簡體或日文字形（Nuxt layer 已設定）。
+- iOS App 語系要設為 zh-Hant，中文才會使用蘋方-繁。
+
+**載入（Nuxt layer 已內建，下面是對照）**
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap">
+```
+
+```css
+/* ========== CSS 字型定義 ========== */
+
+/* Web（預設） */
+:root {
+  /* 一般情境：中英文混排時由瀏覽器逐字元判斷，自動分流至對應字體 */
+  --font-sans: "Montserrat", -apple-system, "Helvetica Neue", Arial,
+               "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  /* 英數 Montserrat → 英文系統字（Montserrat 載入失敗時的備援）→ 中文思源黑體 → Mac 備援蘋方 → Windows 備援正黑體 → 系統字 */
+
+  /* 僅限確定整個元素不會與中文混排的純英數情境（例如純數字金額、英文品牌字） */
+  --font-en: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* 僅限確定整個元素不會與英文混排的純中文情境 */
+  --font-tc: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+/* WebView iOS：跟隨原生字型（App 需在 <html> 加 data-platform="ios"） */
+html[data-platform="ios"] {
+  --font-sans: -apple-system, "PingFang TC", sans-serif; /* 英數 SF Pro → 中文蘋方 → 系統字 */
+  --font-en: -apple-system, sans-serif;
+  --font-tc: "PingFang TC", sans-serif;
+}
+
+/* WebView Android：跟隨原生字型（App 需在 <html> 加 data-platform="android"） */
+html[data-platform="android"] {
+  --font-sans: Roboto, "Noto Sans CJK TC", "Noto Sans TC", sans-serif; /* 英數 Roboto → 中文系統思源黑體 → 雲端思源黑體 → 系統字 */
+  --font-en: Roboto, sans-serif;
+  --font-tc: "Noto Sans CJK TC", "Noto Sans TC", sans-serif;
+}
+
+/* 使用：全站只在根層設定一次 */
+body {
+  font-family: var(--font-sans);
+}
+```
+
+## 2. 字級 Typography Scale
+
+為了提升閱讀體驗，提供**標準字級**與**加大字級**兩種版本，讓用戶依需求選擇。kit 目前只套用標準字級（加大字級見文末）。
+
+- 終端設備：Web（寬度 ≥ 768，含平板）、Mobile web（&lt; 768）、APP iOS、APP Android。kit 依畫面寬度自動切換 Web / Mobile web；WebView 依 `data-platform` 改用原生字重與行高。
+- 語言：`.t-*` 用於中文（含中英混排），`.n-*` 用於純英文、數字（金額、日期、帳號）。只要內容有中文就用 `.t-*`。
+- 不要用 `text-sm`、`font-bold`、`leading-*`（kit 已移除 Tailwind 預設字級）。
+- 數值格式：字級・字重・行高。
+
+<ScaleTable />
+
+## 3. 用法
+
+```html
+<p class="t-headline text-content-general-primary">成功送出申請</p>
+<p class="t-body-regular text-content-general-secondary">我們將在 1 小時內完成撥款。</p>
+<p class="n-title text-content-general-primary">TWD 400,000</p>
+```
+
+- 每段文字都要有一個 `.t-*` 或 `.n-*`，顏色另外用 `text-content-*`。
+- 元件裡的文字層級已內建（例如按鈕是 Subtitle-B、Tag 是 Caption-R），一般不需要覆寫。
+
+## 4. 待確認事項
+
+比對時讀 Figma 套用的文字樣式數值（不看圖層名稱與頁面標註文字）；與 Guideline 不同時只列出差異，採用哪一方逐項確認。2026-11-19 經確認依 Figma 修正 `kgi-typography.css`：Caption-R 的 Mobile web / iOS / Android 改為 13（加大字級 16）。Headline 英數字重確認為 500。
+
+Figma 需要修正的地方（不影響 kit）：
+
+1. **Headline 文字樣式字重**：`Headline/🌊 Web-EN`、`Headline/💧 mWeb-EN` 樣式名稱是 Medium、字重卻設成 400，應為 500。
+2. **前端參考 CSS**：`:root` 少了結尾的 `}`；WebView 區塊沒有覆寫 `--font-en` / `--font-tc`。建議版本見上方「1. 字型」。
+
+尚待確認：
+
+3. **加大字級**：kit 尚未提供切換（例如 `<html data-font-scale="large">`），是否要做？

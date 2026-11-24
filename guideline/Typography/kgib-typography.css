@@ -1,0 +1,538 @@
+/**
+ * KGIB (KGI Bank) Typography — 子品牌獨立 Typography Design Tokens
+ * 來源: design-tokens.tokens.json (Figma Design Tokens 導出, 最終確認版本)
+ * 更新日期: 2026-10-19
+ * 本檔案僅包含 kgib 子品牌尺度(60 組)
+ */
+
+:root {
+
+  /* ======== kgib(KGI Bank 子品牌尺度) ======== */
+
+  /* ---- Web ---- */
+  /* display-l / 🌊 web-tc | styleId: S:ad9cc9185bc0dd2e49930412095f886b7adfa215, */
+  --font-kgib-display-l-web-tc-family: "Noto Sans TC";
+  --font-kgib-display-l-web-tc-weight: 300;
+  --font-kgib-display-l-web-tc-size: 4.5rem;
+  --font-kgib-display-l-web-tc-size-px: 72px;
+  --font-kgib-display-l-web-tc-line-height: 1.4;
+
+  /* display-l / 🌊 web-en | styleId: S:547fbc9fa0691227efdb807c1e1dad48a3248f06, */
+  --font-kgib-display-l-web-en-family: "Montserrat";
+  --font-kgib-display-l-web-en-weight: 300;
+  --font-kgib-display-l-web-en-size: 4.5rem;
+  --font-kgib-display-l-web-en-size-px: 72px;
+  --font-kgib-display-l-web-en-line-height: 1.2;
+
+  /* display-m / 🌊 web-tc | styleId: S:b14ec2595ec9c716ed07ccea697e7bb13d42606a, */
+  --font-kgib-display-m-web-tc-family: "Noto Sans TC";
+  --font-kgib-display-m-web-tc-weight: 300;
+  --font-kgib-display-m-web-tc-size: 3.75rem;
+  --font-kgib-display-m-web-tc-size-px: 60px;
+  --font-kgib-display-m-web-tc-line-height: 1.4;
+
+  /* display-m / 🌊 web-en | styleId: S:c8f555a9e5df566b7b4e0bd570ba420c0a042da5, */
+  --font-kgib-display-m-web-en-family: "Montserrat";
+  --font-kgib-display-m-web-en-weight: 300;
+  --font-kgib-display-m-web-en-size: 3.75rem;
+  --font-kgib-display-m-web-en-size-px: 60px;
+  --font-kgib-display-m-web-en-line-height: 1.2;
+
+  /* display-s / 🌊 web-tc | styleId: S:928706bef04ba2631b3ffcb3778e2d48b6dee108, */
+  --font-kgib-display-s-web-tc-family: "Noto Sans TC";
+  --font-kgib-display-s-web-tc-weight: 300;
+  --font-kgib-display-s-web-tc-size: 3rem;
+  --font-kgib-display-s-web-tc-size-px: 48px;
+  --font-kgib-display-s-web-tc-line-height: 1.4;
+
+  /* display-s / 🌊 web-en | styleId: S:6bf1e41dcbf4682f525e5df71ced284877a4d6c0, */
+  --font-kgib-display-s-web-en-family: "Montserrat";
+  --font-kgib-display-s-web-en-weight: 300;
+  --font-kgib-display-s-web-en-size: 3rem;
+  --font-kgib-display-s-web-en-size-px: 48px;
+  --font-kgib-display-s-web-en-line-height: 1.2;
+
+  /* headline / 🌊 web-tc | styleId: S:74761aac69c197407fab9a64d369ce7d78e416c0, */
+  --font-kgib-headline-web-tc-family: "Noto Sans TC";
+  --font-kgib-headline-web-tc-weight: 400;
+  --font-kgib-headline-web-tc-size: 2rem;
+  --font-kgib-headline-web-tc-size-px: 32px;
+  --font-kgib-headline-web-tc-line-height: 1.5;
+
+  /* headline / 🌊 web-en | styleId: S:0a31ec0e598f48732849c7d5811cf9f660e3ba4a, */
+  --font-kgib-headline-web-en-family: "Montserrat";
+  --font-kgib-headline-web-en-weight: 500;
+  --font-kgib-headline-web-en-size: 1.9375rem;
+  --font-kgib-headline-web-en-size-px: 31px;
+  --font-kgib-headline-web-en-line-height: 1.4;
+
+  /* title / 🌊 web-tc | styleId: S:71435d800e98a86989b78e778d82dd7e4753f770, */
+  --font-kgib-title-web-tc-family: "Noto Sans TC";
+  --font-kgib-title-web-tc-weight: 500;
+  --font-kgib-title-web-tc-size: 1.625rem;
+  --font-kgib-title-web-tc-size-px: 26px;
+  --font-kgib-title-web-tc-line-height: 1.5;
+
+  /* title / 🌊 web-en | styleId: S:d86813d97d19178810117ae3e4058198a25b36fa, */
+  --font-kgib-title-web-en-family: "Montserrat";
+  --font-kgib-title-web-en-weight: 600;
+  --font-kgib-title-web-en-size: 1.625rem;
+  --font-kgib-title-web-en-size-px: 26px;
+  --font-kgib-title-web-en-line-height: 1.4;
+
+  /* subtitle-b / 🌊 web-tc | styleId: S:d082f9ee434ca1de3c81da8aa85ec66bf786bf90, */
+  --font-kgib-subtitle-b-web-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-b-web-tc-weight: 500;
+  --font-kgib-subtitle-b-web-tc-size: 1.4375rem;
+  --font-kgib-subtitle-b-web-tc-size-px: 23px;
+  --font-kgib-subtitle-b-web-tc-line-height: 1.5;
+
+  /* subtitle-b / 🌊 web-en | styleId: S:73a72b0acfb9a89e30a08585debe4ea462b61932, */
+  --font-kgib-subtitle-b-web-en-family: "Montserrat";
+  --font-kgib-subtitle-b-web-en-weight: 600;
+  --font-kgib-subtitle-b-web-en-size: 1.4375rem;
+  --font-kgib-subtitle-b-web-en-size-px: 23px;
+  --font-kgib-subtitle-b-web-en-line-height: 1.4;
+
+  /* subtitle-r / 🌊 web-tc | styleId: S:41ec3eb57d5e5955818c1413c4029d6ffd699cc7, */
+  --font-kgib-subtitle-r-web-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-r-web-tc-weight: 400;
+  --font-kgib-subtitle-r-web-tc-size: 1.4375rem;
+  --font-kgib-subtitle-r-web-tc-size-px: 23px;
+  --font-kgib-subtitle-r-web-tc-line-height: 1.5;
+
+  /* subtitle-r / 🌊 web-en | styleId: S:4218dbdacb27844a72858a8b56b6fd1424480e0e, */
+  --font-kgib-subtitle-r-web-en-family: "Montserrat";
+  --font-kgib-subtitle-r-web-en-weight: 400;
+  --font-kgib-subtitle-r-web-en-size: 1.4375rem;
+  --font-kgib-subtitle-r-web-en-size-px: 23px;
+  --font-kgib-subtitle-r-web-en-line-height: 1.4;
+
+  /* body-b / 🌊 web-tc | styleId: S:2af69556ac89cbd876ef357e0c09f5f4aeb2aa35, */
+  --font-kgib-body-b-web-tc-family: "Noto Sans TC";
+  --font-kgib-body-b-web-tc-weight: 500;
+  --font-kgib-body-b-web-tc-size: 1.125rem;
+  --font-kgib-body-b-web-tc-size-px: 18px;
+  --font-kgib-body-b-web-tc-line-height: 1.6;
+
+  /* body-b / 🌊 web-en | styleId: S:0f56884d442c629cafb379e944e37393c0de6e27, */
+  --font-kgib-body-b-web-en-family: "Montserrat";
+  --font-kgib-body-b-web-en-weight: 600;
+  --font-kgib-body-b-web-en-size: 1.125rem;
+  --font-kgib-body-b-web-en-size-px: 18px;
+  --font-kgib-body-b-web-en-line-height: 1.4;
+
+  /* body-r / 🌊 web-tc | styleId: S:aa804827af836d52fd49a67f1394d808a2ab7c59, */
+  --font-kgib-body-r-web-tc-family: "Noto Sans TC";
+  --font-kgib-body-r-web-tc-weight: 400;
+  --font-kgib-body-r-web-tc-size: 1.125rem;
+  --font-kgib-body-r-web-tc-size-px: 18px;
+  --font-kgib-body-r-web-tc-line-height: 1.6;
+
+  /* body-r / 🌊 web-en | styleId: S:c3c0c3a8da39d138414c7efbf3cdb429b1eda258, */
+  --font-kgib-body-r-web-en-family: "Montserrat";
+  --font-kgib-body-r-web-en-weight: 400;
+  --font-kgib-body-r-web-en-size: 1.125rem;
+  --font-kgib-body-r-web-en-size-px: 18px;
+  --font-kgib-body-r-web-en-line-height: 1.4;
+
+  /* caption-r / 🌊 web-tc | styleId: S:ef68bb1668b9604e9a832c733fb4c9a3756860b6, */
+  --font-kgib-caption-r-web-tc-family: "Noto Sans TC";
+  --font-kgib-caption-r-web-tc-weight: 400;
+  --font-kgib-caption-r-web-tc-size: 0.9375rem;
+  --font-kgib-caption-r-web-tc-size-px: 15px;
+  --font-kgib-caption-r-web-tc-line-height: 1.5;
+
+  /* caption-r / 🌊 web-en | styleId: S:724d0e4af066964828d6f7f5748d6320fed58caf, */
+  --font-kgib-caption-r-web-en-family: "Montserrat";
+  --font-kgib-caption-r-web-en-weight: 400;
+  --font-kgib-caption-r-web-en-size: 0.9375rem;
+  --font-kgib-caption-r-web-en-size-px: 15px;
+  --font-kgib-caption-r-web-en-line-height: 1.4;
+
+
+  /* ---- MWeb ---- */
+  /* display-l / 💧 mweb-tc | styleId: S:90e0eba7202d1dbfc7ae15b47f73c2f8399502df, */
+  --font-kgib-display-l-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-display-l-mweb-tc-weight: 300;
+  --font-kgib-display-l-mweb-tc-size: 4rem;
+  --font-kgib-display-l-mweb-tc-size-px: 64px;
+  --font-kgib-display-l-mweb-tc-line-height: 1.4;
+
+  /* display-l / 💧 mweb-en | styleId: S:293360c2047e553d2a3a907043c5619b3f8c709b, */
+  --font-kgib-display-l-mweb-en-family: "Montserrat";
+  --font-kgib-display-l-mweb-en-weight: 300;
+  --font-kgib-display-l-mweb-en-size: 4rem;
+  --font-kgib-display-l-mweb-en-size-px: 64px;
+  --font-kgib-display-l-mweb-en-line-height: 1.2;
+
+  /* display-m / 💧 mweb-en | styleId: S:3cb9f1c287e282aba439b4d59cbd9a59dc0134f7, */
+  --font-kgib-display-m-mweb-en-family: "Montserrat";
+  --font-kgib-display-m-mweb-en-weight: 300;
+  --font-kgib-display-m-mweb-en-size: 3rem;
+  --font-kgib-display-m-mweb-en-size-px: 48px;
+  --font-kgib-display-m-mweb-en-line-height: 1.3;
+
+  /* display-m / 💧 mweb-tc | styleId: S:aadb413c78c0961a45cfc5c36011aa361e218fb2, */
+  --font-kgib-display-m-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-display-m-mweb-tc-weight: 300;
+  --font-kgib-display-m-mweb-tc-size: 3rem;
+  --font-kgib-display-m-mweb-tc-size-px: 48px;
+  --font-kgib-display-m-mweb-tc-line-height: 1.4;
+
+  /* display-s / 💧 mweb - tc | styleId: S:05bd0006778c934842266cbe4421184c5d4ddf4a, */
+  --font-kgib-display-s-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-display-s-mweb-tc-weight: 300;
+  --font-kgib-display-s-mweb-tc-size: 2.5rem;
+  --font-kgib-display-s-mweb-tc-size-px: 40px;
+  --font-kgib-display-s-mweb-tc-line-height: 1.4;
+
+  /* display-s / 💧 mweb - en | styleId: S:0a4bf80685934829c2e3eb7410e72123cd39b970, */
+  --font-kgib-display-s-mweb-en-family: "Montserrat";
+  --font-kgib-display-s-mweb-en-weight: 300;
+  --font-kgib-display-s-mweb-en-size: 2.5rem;
+  --font-kgib-display-s-mweb-en-size-px: 40px;
+  --font-kgib-display-s-mweb-en-line-height: 1.3;
+
+  /* headline / 💧 mweb-tc | styleId: S:1debfba4e29deb0d8ad8972d8e2f8e5e7b773ee5, */
+  --font-kgib-headline-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-headline-mweb-tc-weight: 400;
+  --font-kgib-headline-mweb-tc-size: 1.625rem;
+  --font-kgib-headline-mweb-tc-size-px: 26px;
+  --font-kgib-headline-mweb-tc-line-height: 1.5;
+
+  /* headline / 💧 mweb-en | styleId: S:897d45aa40121378c1e69efddace37d00a790b89, */
+  --font-kgib-headline-mweb-en-family: "Montserrat";
+  --font-kgib-headline-mweb-en-weight: 500;
+  --font-kgib-headline-mweb-en-size: 1.625rem;
+  --font-kgib-headline-mweb-en-size-px: 26px;
+  --font-kgib-headline-mweb-en-line-height: 1.4;
+
+  /* title / 💧 mweb-tc | styleId: S:84b56086a4c2a69ee19a17207b8ccb9eeea3aa86, */
+  --font-kgib-title-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-title-mweb-tc-weight: 500;
+  --font-kgib-title-mweb-tc-size: 1.3125rem;
+  --font-kgib-title-mweb-tc-size-px: 21px;
+  --font-kgib-title-mweb-tc-line-height: 1.5;
+
+  /* title / 💧 mweb-en | styleId: S:4c51c628462fd4827b21bea9e00b388722c65860, */
+  --font-kgib-title-mweb-en-family: "Montserrat";
+  --font-kgib-title-mweb-en-weight: 600;
+  --font-kgib-title-mweb-en-size: 1.3125rem;
+  --font-kgib-title-mweb-en-size-px: 21px;
+  --font-kgib-title-mweb-en-line-height: 1.4;
+
+  /* subtitle-b / 💧 mweb-tc | styleId: S:f54cc0f330e07e67d7d2199b43e2c78f39e5fe0c, */
+  --font-kgib-subtitle-b-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-b-mweb-tc-weight: 500;
+  --font-kgib-subtitle-b-mweb-tc-size: 1.125rem;
+  --font-kgib-subtitle-b-mweb-tc-size-px: 18px;
+  --font-kgib-subtitle-b-mweb-tc-line-height: 1.6;
+
+  /* subtitle-b / 💧 mweb-en | styleId: S:1b9a8f814dfa9f7f81aebbbe1cd6a733c10b9e15, */
+  --font-kgib-subtitle-b-mweb-en-family: "Montserrat";
+  --font-kgib-subtitle-b-mweb-en-weight: 600;
+  --font-kgib-subtitle-b-mweb-en-size: 1.125rem;
+  --font-kgib-subtitle-b-mweb-en-size-px: 18px;
+  --font-kgib-subtitle-b-mweb-en-line-height: 1.4;
+
+  /* subtitle-r / 💧 mweb-tc | styleId: S:c9ad9139baa214b95647067f66799ca925276da7, */
+  --font-kgib-subtitle-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-r-mweb-tc-weight: 400;
+  --font-kgib-subtitle-r-mweb-tc-size: 1.125rem;
+  --font-kgib-subtitle-r-mweb-tc-size-px: 18px;
+  --font-kgib-subtitle-r-mweb-tc-line-height: 1.6;
+
+  /* subtitle-r / 💧 mweb-en | styleId: S:7a9de4c3594ae81e0b523bf927a046f92b6ac619, */
+  --font-kgib-subtitle-r-mweb-en-family: "Montserrat";
+  --font-kgib-subtitle-r-mweb-en-weight: 400;
+  --font-kgib-subtitle-r-mweb-en-size: 1.125rem;
+  --font-kgib-subtitle-r-mweb-en-size-px: 18px;
+  --font-kgib-subtitle-r-mweb-en-line-height: 1.4;
+
+  /* body-b / 💧 mweb-tc | styleId: S:c1330baedb19f4758b817ca609cdc238b8af8c18, */
+  --font-kgib-body-b-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-body-b-mweb-tc-weight: 500;
+  --font-kgib-body-b-mweb-tc-size: 1rem;
+  --font-kgib-body-b-mweb-tc-size-px: 16px;
+  --font-kgib-body-b-mweb-tc-line-height: 1.5;
+
+  /* body-b / 💧 mweb-en | styleId: S:ab17f3fd97de255d587788cf1d14df1c6ccecbb8, */
+  --font-kgib-body-b-mweb-en-family: "Montserrat";
+  --font-kgib-body-b-mweb-en-weight: 600;
+  --font-kgib-body-b-mweb-en-size: 1rem;
+  --font-kgib-body-b-mweb-en-size-px: 16px;
+  --font-kgib-body-b-mweb-en-line-height: 1.4;
+
+  /* body-r / 💧 mweb-tc | styleId: S:8636829c850dbe035012008525086bd071bae609, */
+  --font-kgib-body-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-body-r-mweb-tc-weight: 400;
+  --font-kgib-body-r-mweb-tc-size: 1rem;
+  --font-kgib-body-r-mweb-tc-size-px: 16px;
+  --font-kgib-body-r-mweb-tc-line-height: 1.5;
+
+  /* body-r / 💧 mweb-en | styleId: S:06d4ffc79208fc0d098419dee582bd92d4f84574, */
+  --font-kgib-body-r-mweb-en-family: "Montserrat";
+  --font-kgib-body-r-mweb-en-weight: 400;
+  --font-kgib-body-r-mweb-en-size: 1rem;
+  --font-kgib-body-r-mweb-en-size-px: 16px;
+  --font-kgib-body-r-mweb-en-line-height: 1.4;
+
+  /* caption-r / 💧 mweb-tc | styleId: S:e80bbc8440ea1ae3b8af2b6d690a1785eb38a527, */
+  --font-kgib-caption-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgib-caption-r-mweb-tc-weight: 400;
+  --font-kgib-caption-r-mweb-tc-size: 0.875rem;
+  --font-kgib-caption-r-mweb-tc-size-px: 14px;
+  --font-kgib-caption-r-mweb-tc-line-height: 1.5;
+
+  /* caption-r / 💧 mweb-en | styleId: S:cbe51eb0940d09a7e699347daeee68d857b690eb, */
+  --font-kgib-caption-r-mweb-en-family: "Montserrat";
+  --font-kgib-caption-r-mweb-en-weight: 400;
+  --font-kgib-caption-r-mweb-en-size: 0.875rem;
+  --font-kgib-caption-r-mweb-en-size-px: 14px;
+  --font-kgib-caption-r-mweb-en-line-height: 1.4;
+
+
+  /* ---- iOS (Native App,使用 pt,不提供 rem/px) ---- */
+  /* display-l / 🍎 ios-en | styleId: S:7f9684a171c15d769d3b27201647a7a9adf6fbdc, */
+  --font-kgib-display-l-ios-en-family: "SF Pro";
+  --font-kgib-display-l-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgib-display-l-ios-en-size-pt: 65pt;
+  --font-kgib-display-l-ios-en-line-height: 1.2;
+
+  /* display-l / 🍎 ios-tc | styleId: S:ab6a2fc905d9cdb06f8c9c2a4fcb7e05aad0c51e, */
+  --font-kgib-display-l-ios-tc-family: "PingFang TC";
+  --font-kgib-display-l-ios-tc-weight: 300;
+  --font-kgib-display-l-ios-tc-size-pt: 64pt;
+  --font-kgib-display-l-ios-tc-line-height: 1.4;
+
+  /* display-m / 🍎 ios-en | styleId: S:65082c65146ee1941bb17d278e43488e9d9b3ba2, */
+  --font-kgib-display-m-ios-en-family: "SF Pro";
+  --font-kgib-display-m-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgib-display-m-ios-en-size-pt: 49pt;
+  --font-kgib-display-m-ios-en-line-height: 1.3;
+
+  /* display-m / 🍎 ios-tc | styleId: S:c8383d09ab22f3ac33e68fc278e6e6d68645bbd4, */
+  --font-kgib-display-m-ios-tc-family: "PingFang TC";
+  --font-kgib-display-m-ios-tc-weight: 300;
+  --font-kgib-display-m-ios-tc-size-pt: 48pt;
+  --font-kgib-display-m-ios-tc-line-height: 1.4;
+
+  /* display-s / 🍎 ios - en | styleId: S:afcce205055a2804b6607243fc6f6b6ca745cde4, */
+  --font-kgib-display-s-ios-en-family: "SF Pro";
+  --font-kgib-display-s-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgib-display-s-ios-en-size-pt: 41pt;
+  --font-kgib-display-s-ios-en-line-height: 1.3;
+
+  /* display-s / 🍎 ios - tc | styleId: S:790995a8c0f9eae702c42dab5888643ae03a030a, */
+  --font-kgib-display-s-ios-tc-family: "PingFang TC";
+  --font-kgib-display-s-ios-tc-weight: 300;
+  --font-kgib-display-s-ios-tc-size-pt: 40pt;
+  --font-kgib-display-s-ios-tc-line-height: 1.4;
+
+  /* headline / 🍎 ios-en | styleId: S:40c13669c06273bf1b43903fd2af162ad290fe29, */
+  --font-kgib-headline-ios-en-family: "SF Pro";
+  --font-kgib-headline-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgib-headline-ios-en-size-pt: 27pt;
+  --font-kgib-headline-ios-en-line-height: 1.4;
+
+  /* headline / 🍎 ios-tc | styleId: S:d26a3de6832526705ae37ef2b34d910a84aeed93, */
+  --font-kgib-headline-ios-tc-family: "PingFang TC";
+  --font-kgib-headline-ios-tc-weight: 400;
+  --font-kgib-headline-ios-tc-size-pt: 26pt;
+  --font-kgib-headline-ios-tc-line-height: 1.5;
+
+  /* title / 🍎 ios-en | styleId: S:991f9081408ae39ac8a8b34c119ae30ed80747f5, */
+  --font-kgib-title-ios-en-family: "SF Pro";
+  --font-kgib-title-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgib-title-ios-en-size-pt: 22pt;
+  --font-kgib-title-ios-en-line-height: 1.4;
+
+  /* title / 🍎 ios-tc | styleId: S:cb6ea88801adf767dbc14f3986deabc52bdb2e32, */
+  --font-kgib-title-ios-tc-family: "PingFang TC";
+  --font-kgib-title-ios-tc-weight: 500;
+  --font-kgib-title-ios-tc-size-pt: 21pt;
+  --font-kgib-title-ios-tc-line-height: 1.5;
+
+  /* subtitle-b / 🍎 ios-en | styleId: S:31541b1eeffdc9391dccec6b06d33f9e3488913e, */
+  --font-kgib-subtitle-b-ios-en-family: "SF Pro";
+  --font-kgib-subtitle-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgib-subtitle-b-ios-en-size-pt: 19pt;
+  --font-kgib-subtitle-b-ios-en-line-height: 1.3;
+
+  /* subtitle-r / 🍎 ios-en | styleId: S:ce3b657af3e70264e9aef27c5b4b3de8bb708d08, */
+  --font-kgib-subtitle-r-ios-en-family: "SF Pro";
+  --font-kgib-subtitle-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgib-subtitle-r-ios-en-size-pt: 19pt;
+  --font-kgib-subtitle-r-ios-en-line-height: 1.3;
+
+  /* subtitle-b / 🍎 ios-tc | styleId: S:a19877d845fbc8009cbbc7401e25e945398587c0, */
+  --font-kgib-subtitle-b-ios-tc-family: "PingFang TC";
+  --font-kgib-subtitle-b-ios-tc-weight: 500;
+  --font-kgib-subtitle-b-ios-tc-size-pt: 18pt;
+  --font-kgib-subtitle-b-ios-tc-line-height: 1.6;
+
+  /* subtitle-r / 🍎 ios-tc | styleId: S:96742223032f4c14712dd3e995ff08f1723df12f, */
+  --font-kgib-subtitle-r-ios-tc-family: "PingFang TC";
+  --font-kgib-subtitle-r-ios-tc-weight: 400;
+  --font-kgib-subtitle-r-ios-tc-size-pt: 18pt;
+  --font-kgib-subtitle-r-ios-tc-line-height: 1.6;
+
+  /* body-b / 🍎 ios-en | styleId: S:024b1a6aab38ea38dd8daa993626763f792c0529, */
+  --font-kgib-body-b-ios-en-family: "SF Pro";
+  --font-kgib-body-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgib-body-b-ios-en-size-pt: 17pt;
+  --font-kgib-body-b-ios-en-line-height: 1.3;
+
+  /* body-r / 🍎 ios-en | styleId: S:5efaddb5768bf345a85c917ac874984bc5886f1e, */
+  --font-kgib-body-r-ios-en-family: "SF Pro";
+  --font-kgib-body-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgib-body-r-ios-en-size-pt: 17pt;
+  --font-kgib-body-r-ios-en-line-height: 1.3;
+
+  /* body-b / 🍎 ios-tc | styleId: S:c1d4208b0763bfe91a1c651b2831e18c11494dba, */
+  --font-kgib-body-b-ios-tc-family: "PingFang TC";
+  --font-kgib-body-b-ios-tc-weight: 500;
+  --font-kgib-body-b-ios-tc-size-pt: 16pt;
+  --font-kgib-body-b-ios-tc-line-height: 1.5;
+
+  /* body-r / 🍎 ios-tc | styleId: S:671c8318e45c18957c9723acf565aab8f8a0239e, */
+  --font-kgib-body-r-ios-tc-family: "PingFang TC";
+  --font-kgib-body-r-ios-tc-weight: 400;
+  --font-kgib-body-r-ios-tc-size-pt: 16pt;
+  --font-kgib-body-r-ios-tc-line-height: 1.5;
+
+  /* caption-r / 🍎 ios-en | styleId: S:798ef8b5b7c5a6a07910af461ef0e84634d8dfe1, */
+  --font-kgib-caption-r-ios-en-family: "SF Pro";
+  --font-kgib-caption-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgib-caption-r-ios-en-size-pt: 15pt;
+  --font-kgib-caption-r-ios-en-line-height: 1.3;
+
+  /* caption-r / 🍎 ios-tc | styleId: S:d81fd69d58334e8fabb297a628c4909a295f2d4e, */
+  --font-kgib-caption-r-ios-tc-family: "PingFang TC";
+  --font-kgib-caption-r-ios-tc-weight: 400;
+  --font-kgib-caption-r-ios-tc-size-pt: 14pt;
+  --font-kgib-caption-r-ios-tc-line-height: 1.5;
+
+  /* ---- Android (Native App,使用 sp,依 iOS 定義換算) ---- */
+  /* display-l / 🤖 android-en */
+  --font-kgib-display-l-android-en-family: "Roboto";
+  --font-kgib-display-l-android-en-weight: 300;
+  --font-kgib-display-l-android-en-size-sp: 65sp;
+  --font-kgib-display-l-android-en-line-height: 1.2;
+
+  /* display-l / 🤖 android-tc */
+  --font-kgib-display-l-android-tc-family: "Noto Sans TC";
+  --font-kgib-display-l-android-tc-weight: 300;
+  --font-kgib-display-l-android-tc-size-sp: 64sp;
+  --font-kgib-display-l-android-tc-line-height: 1.4;
+
+  /* display-m / 🤖 android-en */
+  --font-kgib-display-m-android-en-family: "Roboto";
+  --font-kgib-display-m-android-en-weight: 300;
+  --font-kgib-display-m-android-en-size-sp: 49sp;
+  --font-kgib-display-m-android-en-line-height: 1.3;
+
+  /* display-m / 🤖 android-tc */
+  --font-kgib-display-m-android-tc-family: "Noto Sans TC";
+  --font-kgib-display-m-android-tc-weight: 300;
+  --font-kgib-display-m-android-tc-size-sp: 48sp;
+  --font-kgib-display-m-android-tc-line-height: 1.4;
+
+  /* display-s / 🤖 android-en */
+  --font-kgib-display-s-android-en-family: "Roboto";
+  --font-kgib-display-s-android-en-weight: 300;
+  --font-kgib-display-s-android-en-size-sp: 41sp;
+  --font-kgib-display-s-android-en-line-height: 1.3;
+
+  /* display-s / 🤖 android-tc */
+  --font-kgib-display-s-android-tc-family: "Noto Sans TC";
+  --font-kgib-display-s-android-tc-weight: 300;
+  --font-kgib-display-s-android-tc-size-sp: 40sp;
+  --font-kgib-display-s-android-tc-line-height: 1.4;
+
+  /* headline / 🤖 android-en */
+  --font-kgib-headline-android-en-family: "Roboto";
+  --font-kgib-headline-android-en-weight: 400;
+  --font-kgib-headline-android-en-size-sp: 27sp;
+  --font-kgib-headline-android-en-line-height: 1.4;
+
+  /* headline / 🤖 android-tc */
+  --font-kgib-headline-android-tc-family: "Noto Sans TC";
+  --font-kgib-headline-android-tc-weight: 400;
+  --font-kgib-headline-android-tc-size-sp: 26sp;
+  --font-kgib-headline-android-tc-line-height: 1.5;
+
+  /* title / 🤖 android-en */
+  --font-kgib-title-android-en-family: "Roboto";
+  --font-kgib-title-android-en-weight: 500;
+  --font-kgib-title-android-en-size-sp: 22sp;
+  --font-kgib-title-android-en-line-height: 1.4;
+
+  /* title / 🤖 android-tc */
+  --font-kgib-title-android-tc-family: "Noto Sans TC";
+  --font-kgib-title-android-tc-weight: 500;
+  --font-kgib-title-android-tc-size-sp: 21sp;
+  --font-kgib-title-android-tc-line-height: 1.5;
+
+  /* subtitle-b / 🤖 android-en */
+  --font-kgib-subtitle-b-android-en-family: "Roboto";
+  --font-kgib-subtitle-b-android-en-weight: 500;
+  --font-kgib-subtitle-b-android-en-size-sp: 19sp;
+  --font-kgib-subtitle-b-android-en-line-height: 1.3;
+
+  /* subtitle-r / 🤖 android-en */
+  --font-kgib-subtitle-r-android-en-family: "Roboto";
+  --font-kgib-subtitle-r-android-en-weight: 400;
+  --font-kgib-subtitle-r-android-en-size-sp: 19sp;
+  --font-kgib-subtitle-r-android-en-line-height: 1.3;
+
+  /* subtitle-b / 🤖 android-tc */
+  --font-kgib-subtitle-b-android-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-b-android-tc-weight: 500;
+  --font-kgib-subtitle-b-android-tc-size-sp: 18sp;
+  --font-kgib-subtitle-b-android-tc-line-height: 1.6;
+
+  /* subtitle-r / 🤖 android-tc */
+  --font-kgib-subtitle-r-android-tc-family: "Noto Sans TC";
+  --font-kgib-subtitle-r-android-tc-weight: 400;
+  --font-kgib-subtitle-r-android-tc-size-sp: 18sp;
+  --font-kgib-subtitle-r-android-tc-line-height: 1.6;
+
+  /* body-b / 🤖 android-en */
+  --font-kgib-body-b-android-en-family: "Roboto";
+  --font-kgib-body-b-android-en-weight: 500;
+  --font-kgib-body-b-android-en-size-sp: 17sp;
+  --font-kgib-body-b-android-en-line-height: 1.3;
+
+  /* body-r / 🤖 android-en */
+  --font-kgib-body-r-android-en-family: "Roboto";
+  --font-kgib-body-r-android-en-weight: 400;
+  --font-kgib-body-r-android-en-size-sp: 17sp;
+  --font-kgib-body-r-android-en-line-height: 1.3;
+
+  /* body-b / 🤖 android-tc */
+  --font-kgib-body-b-android-tc-family: "Noto Sans TC";
+  --font-kgib-body-b-android-tc-weight: 500;
+  --font-kgib-body-b-android-tc-size-sp: 16sp;
+  --font-kgib-body-b-android-tc-line-height: 1.5;
+
+  /* body-r / 🤖 android-tc */
+  --font-kgib-body-r-android-tc-family: "Noto Sans TC";
+  --font-kgib-body-r-android-tc-weight: 400;
+  --font-kgib-body-r-android-tc-size-sp: 16sp;
+  --font-kgib-body-r-android-tc-line-height: 1.5;
+
+  /* caption-r / 🤖 android-en */
+  --font-kgib-caption-r-android-en-family: "Roboto";
+  --font-kgib-caption-r-android-en-weight: 400;
+  --font-kgib-caption-r-android-en-size-sp: 15sp;
+  --font-kgib-caption-r-android-en-line-height: 1.3;
+
+  /* caption-r / 🤖 android-tc */
+  --font-kgib-caption-r-android-tc-family: "Noto Sans TC";
+  --font-kgib-caption-r-android-tc-weight: 400;
+  --font-kgib-caption-r-android-tc-size-sp: 14sp;
+  --font-kgib-caption-r-android-tc-line-height: 1.5;
+
+}

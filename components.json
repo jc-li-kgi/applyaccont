@@ -1,0 +1,1897 @@
+{
+  "generatedBy": "scripts/build-components.mjs",
+  "components": [
+    {
+      "name": "KgiCollapsibleCard",
+      "category": "Components/Accordion",
+      "file": "app/components/accordion/KgiCollapsibleCard.vue",
+      "description": "可收合卡片（Reka UI Collapsible）。variant：flow（流程申請，內距 24）／ overview（資訊瀏覽，內距 16）\n不受控：default-open；受控：v-model:open",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "required": false,
+          "default": "true"
+        },
+        {
+          "name": "variant",
+          "type": "\"flow\" | \"overview\"",
+          "required": false,
+          "default": "\"flow\""
+        }
+      ],
+      "models": [
+        {
+          "name": "open",
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiExpandButton",
+      "category": "Components/Accordion",
+      "file": "app/components/accordion/KgiExpandButton.vue",
+      "description": "展開 / 收闔明細文字按鈕。預設文字「展開明細 / 收闔明細」，要換傳 :labels=\"['看更多', '收合']\"",
+      "props": [
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "labels",
+          "type": "[string, string]",
+          "required": false,
+          "default": "[COPY.common.expand, COPY.common.collapse]"
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiExpandToggle",
+      "category": "Components/Accordion",
+      "file": "app/components/accordion/KgiExpandToggle.vue",
+      "description": "展開 / 收起箭頭（收起朝下、展開朝上，有旋轉動畫）。只負責圖示，點擊行為由外層按鈕處理",
+      "props": [
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiSheet",
+      "category": "Components/Action Sheet",
+      "file": "app/components/action-sheet/KgiSheet.vue",
+      "description": "底部彈窗（Reka UI Dialog）。點遮罩、Esc 或右上 ✕ 關閉\nRWD（Grid System）：手機 < 768 底部抽屜；平板置中、寬 92%（與網格同寬）；桌機置中、最寬 570",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "fullHeight",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "close",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiSheetOptions",
+      "category": "Components/Action Sheet",
+      "file": "app/components/action-sheet/KgiSheetOptions.vue",
+      "description": "底部彈窗裡的選項清單。options 可給字串陣列或 { value, label, desc }；chevron：前往型選單（右側 ›，不標示選中項）",
+      "props": [
+        {
+          "name": "options",
+          "type": "(T | Option<T>)[]",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "T | null",
+          "required": false
+        },
+        {
+          "name": "chevron",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "select",
+          "type": "[value: T]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiNoticeCard",
+      "category": "Components/Banner",
+      "file": "app/components/banner/KgiNoticeCard.vue",
+      "description": "公告卡（公告 icon + 一行訊息 + ›，整張可點）。icon 一律 24px，不跟文字層級。不含左右外距",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiBottomNav",
+      "category": "Components/Bottom Navigation",
+      "file": "app/components/bottom-navigation/KgiBottomNav.vue",
+      "description": "底部導覽。icon 一律用 tint，顏色跟著文字：選取 = content active，未選取 = primary 透明度 40%\n換頁：綁 @navigate 自己處理；沒綁就用 app 的 router（Nuxt 內建 vue-router）push(item.to)\n沒有 to 的項目 = 未開放（顯示 Toast）。長按「更多」2 秒觸發 @more-long-press（沒綁就不啟用）\n預設項目是證券 App 的 6 個；新專案請傳入自己的 items",
+      "props": [
+        {
+          "name": "active",
+          "type": "string",
+          "required": false,
+          "default": "\"account\""
+        },
+        {
+          "name": "items",
+          "type": "NavItem[]",
+          "required": false,
+          "default": "BOTTOM_NAV_ITEMS"
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "moreLongPress",
+          "type": "[]"
+        },
+        {
+          "name": "navigate",
+          "type": "[item: NavItem]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiButton",
+      "category": "Components/Button",
+      "file": "app/components/button/KgiButton.vue",
+      "description": "<KgiButton>下一步</KgiButton>                               主要按鈕（滿版、直角）\n<KgiButton variant=\"text\" block>完成</KgiButton>            文字按鈕\n<KgiButton variant=\"text\" tone=\"caution\">移除</KgiButton>   警示文字按鈕（Content/Semantic/Caution）\n<KgiButton variant=\"capsule\" size=\"sm\">賣股還款</KgiButton>  膠囊（列表內用 sm）\n傳 href 會輸出 <a>；其餘屬性（disabled、@click、aria-*）直接套在根元素",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"text\" | \"primary\" | \"capsule\"",
+          "required": false,
+          "default": "\"primary\""
+        },
+        {
+          "name": "typo",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"active\" | \"caution\"",
+          "required": false
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\"",
+          "required": false,
+          "default": "\"md\""
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"submit\" | \"reset\"",
+          "required": false,
+          "default": "\"button\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiIconAction",
+      "category": "Components/Button",
+      "file": "app/components/button/KgiIconAction.vue",
+      "description": "圓形圖示 + 文字的功能捷徑（疊在 Surface Blue 上：Basic 陰影）。icon 用 tint，顏色跟著文字主色",
+      "props": [
+        {
+          "name": "icon",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiAmountField",
+      "category": "Components/Calculation",
+      "file": "app/components/calculation/KgiAmountField.vue",
+      "description": "金額 / 數量輸入框（含 − ＋）。v-model 為數字或 null（未填，顯示 placeholder）\n直接輸入時，離開欄位會自動修正到 min～max 並對齊 step",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "{ label: string; onClick: () => void; }",
+          "required": false
+        },
+        {
+          "name": "hints",
+          "type": "string[]",
+          "required": false,
+          "default": "[]"
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "number | null"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiQtyStepper",
+      "category": "Components/Calculation",
+      "file": "app/components/calculation/KgiQtyStepper.vue",
+      "description": "數量加減框（有外框，− 數量 單位 ＋）。直接輸入時，離開欄位會自動修正到 min～max",
+      "props": [
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "default": "Infinity"
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "default": "1"
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": "\"數量\""
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "number"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiAmountHero",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiAmountHero.vue",
+      "description": "確認頁大金額（標題 + 幣別 + 大數字）",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": false,
+          "default": "\"TWD\""
+        },
+        {
+          "name": "currencyName",
+          "type": "string",
+          "required": false,
+          "default": "\"臺幣\""
+        },
+        {
+          "name": "flag",
+          "type": "string",
+          "required": false,
+          "default": "\"flag-twd.png\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiDetailCard",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiDetailCard.vue",
+      "description": "確認資料卡（流程申請 › 詳情概覽卡）：內距 24×24、資料列間距 20；不含左右外距，放在卡片組（px-16 gap-12）裡",
+      "props": [],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiDetailPanel",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiDetailPanel.vue",
+      "description": "列表展開明細（卡片 + 資料列）：內距 16×16、資料列間距 12。放在白色卡片裡時 tone=\"blue\" 改淡藍底",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"white\" | \"blue\"",
+          "required": false,
+          "default": "\"white\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiDetailRow",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiDetailRow.vue",
+      "description": "左標題、右數值\n<KgiDetailRow label=\"參考利率\" value=\"2.8%\" />\n<KgiDetailRow label=\"借款手續費\" value=\"TWD 2\" :info=\"{ title, body }\" />   標題旁 ⓘ\nvalue 預設英數樣式（金額、日期）；中文值傳 value-class=\"t-body-regular\"；多行傳字串陣列\ntone=\"caution\"：整列警示色（Content/Semantic/Caution；原 tone=\"warning\"）",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string | string[]",
+          "required": false
+        },
+        {
+          "name": "info",
+          "type": "InfoContent",
+          "required": false
+        },
+        {
+          "name": "labelClass",
+          "type": "string",
+          "required": false,
+          "default": "\"t-body-regular\""
+        },
+        {
+          "name": "valueClass",
+          "type": "string",
+          "required": false,
+          "default": "\"n-body-regular\""
+        },
+        {
+          "name": "tone",
+          "type": "\"caution\"",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "info",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "value",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiFeeCard",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiFeeCard.vue",
+      "description": "費用卡：標題→內容 12、詳情條列 20、內距 24×24。row 有 info 時標題旁出現 ⓘ\nfull：滿版（貼齊畫面左右、無圓角）",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "{ label: string; value: string; info?: InfoContent; }[]",
+          "required": true
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "full",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiServiceCardList",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiServiceCardList.vue",
+      "description": "服務卡片清單（圖示 + 標題 + 說明 + 前往箭頭）。icon 為彩色插圖（36px），不換色",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ icon: string; title: string; desc?: string; onClick?: (() => void); }[]",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiStatGroup",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiStatGroup.vue",
+      "description": "並排數據（標題 + 大數字 + 單位，中間直線分隔）。highlight：警示色強調。單位是中文用 t- 樣式、英文用 n- 樣式（自動判斷）",
+      "props": [
+        {
+          "name": "items",
+          "type": "StatItem[]",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiStatementCard",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiStatementCard.vue",
+      "description": "對帳單卡片（標題金額 + 類型標籤 + 資料列，可展開淡藍明細）\nrows / detail：[{ label, value（字串或字串陣列＝多行）, valueClass? }]；沒有 detail 就不顯示展開按鈕",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "titleClass",
+          "type": "string",
+          "required": false,
+          "default": "\"n-body-bold\""
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tagVariant",
+          "type": "\"default\" | \"caution\" | \"info\" | \"highlight\" | \"success\"",
+          "required": false,
+          "default": "\"highlight\""
+        },
+        {
+          "name": "rows",
+          "type": "StatementRow[]",
+          "required": false,
+          "default": "[]"
+        },
+        {
+          "name": "detail",
+          "type": "StatementRow[]",
+          "required": false,
+          "default": "[]"
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiStockPickCard",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiStockPickCard.vue",
+      "description": "精選擔保品卡（股票名稱 + 並排數據）。沒有綁 @click 時是純展示卡片（不可點擊）。常搭配 <KgiCarousel> 使用",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "stats",
+          "type": "StatItem[]",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiSummaryCard",
+      "category": "Components/Card",
+      "file": "app/components/card/KgiSummaryCard.vue",
+      "description": "摘要卡（大數字 + 資料列）。rows 第 3 個值 'caution' = 整列警示色（原 'warning'）\n綁了 @bell 時，overview 版右上角出現通知鈴\nvariant=\"flow\"：大數字與標題同一行、內距 24（流程申請）／ \"overview\"：大數字在標題下方、內距 16（資訊瀏覽）",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "rows",
+          "type": "[string, string, (\"caution\")?][]",
+          "required": false,
+          "default": "[]"
+        },
+        {
+          "name": "variant",
+          "type": "\"flow\" | \"overview\"",
+          "required": false,
+          "default": "\"overview\""
+        },
+        {
+          "name": "bellLabel",
+          "type": "string",
+          "required": false,
+          "default": "\"通知設定\""
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "bell",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "actions",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiCarousel",
+      "category": "Components/Carousel",
+      "file": "app/components/carousel/KgiCarousel.vue",
+      "description": "橫向滑動卡片 + 指示點。與 ui-kit 的差別：用 items + 具名 slot，不直接塞子元素\n  <Carousel :items=\"list\" item-width=\"17.5rem\"><template #default=\"{ item }\"><StockPickCard v-bind=\"item\" /></template></Carousel>\n每張卡片寬度由 item-width 控制（預設 280px），左右露出相鄰卡片",
+      "props": [
+        {
+          "name": "items",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "itemWidth",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{ item: T; index: number; }"
+        }
+      ]
+    },
+    {
+      "name": "KgiCheckbox",
+      "category": "Components/Checkbox",
+      "file": "app/components/checkbox/KgiCheckbox.vue",
+      "description": "<KgiCheckbox v-model=\"checked\" label=\"全選\" />（Reka UI Checkbox）\n外框 24×24（含 3px 點擊留白），方框 18px。label 只給螢幕閱讀器，畫面文字由外層自己排",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiCheckboxHeader",
+      "category": "Components/Checkbox",
+      "file": "app/components/checkbox/KgiCheckboxHeader.vue",
+      "description": "勾選標題（勾選框 + 標題 + 補充說明）：勾選框與標題第一行垂直置中。不含左右邊距",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiSelectableItem",
+      "category": "Components/Checkbox",
+      "file": "app/components/checkbox/KgiSelectableItem.vue",
+      "description": "可勾選項目（勾選框 + 內容，可停用）。disabled 時整個項目（含裡面的 KgiDetailRow）變成停用色",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiDialog",
+      "category": "Components/Dialog",
+      "file": "app/components/dialog/KgiDialog.vue",
+      "description": "對話框（Reka UI Dialog：焦點鎖定、Esc 關閉、點遮罩關閉、SSR 安全的 Portal）\n說明（一顆「我知道了」）：<KgiDialog :open=\"open\" title=\"…\" body=\"…\" @close=\"open = false\" />\n確認（兩顆按鈕，左次要、右主要）：:actions=\"[{ label: '返回', secondary: true }, { label: '確認送出', onClick: go }]\"\n沒有 onClick 的按鈕 = 關閉\nRWD：手機最寬 382（App 寬 430 − 48）；平板以上最寬 570",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "bodyAlign",
+          "type": "\"left\" | \"center\"",
+          "required": false,
+          "default": "\"left\""
+        },
+        {
+          "name": "actions",
+          "type": "DialogAction[]",
+          "required": false,
+          "default": "[{ label: COPY.common.gotIt }]"
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "close",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiInfoDialog",
+      "category": "Components/Dialog",
+      "file": "app/components/dialog/KgiInfoDialog.vue",
+      "description": "說明型對話框：info = { title, body }，null 時關閉",
+      "props": [
+        {
+          "name": "info",
+          "type": "InfoContent | null",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "close",
+          "type": "[]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiEmptyState",
+      "category": "Components/Empty State",
+      "file": "app/components/empty-state/KgiEmptyState.vue",
+      "description": "無資料提示（置中、次要色）。列表沒有資料時 KgiListTable 會自動使用（傳 empty 與 :has-rows=\"false\"）",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiAccordion",
+      "category": "Components/FAQ",
+      "file": "app/components/faq/KgiAccordion.vue",
+      "description": "收合問答（Reka UI Accordion，一次只展開一題）。default-open：一開始展開第幾題（不給 = 全部收合）",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ q: string; a: string; }[]",
+          "required": true
+        },
+        {
+          "name": "defaultOpen",
+          "type": "number | null",
+          "required": false,
+          "default": "null"
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiFilterPill",
+      "category": "Components/Filter",
+      "file": "app/components/filter/KgiFilterPill.vue",
+      "description": "篩選 / 排序下拉膠囊（文字 + ▼）",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiGrid",
+      "category": "Foundations/Grid System",
+      "file": "app/components/grid-system/KgiGrid.vue",
+      "description": "頁面網格容器（Figma Grid System/App & Web RWD），欄數、欄間距、左右邊距隨畫面寬度自動切換：\n  小版 < 768：4 欄、欄間距 16、左右各 16 ／ 中版 768–1023：6 欄、欄間距 16、容器 92% ／ 大版 ≥ 1024：12 欄、欄間距 28、容器 86%、最寬 1175\n子元素用 Tailwind 定位：col-span-full（撐滿）、desktop:col-start-4 desktop:col-span-8 等。一般頁面直接用 <KgiPage>，不用自己排",
+      "props": [
+        {
+          "name": "as",
+          "type": "string",
+          "required": false,
+          "default": "\"div\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiPage",
+      "category": "Foundations/Grid System",
+      "file": "app/components/grid-system/KgiPage.vue",
+      "description": "RWD 頁面版型：依內容類型在 Grid System 上排版（變化方式依 GridSystem 樣式模擬，數值用 Guideline token）\n  layout=\"form\"  填寫型：手機、平板撐滿網格；桌機最寬 570、置中（表單、確認頁、申請流程）\n  layout=\"read\"  閱讀型：手機、平板目錄收合在內容上方；桌機有目錄 → 目錄 3 欄 + 內容 8 欄，無目錄 → 內容 8 欄置中\n  layout=\"list\"  列表型：撐滿網格（桌機最寬 1175）\n  type=\"flow\" 流程申請：區塊間距 24 ／ type=\"browse\" 資訊瀏覽：區塊間距 32（各尺寸相同）\nslot：預設（內容區塊）、#actions（內容下方按鈕，與內容距 32）、#head（閱讀型標題區）、#toc（自訂目錄）、#foot（閱讀型作者、常見問題）\n綁了 @back 才有返回鍵。底部固定按鈕、總計列不在這個元件處理（依之後的元件規則）",
+      "props": [
+        {
+          "name": "layout",
+          "type": "\"form\" | \"read\" | \"list\"",
+          "required": false,
+          "default": "\"form\""
+        },
+        {
+          "name": "type",
+          "type": "\"flow\" | \"browse\"",
+          "required": false,
+          "default": "\"flow\""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "{ index: number; total: number; label: string; }",
+          "required": false
+        },
+        {
+          "name": "toc",
+          "type": "{ id: string; label: string; }[]",
+          "required": false
+        },
+        {
+          "name": "share",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "back",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        },
+        {
+          "name": "actions",
+          "type": "{}"
+        },
+        {
+          "name": "head",
+          "type": "{}"
+        },
+        {
+          "name": "toc",
+          "type": "{}"
+        },
+        {
+          "name": "foot",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiToc",
+      "category": "Foundations/Grid System",
+      "file": "app/components/grid-system/KgiToc.vue",
+      "description": "文章目錄（閱讀型頁面）。手機、平板：收合在內容上方，點標題展開；桌機：固定展開（由 KgiPage 放在左側 3 欄並固定位置）\n捲動時自動標示目前閱讀的段落（items 的 id 要對到內容區塊的 id）",
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; }[]",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": "\"目錄\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiIcon",
+      "category": "Foundations/Icon",
+      "file": "app/components/icon/KgiIcon.vue",
+      "description": "<KgiIcon name=\"info.svg\" level=\"body\" />   ← 尺寸跟著文字層級（caption 16 / body 16→20 / subtitle 20→24，手機→電腦）\n<KgiIcon name=\"add.svg\" tint />            ← 顏色跟著文字色（currentColor，用 CSS mask）\n沒給 level 時用 size（預設 24，Figma 圖層的原始尺寸）",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "24"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "required": false,
+          "default": "\"\""
+        },
+        {
+          "name": "tint",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "level",
+          "type": "IconLevel",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiNumberField",
+      "category": "Components/Input",
+      "file": "app/components/input/KgiNumberField.vue",
+      "description": "數字輸入框（標題 + 輸入 + 單位 + 底線）。v-model 為數字或 null（未填，顯示 placeholder）。只接受整數；超過 max 時自動改成 max",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "number | null"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiAmountCell",
+      "category": "Components/List",
+      "file": "app/components/list/KgiAmountCell.vue",
+      "description": "列表金額欄：幣別一行、金額一行，靠右",
+      "props": [
+        {
+          "name": "amount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": false,
+          "default": "\"TWD\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiDateTimeLines",
+      "category": "Components/List",
+      "file": "app/components/list/KgiDateTimeLines.vue",
+      "description": "日期＋時間（兩行，台北時區）。放在列表欄位時用 text-class 指定字級與顏色",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "textClass",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiListRow",
+      "category": "Components/List",
+      "file": "app/components/list/KgiListRow.vue",
+      "description": "列表的一列。cells 用具名 slot：#cell-0、#cell-1…（對應 columns）\n  <ListRow :cell-count=\"3\" :align=\"['left','center','right']\" :expanded=\"open\" @toggle=\"…\">\n    <template #cell-0>…</template> …  <template #detail>…</template> <template #footer>…</template>\n  </ListRow>\n綁了 @toggle 時整列可點、最右側顯示箭頭；detail 自動包在 DetailPanel（白色明細卡）裡",
+      "props": [
+        {
+          "name": "cellCount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "align",
+          "type": "CellAlign[]",
+          "required": false,
+          "default": "[]"
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "footerAlign",
+          "type": "\"end\" | \"between\"",
+          "required": false,
+          "default": "\"end\""
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "toggle",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "footer",
+          "type": "{}"
+        },
+        {
+          "name": "detail",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiListTable",
+      "category": "Components/List",
+      "file": "app/components/list/KgiListTable.vue",
+      "description": "列表（表頭 + 排序 + 分隔線 + 列）。欄寬：沒給 width 的欄平分剩餘寬度；全部都有 width 時，多出的寬度平均分到欄與欄之間。width 可用 'var(--spacing-80)' 這類 token\n  窄螢幕要能縮的欄用 'minmax(0, 71px)'。表頭文字用 \\n 換行。v-model:sort 綁排序欄位（再點一次取消）\n  <ListTable :columns=\"[…]\" expandable v-model:sort=\"sort\" empty=\"目前沒有資料\" :has-rows=\"rows.length > 0\"><ListRow … /></ListTable>",
+      "props": [
+        {
+          "name": "columns",
+          "type": "Column[]",
+          "required": true
+        },
+        {
+          "name": "expandable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "headAlign",
+          "type": "\"center\" | \"end\"",
+          "required": false,
+          "default": "\"center\""
+        },
+        {
+          "name": "hasRows",
+          "type": "boolean",
+          "required": false,
+          "default": "true"
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        }
+      ],
+      "models": [
+        {
+          "name": "sort",
+          "type": "string | null"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiStockName",
+      "category": "Components/List",
+      "file": "app/components/list/KgiStockName.vue",
+      "description": "<KgiStockName name=\"台積電\" code=\"2330\" />          上下兩行（列表用）：名稱粗體、代碼次要色\n<KgiStockName name=\"台積電\" code=\"2330\" inline />   同一行（勾選項目標題用）",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiBottomActions",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiBottomActions.vue",
+      "description": "不固定的底部按鈕區：與內容至少 32、內容不滿一屏時置底、距畫面底部 48",
+      "props": [],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiFlowPage",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiFlowPage.vue",
+      "description": "<FlowPage title=\"個人信貸\" :step=\"{ index: 0, total: 3, label: '試算' }\" @back=\"…\">\n  內容…\n  <template #actions><KgiButton>下一步</KgiButton></template>      內容下方的按鈕（距內容至少 32，不滿一屏時置底）\n  <template #sticky>…總計 + 下一步…</template>               固定在畫面底部的操作區（和 #actions 擇一）\n</FlowPage>\n間距：頁首→內容 24、內容區塊之間 24（Guideline：流程申請）",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "step",
+          "type": "{ index: number; total: number; label: string; }",
+          "required": false
+        },
+        {
+          "name": "actionsClass",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "back",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        },
+        {
+          "name": "actions",
+          "type": "{}"
+        },
+        {
+          "name": "sticky",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiResultPage",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiResultPage.vue",
+      "description": "完成頁（成功插圖 + 標題 + 說明 + 按鈕）\n  <ResultPage header=\"申請借款\" title=\"成功送出申請\" desc=\"我們將在…\" primary-label=\"查看借款紀錄\" secondary-label=\"完成\" @primary=\"…\" @secondary=\"…\" />",
+      "props": [
+        {
+          "name": "header",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "primaryLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "secondaryLabel",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "primary",
+          "type": "[]"
+        },
+        {
+          "name": "secondary",
+          "type": "[]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiSectionHeader",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiSectionHeader.vue",
+      "description": "區塊標題。action：右側文字連結；desc：標題下方說明。標題左邊要放勾選框時改用 KgiCheckboxHeader。不含左右邊距",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "action",
+          "type": "TextAction",
+          "required": false
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "descClass",
+          "type": "string",
+          "required": false,
+          "default": "\"t-body-regular\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiStickyFooter",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiStickyFooter.vue",
+      "description": "置底操作區（固定在畫面底部，可放總計 + 按鈕）。會自動在頁面底部留出同高度的空白，內容不會被擋住\nplain：透明底、無分隔線與陰影（只有一顆按鈕時使用）",
+      "props": [
+        {
+          "name": "plain",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiTotalBar",
+      "category": "Patterns/Page Layout",
+      "file": "app/components/page-layout/KgiTotalBar.vue",
+      "description": "置底總計列（標題 ⓘ ／ 金額 ^），通常放在 <KgiStickyFooter> 裡、按鈕上方\n可展開明細（在置底區內向上推開）：<TotalBar label value :expanded=\"open\" @toggle=\"open = !open\">…明細…</TotalBar>\n不綁 @toggle 就不顯示 ^。note：標題下方補充，例如「(已選取 1 筆)」",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "info",
+          "type": "InfoContent",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "toggle",
+          "type": "[]"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiAccountPicker",
+      "category": "Components/Picker",
+      "file": "app/components/picker/KgiAccountPicker.vue",
+      "description": "帳號選擇（證 徽章 + 帳號 + 姓名）。外層自行留左右邊距",
+      "props": [
+        {
+          "name": "account",
+          "type": "{ id: string; name: string; }",
+          "required": true
+        },
+        {
+          "name": "badge",
+          "type": "string",
+          "required": false,
+          "default": "\"證\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiPickerField",
+      "category": "Components/Picker",
+      "file": "app/components/picker/KgiPickerField.vue",
+      "description": "<KgiPickerField v-model=\"term\" label=\"借款期數\" :options=\"['12', '24']\" />\n自訂選擇畫面（例如有搜尋的股票清單）：不給 options，改給 display-value + @open",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "(T | Option<T>)[]",
+          "required": false,
+          "default": "[]"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "default": "\"請選擇\""
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sheetTitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "displayValue",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "T | null"
+        }
+      ],
+      "events": [
+        {
+          "name": "open",
+          "type": "[]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiStepBar",
+      "category": "Components/Progress Bar",
+      "file": "app/components/progress-bar/KgiStepBar.vue",
+      "description": "第 N 步 xxx ／ 共 M 步，index 從 0 開始\nflush：不加左右內距（放在 KgiGrid / KgiPage 裡時用）",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiRadioGroup",
+      "category": "Components/Radio Button",
+      "file": "app/components/radio-button/KgiRadioGroup.vue",
+      "description": "單選按鈕組（Reka UI RadioGroup，橫排平分）\n<KgiRadioGroup v-model=\"mode\" label=\"還款額度\" :options=\"[{ value: 'partial', label: '部分' }, …]\" />",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "{ value: T; label: string; disabled?: boolean; }[]",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "T | null"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiSearchField",
+      "category": "Components/Search",
+      "file": "app/components/search/KgiSearchField.vue",
+      "description": "搜尋框（膠囊、放大鏡 24、內距 8×16、icon 與文字 8）。預設淡藍底，放在白底上；on-surface：放在藍底頁面上時改白底",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onSurface",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "string"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiSearchIcon",
+      "category": "Components/Search",
+      "file": "app/components/search/KgiSearchIcon.vue",
+      "description": "搜尋 icon（圓圈 + 握把，Figma 為組合圖層）",
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "required": false,
+          "default": "24"
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiNoticeBar",
+      "category": "Components/System Message",
+      "file": "app/components/system-message/KgiNoticeBar.vue",
+      "description": "提示條（淡黃底、置中文字）",
+      "props": [],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiSegmentedTabs",
+      "category": "Components/Tab",
+      "file": "app/components/tab/KgiSegmentedTabs.vue",
+      "description": "膠囊型頁籤（Reka UI Tabs，整排平分）。<KgiSegmentedTabs v-model=\"tab\" :tabs=\"[{ key: 'a', label: '總覽' }, …]\" />",
+      "props": [
+        {
+          "name": "tabs",
+          "type": "{ key: string; label: string; }[]",
+          "required": true
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "string"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiTextTabs",
+      "category": "Components/Tab",
+      "file": "app/components/tab/KgiTextTabs.vue",
+      "description": "文字型頁籤（Reka UI Tabs，方向鍵切換）。選中項下方藍線。放在卡片內時加 flush（不留左右邊距），置中加 center\n內容區由外層依 v-model 自行切換",
+      "props": [
+        {
+          "name": "tabs",
+          "type": "{ key: string; label: string; }[]",
+          "required": true
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "center",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "models": [
+        {
+          "name": "modelValue",
+          "type": "string"
+        }
+      ],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiTag",
+      "category": "Components/Tag",
+      "file": "app/components/tag/KgiTag.vue",
+      "description": "<KgiTag variant=\"caution\">即將到期</KgiTag>\n  default   淺藍底（Container/General/Active-Secondary + Content/General/Active）\n  caution   外框＋字 Content/Tag/Caution（原 variant=\"warning\" / \"error\"）\n  info      外框淺藍（Guideline 無語意 token，暫用 Graphic Blue 色票 sky-blue-300 / 500）\n  highlight 外框＋字 Content/Tag/Highlight\n  success   外框＋字 Content/Tag/Success",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"caution\" | \"info\" | \"highlight\" | \"success\"",
+          "required": false,
+          "default": "\"default\""
+        }
+      ],
+      "models": [],
+      "events": [],
+      "slots": [
+        {
+          "name": "default",
+          "type": "{}"
+        }
+      ]
+    },
+    {
+      "name": "KgiToast",
+      "category": "Components/Toast & Snackbar",
+      "file": "app/components/toast-snackbar/KgiToast.vue",
+      "description": "輕提示（Reka UI Toast）。版面放一個 <KgiToast />，任何地方呼叫 useToast().show('訊息')，1.8 秒後自動消失",
+      "props": [],
+      "models": [],
+      "events": [],
+      "slots": []
+    },
+    {
+      "name": "KgiInfoLabel",
+      "category": "Components/Tooltips",
+      "file": "app/components/tooltips/KgiInfoLabel.vue",
+      "description": "文字 + ⓘ 說明\n<KgiInfoLabel label=\"可借額度總計\" :info=\"{ title, body }\" />   自己開說明彈窗\n<KgiInfoLabel label=\"…\" @info=\"…\" />                            由外部處理",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "info",
+          "type": "InfoContent",
+          "required": false
+        },
+        {
+          "name": "labelClass",
+          "type": "string",
+          "required": false,
+          "default": "\"t-body-regular\""
+        },
+        {
+          "name": "level",
+          "type": "IconLevel",
+          "required": false
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "info",
+          "type": "[]"
+        }
+      ],
+      "slots": []
+    },
+    {
+      "name": "KgiPageHeader",
+      "category": "Components/Top Navigation",
+      "file": "app/components/top-navigation/KgiPageHeader.vue",
+      "description": "子頁標題列：返回 / 標題 / 分享。沒有綁 @back 就不顯示返回鍵\nflush：不加左右內距（放在 KgiGrid / KgiPage 裡時，左右邊距由網格決定）",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "showShare",
+          "type": "boolean",
+          "required": false,
+          "default": "true"
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "required": false,
+          "default": "false"
+        }
+      ],
+      "models": [],
+      "events": [
+        {
+          "name": "back",
+          "type": "[]"
+        }
+      ],
+      "slots": []
+    }
+  ]
+}

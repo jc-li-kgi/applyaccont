@@ -1,0 +1,24 @@
+/**
+ * @kgi/ui-kit 全域樣式入口（Tailwind 3.4：@import 在最前面，最後才是 @tailwind 三行）
+ *
+ *   guideline/*                Guideline 原檔，直接載入（數值只存在這裡）
+ *   guideline-hover.css        產生檔：hover 色（Guideline 規定用 HSB 運算，沒有色票）
+ *   typography.css             產生檔：響應式字級 token + .t-* / .n-* class
+ *   app-theme.css              Guideline 沒有、App 需要的 token 與 utility
+ *   base.css                   html / body（字體只在這裡設定一次）
+ */
+@import "../../../guideline/Color_20261016 update/colors.css";
+@import "../../../guideline/Spacing/spacing.css";
+@import "../../../guideline/Radius/radius-tokens.css";
+@import "../../../guideline/Shadow/shadow.css";
+@import "../../../guideline/Typography/kgi-font-family.css";
+@import "../../../guideline/Typography/kgi-typography.css";
+
+@import "./guideline-hover.css";
+@import "./typography.css";
+@import "./app-theme.css";
+@import "./base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,255 @@
+/**
+ * 自動產生，請勿手改：npm run theme（scripts/build-typography.mjs，來源 guideline/Typography/kgi-typography.css 主尺度）
+ *
+ * 文字 class：.t-*（中文）/ .n-*（英文、數字）
+ * display-l → .t-display-l / .n-display-l
+ * display-m → .t-display-m / .n-display-m
+ * display-s → .t-display-s / .n-display-s
+ * headline → .t-headline / .n-headline
+ * title → .t-title / .n-title
+ * subtitle-b → .t-subtitle-bold / .n-subtitle-bold
+ * subtitle-r → .t-subtitle-regular / .n-subtitle-regular
+ * body-b → .t-body-bold / .n-body-bold
+ * body-r → .t-body-regular / .n-body-regular
+ * caption-r → .t-caption-regular / .n-caption-regular
+ *
+ * 目前環境的字級 token（Guideline 名稱拿掉平台段）：--font-{level}-{tc|en}-{size|weight|line-height}
+ *   ≥ 768px Web、< 768px mWeb（與 Grid System 同一個斷點）；<html data-platform="ios|android">（WebView）時字重、行高改讀原生平台值
+ */
+
+:root {
+  --font-display-l-tc-size: var(--font-display-l-web-tc-size);
+  --font-display-l-tc-weight: var(--font-display-l-web-tc-weight);
+  --font-display-l-tc-line-height: var(--font-display-l-web-tc-line-height);
+  --font-display-l-en-size: var(--font-display-l-web-en-size);
+  --font-display-l-en-weight: var(--font-display-l-web-en-weight);
+  --font-display-l-en-line-height: var(--font-display-l-web-en-line-height);
+  --font-display-m-tc-size: var(--font-display-m-web-tc-size);
+  --font-display-m-tc-weight: var(--font-display-m-web-tc-weight);
+  --font-display-m-tc-line-height: var(--font-display-m-web-tc-line-height);
+  --font-display-m-en-size: var(--font-display-m-web-en-size);
+  --font-display-m-en-weight: var(--font-display-m-web-en-weight);
+  --font-display-m-en-line-height: var(--font-display-m-web-en-line-height);
+  --font-display-s-tc-size: var(--font-display-s-web-tc-size);
+  --font-display-s-tc-weight: var(--font-display-s-web-tc-weight);
+  --font-display-s-tc-line-height: var(--font-display-s-web-tc-line-height);
+  --font-display-s-en-size: var(--font-display-s-web-en-size);
+  --font-display-s-en-weight: var(--font-display-s-web-en-weight);
+  --font-display-s-en-line-height: var(--font-display-s-web-en-line-height);
+  --font-headline-tc-size: var(--font-headline-web-tc-size);
+  --font-headline-tc-weight: var(--font-headline-web-tc-weight);
+  --font-headline-tc-line-height: var(--font-headline-web-tc-line-height);
+  --font-headline-en-size: var(--font-headline-web-en-size);
+  --font-headline-en-weight: var(--font-headline-web-en-weight);
+  --font-headline-en-line-height: var(--font-headline-web-en-line-height);
+  --font-title-tc-size: var(--font-title-web-tc-size);
+  --font-title-tc-weight: var(--font-title-web-tc-weight);
+  --font-title-tc-line-height: var(--font-title-web-tc-line-height);
+  --font-title-en-size: var(--font-title-web-en-size);
+  --font-title-en-weight: var(--font-title-web-en-weight);
+  --font-title-en-line-height: var(--font-title-web-en-line-height);
+  --font-subtitle-b-tc-size: var(--font-subtitle-b-web-tc-size);
+  --font-subtitle-b-tc-weight: var(--font-subtitle-b-web-tc-weight);
+  --font-subtitle-b-tc-line-height: var(--font-subtitle-b-web-tc-line-height);
+  --font-subtitle-b-en-size: var(--font-subtitle-b-web-en-size);
+  --font-subtitle-b-en-weight: var(--font-subtitle-b-web-en-weight);
+  --font-subtitle-b-en-line-height: var(--font-subtitle-b-web-en-line-height);
+  --font-subtitle-r-tc-size: var(--font-subtitle-r-web-tc-size);
+  --font-subtitle-r-tc-weight: var(--font-subtitle-r-web-tc-weight);
+  --font-subtitle-r-tc-line-height: var(--font-subtitle-r-web-tc-line-height);
+  --font-subtitle-r-en-size: var(--font-subtitle-r-web-en-size);
+  --font-subtitle-r-en-weight: var(--font-subtitle-r-web-en-weight);
+  --font-subtitle-r-en-line-height: var(--font-subtitle-r-web-en-line-height);
+  --font-body-b-tc-size: var(--font-body-b-web-tc-size);
+  --font-body-b-tc-weight: var(--font-body-b-web-tc-weight);
+  --font-body-b-tc-line-height: var(--font-body-b-web-tc-line-height);
+  --font-body-b-en-size: var(--font-body-b-web-en-size);
+  --font-body-b-en-weight: var(--font-body-b-web-en-weight);
+  --font-body-b-en-line-height: var(--font-body-b-web-en-line-height);
+  --font-body-r-tc-size: var(--font-body-r-web-tc-size);
+  --font-body-r-tc-weight: var(--font-body-r-web-tc-weight);
+  --font-body-r-tc-line-height: var(--font-body-r-web-tc-line-height);
+  --font-body-r-en-size: var(--font-body-r-web-en-size);
+  --font-body-r-en-weight: var(--font-body-r-web-en-weight);
+  --font-body-r-en-line-height: var(--font-body-r-web-en-line-height);
+  --font-caption-r-tc-size: var(--font-caption-r-web-tc-size);
+  --font-caption-r-tc-weight: var(--font-caption-r-web-tc-weight);
+  --font-caption-r-tc-line-height: var(--font-caption-r-web-tc-line-height);
+  --font-caption-r-en-size: var(--font-caption-r-web-en-size);
+  --font-caption-r-en-weight: var(--font-caption-r-web-en-weight);
+  --font-caption-r-en-line-height: var(--font-caption-r-web-en-line-height);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --font-display-l-tc-size: var(--font-display-l-mweb-tc-size);
+    --font-display-l-tc-weight: var(--font-display-l-mweb-tc-weight);
+    --font-display-l-tc-line-height: var(--font-display-l-mweb-tc-line-height);
+    --font-display-l-en-size: var(--font-display-l-mweb-en-size);
+    --font-display-l-en-weight: var(--font-display-l-mweb-en-weight);
+    --font-display-l-en-line-height: var(--font-display-l-mweb-en-line-height);
+    --font-display-m-tc-size: var(--font-display-m-mweb-tc-size);
+    --font-display-m-tc-weight: var(--font-display-m-mweb-tc-weight);
+    --font-display-m-tc-line-height: var(--font-display-m-mweb-tc-line-height);
+    --font-display-m-en-size: var(--font-display-m-mweb-en-size);
+    --font-display-m-en-weight: var(--font-display-m-mweb-en-weight);
+    --font-display-m-en-line-height: var(--font-display-m-mweb-en-line-height);
+    --font-display-s-tc-size: var(--font-display-s-mweb-tc-size);
+    --font-display-s-tc-weight: var(--font-display-s-mweb-tc-weight);
+    --font-display-s-tc-line-height: var(--font-display-s-mweb-tc-line-height);
+    --font-display-s-en-size: var(--font-display-s-mweb-en-size);
+    --font-display-s-en-weight: var(--font-display-s-mweb-en-weight);
+    --font-display-s-en-line-height: var(--font-display-s-mweb-en-line-height);
+    --font-headline-tc-size: var(--font-headline-mweb-tc-size);
+    --font-headline-tc-weight: var(--font-headline-mweb-tc-weight);
+    --font-headline-tc-line-height: var(--font-headline-mweb-tc-line-height);
+    --font-headline-en-size: var(--font-headline-mweb-en-size);
+    --font-headline-en-weight: var(--font-headline-mweb-en-weight);
+    --font-headline-en-line-height: var(--font-headline-mweb-en-line-height);
+    --font-title-tc-size: var(--font-title-mweb-tc-size);
+    --font-title-tc-weight: var(--font-title-mweb-tc-weight);
+    --font-title-tc-line-height: var(--font-title-mweb-tc-line-height);
+    --font-title-en-size: var(--font-title-mweb-en-size);
+    --font-title-en-weight: var(--font-title-mweb-en-weight);
+    --font-title-en-line-height: var(--font-title-mweb-en-line-height);
+    --font-subtitle-b-tc-size: var(--font-subtitle-b-mweb-tc-size);
+    --font-subtitle-b-tc-weight: var(--font-subtitle-b-mweb-tc-weight);
+    --font-subtitle-b-tc-line-height: var(--font-subtitle-b-mweb-tc-line-height);
+    --font-subtitle-b-en-size: var(--font-subtitle-b-mweb-en-size);
+    --font-subtitle-b-en-weight: var(--font-subtitle-b-mweb-en-weight);
+    --font-subtitle-b-en-line-height: var(--font-subtitle-b-mweb-en-line-height);
+    --font-subtitle-r-tc-size: var(--font-subtitle-r-mweb-tc-size);
+    --font-subtitle-r-tc-weight: var(--font-subtitle-r-mweb-tc-weight);
+    --font-subtitle-r-tc-line-height: var(--font-subtitle-r-mweb-tc-line-height);
+    --font-subtitle-r-en-size: var(--font-subtitle-r-mweb-en-size);
+    --font-subtitle-r-en-weight: var(--font-subtitle-r-mweb-en-weight);
+    --font-subtitle-r-en-line-height: var(--font-subtitle-r-mweb-en-line-height);
+    --font-body-b-tc-size: var(--font-body-b-mweb-tc-size);
+    --font-body-b-tc-weight: var(--font-body-b-mweb-tc-weight);
+    --font-body-b-tc-line-height: var(--font-body-b-mweb-tc-line-height);
+    --font-body-b-en-size: var(--font-body-b-mweb-en-size);
+    --font-body-b-en-weight: var(--font-body-b-mweb-en-weight);
+    --font-body-b-en-line-height: var(--font-body-b-mweb-en-line-height);
+    --font-body-r-tc-size: var(--font-body-r-mweb-tc-size);
+    --font-body-r-tc-weight: var(--font-body-r-mweb-tc-weight);
+    --font-body-r-tc-line-height: var(--font-body-r-mweb-tc-line-height);
+    --font-body-r-en-size: var(--font-body-r-mweb-en-size);
+    --font-body-r-en-weight: var(--font-body-r-mweb-en-weight);
+    --font-body-r-en-line-height: var(--font-body-r-mweb-en-line-height);
+    --font-caption-r-tc-size: var(--font-caption-r-mweb-tc-size);
+    --font-caption-r-tc-weight: var(--font-caption-r-mweb-tc-weight);
+    --font-caption-r-tc-line-height: var(--font-caption-r-mweb-tc-line-height);
+    --font-caption-r-en-size: var(--font-caption-r-mweb-en-size);
+    --font-caption-r-en-weight: var(--font-caption-r-mweb-en-weight);
+    --font-caption-r-en-line-height: var(--font-caption-r-mweb-en-line-height);
+  }
+}
+
+/* html[data-platform] 的優先權高於 :root（含 @media），不受畫面寬度影響 */
+html[data-platform="ios"] {
+  --font-display-l-tc-weight: var(--font-display-l-ios-tc-weight);
+  --font-display-l-tc-line-height: var(--font-display-l-ios-tc-line-height);
+  --font-display-l-en-weight: var(--font-display-l-ios-en-weight);
+  --font-display-l-en-line-height: var(--font-display-l-ios-en-line-height);
+  --font-display-m-tc-weight: var(--font-display-m-ios-tc-weight);
+  --font-display-m-tc-line-height: var(--font-display-m-ios-tc-line-height);
+  --font-display-m-en-weight: var(--font-display-m-ios-en-weight);
+  --font-display-m-en-line-height: var(--font-display-m-ios-en-line-height);
+  --font-display-s-tc-weight: var(--font-display-s-ios-tc-weight);
+  --font-display-s-tc-line-height: var(--font-display-s-ios-tc-line-height);
+  --font-display-s-en-weight: var(--font-display-s-ios-en-weight);
+  --font-display-s-en-line-height: var(--font-display-s-ios-en-line-height);
+  --font-headline-tc-weight: var(--font-headline-ios-tc-weight);
+  --font-headline-tc-line-height: var(--font-headline-ios-tc-line-height);
+  --font-headline-en-weight: var(--font-headline-ios-en-weight);
+  --font-headline-en-line-height: var(--font-headline-ios-en-line-height);
+  --font-title-tc-weight: var(--font-title-ios-tc-weight);
+  --font-title-tc-line-height: var(--font-title-ios-tc-line-height);
+  --font-title-en-weight: var(--font-title-ios-en-weight);
+  --font-title-en-line-height: var(--font-title-ios-en-line-height);
+  --font-subtitle-b-tc-weight: var(--font-subtitle-b-ios-tc-weight);
+  --font-subtitle-b-tc-line-height: var(--font-subtitle-b-ios-tc-line-height);
+  --font-subtitle-b-en-weight: var(--font-subtitle-b-ios-en-weight);
+  --font-subtitle-b-en-line-height: var(--font-subtitle-b-ios-en-line-height);
+  --font-subtitle-r-tc-weight: var(--font-subtitle-r-ios-tc-weight);
+  --font-subtitle-r-tc-line-height: var(--font-subtitle-r-ios-tc-line-height);
+  --font-subtitle-r-en-weight: var(--font-subtitle-r-ios-en-weight);
+  --font-subtitle-r-en-line-height: var(--font-subtitle-r-ios-en-line-height);
+  --font-body-b-tc-weight: var(--font-body-b-ios-tc-weight);
+  --font-body-b-tc-line-height: var(--font-body-b-ios-tc-line-height);
+  --font-body-b-en-weight: var(--font-body-b-ios-en-weight);
+  --font-body-b-en-line-height: var(--font-body-b-ios-en-line-height);
+  --font-body-r-tc-weight: var(--font-body-r-ios-tc-weight);
+  --font-body-r-tc-line-height: var(--font-body-r-ios-tc-line-height);
+  --font-body-r-en-weight: var(--font-body-r-ios-en-weight);
+  --font-body-r-en-line-height: var(--font-body-r-ios-en-line-height);
+  --font-caption-r-tc-weight: var(--font-caption-r-ios-tc-weight);
+  --font-caption-r-tc-line-height: var(--font-caption-r-ios-tc-line-height);
+  --font-caption-r-en-weight: var(--font-caption-r-ios-en-weight);
+  --font-caption-r-en-line-height: var(--font-caption-r-ios-en-line-height);
+}
+
+html[data-platform="android"] {
+  --font-display-l-tc-weight: var(--font-display-l-android-tc-weight);
+  --font-display-l-tc-line-height: var(--font-display-l-android-tc-line-height);
+  --font-display-l-en-weight: var(--font-display-l-android-en-weight);
+  --font-display-l-en-line-height: var(--font-display-l-android-en-line-height);
+  --font-display-m-tc-weight: var(--font-display-m-android-tc-weight);
+  --font-display-m-tc-line-height: var(--font-display-m-android-tc-line-height);
+  --font-display-m-en-weight: var(--font-display-m-android-en-weight);
+  --font-display-m-en-line-height: var(--font-display-m-android-en-line-height);
+  --font-display-s-tc-weight: var(--font-display-s-android-tc-weight);
+  --font-display-s-tc-line-height: var(--font-display-s-android-tc-line-height);
+  --font-display-s-en-weight: var(--font-display-s-android-en-weight);
+  --font-display-s-en-line-height: var(--font-display-s-android-en-line-height);
+  --font-headline-tc-weight: var(--font-headline-android-tc-weight);
+  --font-headline-tc-line-height: var(--font-headline-android-tc-line-height);
+  --font-headline-en-weight: var(--font-headline-android-en-weight);
+  --font-headline-en-line-height: var(--font-headline-android-en-line-height);
+  --font-title-tc-weight: var(--font-title-android-tc-weight);
+  --font-title-tc-line-height: var(--font-title-android-tc-line-height);
+  --font-title-en-weight: var(--font-title-android-en-weight);
+  --font-title-en-line-height: var(--font-title-android-en-line-height);
+  --font-subtitle-b-tc-weight: var(--font-subtitle-b-android-tc-weight);
+  --font-subtitle-b-tc-line-height: var(--font-subtitle-b-android-tc-line-height);
+  --font-subtitle-b-en-weight: var(--font-subtitle-b-android-en-weight);
+  --font-subtitle-b-en-line-height: var(--font-subtitle-b-android-en-line-height);
+  --font-subtitle-r-tc-weight: var(--font-subtitle-r-android-tc-weight);
+  --font-subtitle-r-tc-line-height: var(--font-subtitle-r-android-tc-line-height);
+  --font-subtitle-r-en-weight: var(--font-subtitle-r-android-en-weight);
+  --font-subtitle-r-en-line-height: var(--font-subtitle-r-android-en-line-height);
+  --font-body-b-tc-weight: var(--font-body-b-android-tc-weight);
+  --font-body-b-tc-line-height: var(--font-body-b-android-tc-line-height);
+  --font-body-b-en-weight: var(--font-body-b-android-en-weight);
+  --font-body-b-en-line-height: var(--font-body-b-android-en-line-height);
+  --font-body-r-tc-weight: var(--font-body-r-android-tc-weight);
+  --font-body-r-tc-line-height: var(--font-body-r-android-tc-line-height);
+  --font-body-r-en-weight: var(--font-body-r-android-en-weight);
+  --font-body-r-en-line-height: var(--font-body-r-android-en-line-height);
+  --font-caption-r-tc-weight: var(--font-caption-r-android-tc-weight);
+  --font-caption-r-tc-line-height: var(--font-caption-r-android-tc-line-height);
+  --font-caption-r-en-weight: var(--font-caption-r-android-en-weight);
+  --font-caption-r-en-line-height: var(--font-caption-r-android-en-line-height);
+}
+
+.t-display-l { font-size: var(--font-display-l-tc-size); font-weight: var(--font-display-l-tc-weight); line-height: var(--font-display-l-tc-line-height); }
+.t-display-m { font-size: var(--font-display-m-tc-size); font-weight: var(--font-display-m-tc-weight); line-height: var(--font-display-m-tc-line-height); }
+.t-display-s { font-size: var(--font-display-s-tc-size); font-weight: var(--font-display-s-tc-weight); line-height: var(--font-display-s-tc-line-height); }
+.t-headline { font-size: var(--font-headline-tc-size); font-weight: var(--font-headline-tc-weight); line-height: var(--font-headline-tc-line-height); }
+.t-title { font-size: var(--font-title-tc-size); font-weight: var(--font-title-tc-weight); line-height: var(--font-title-tc-line-height); }
+.t-subtitle-bold { font-size: var(--font-subtitle-b-tc-size); font-weight: var(--font-subtitle-b-tc-weight); line-height: var(--font-subtitle-b-tc-line-height); }
+.t-subtitle-regular { font-size: var(--font-subtitle-r-tc-size); font-weight: var(--font-subtitle-r-tc-weight); line-height: var(--font-subtitle-r-tc-line-height); }
+.t-body-bold { font-size: var(--font-body-b-tc-size); font-weight: var(--font-body-b-tc-weight); line-height: var(--font-body-b-tc-line-height); }
+.t-body-regular { font-size: var(--font-body-r-tc-size); font-weight: var(--font-body-r-tc-weight); line-height: var(--font-body-r-tc-line-height); }
+.t-caption-regular { font-size: var(--font-caption-r-tc-size); font-weight: var(--font-caption-r-tc-weight); line-height: var(--font-caption-r-tc-line-height); }
+
+.n-display-l { font-size: var(--font-display-l-en-size); font-weight: var(--font-display-l-en-weight); line-height: var(--font-display-l-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-display-m { font-size: var(--font-display-m-en-size); font-weight: var(--font-display-m-en-weight); line-height: var(--font-display-m-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-display-s { font-size: var(--font-display-s-en-size); font-weight: var(--font-display-s-en-weight); line-height: var(--font-display-s-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-headline { font-size: var(--font-headline-en-size); font-weight: var(--font-headline-en-weight); line-height: var(--font-headline-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-title { font-size: var(--font-title-en-size); font-weight: var(--font-title-en-weight); line-height: var(--font-title-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-subtitle-bold { font-size: var(--font-subtitle-b-en-size); font-weight: var(--font-subtitle-b-en-weight); line-height: var(--font-subtitle-b-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-subtitle-regular { font-size: var(--font-subtitle-r-en-size); font-weight: var(--font-subtitle-r-en-weight); line-height: var(--font-subtitle-r-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-body-bold { font-size: var(--font-body-b-en-size); font-weight: var(--font-body-b-en-weight); line-height: var(--font-body-b-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-body-regular { font-size: var(--font-body-r-en-size); font-weight: var(--font-body-r-en-weight); line-height: var(--font-body-r-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }
+.n-caption-regular { font-size: var(--font-caption-r-en-size); font-weight: var(--font-caption-r-en-weight); line-height: var(--font-caption-r-en-line-height); font-feature-settings: "lnum" 1, "pnum" 1; }

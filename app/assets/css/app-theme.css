@@ -1,0 +1,101 @@
+/* Guideline 沒有、但 App 需要的東西（對應 ui-kit 的 styles/tokens.css）：版面寬度、icon 尺寸、安全區與控制項尺寸
+ *
+ * Tailwind 3.4 版：
+ *   - 互動狀態色（-hover）：由 npm run theme 依 Guideline 的 HSB 規則算出，在 guideline-hover.css（產生檔），不要在這裡手寫
+ *   - 遮罩色、max-w-app、動畫（animate-*）：在 tailwind.config.ts
+ *   - 下面的 class 是 @layer utilities：只有 template 用到才會產出，也可以搭配 hover: / tablet: / desktop: 等 variant
+ */
+
+:root {
+  --container-app: 430px;   /* 桌機預覽時置中的手機寬度（max-w-app） */
+  --icon-size-caption: 16px;
+  --icon-size-body: 16px;
+  --icon-size-subtitle: 20px;
+  --bottom-nav-height: 73px;
+
+  /* ---------- Grid System（Figma MDS_Foundation › Grid System/App & Web RWD） ----------
+     小版・手機 < 768    4 欄｜欄間距 16｜左右各 16px
+     中版・平板 768–1023 6 欄｜欄間距 16｜容器 92%（左右各 4%）
+     大版・桌機 ≥ 1024   12 欄｜欄間距 28｜容器 86%（左右各 7%），最寬 1175
+     填寫型內容（表單、輸入框、卡片）：手機、平板滿版；桌機最寬 570、置中           */
+  --grid-cols: 4;
+  --grid-gutter: var(--spacing-16);
+  --grid-width: calc(100% - 2 * var(--spacing-16));
+  --grid-max: 1175px;
+  --content-form: 570px;
+}
+/* 斷點 768（tablet）與 1024（desktop）：與 tailwind.config.ts 的 screens、typography.css 的 mWeb / Web 切換相同 */
+@media (min-width: 768px) {
+  :root {
+    --icon-size-body: 20px;
+    --icon-size-subtitle: 24px;
+    --grid-cols: 6;
+    --grid-width: 92%;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --grid-cols: 12;
+    --grid-gutter: var(--spacing-28);
+    --grid-width: min(var(--grid-max), 86%);
+  }
+}
+
+@layer utilities {
+  /* Icon 尺寸跟著文字層級（手機 / 電腦自動切換） */
+  .icon-caption  { width: var(--icon-size-caption);  height: var(--icon-size-caption);  flex-shrink: 0; }
+  .icon-body     { width: var(--icon-size-body);     height: var(--icon-size-body);     flex-shrink: 0; }
+  .icon-subtitle { width: var(--icon-size-subtitle); height: var(--icon-size-subtitle); flex-shrink: 0; }
+
+  /* Grid System：頁面網格容器（欄數、欄間距、左右邊距隨畫面寬度切換）。子元素用 col-span-full、desktop:col-start-4 等 Tailwind class 定位 */
+  .kgi-grid    { display: grid; grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr)); column-gap: var(--grid-gutter); width: var(--grid-width); margin-inline: auto; }
+  .w-grid      { width: var(--grid-width); }          /* 與網格容器同寬（例如平板的置中彈窗 92%） */
+  .max-w-form  { max-width: var(--content-form); }    /* 填寫型內容、桌機彈窗：最寬 570 */
+
+  /* 安全區與版面專用 utility（讓 template 不需要寫任意值） */
+  .pt-safe     { padding-top: env(safe-area-inset-top); }
+  .pb-actions  { padding-bottom: max(var(--spacing-48), env(safe-area-inset-bottom)); } /* 底部按鈕：距畫面底 48 */
+  .pb-sheet    { padding-bottom: calc(var(--spacing-32) + env(safe-area-inset-bottom)); }
+  .max-h-sheet { max-height: 90vh; }
+  .h-sheet     { height: 90vh; }
+  .max-h-dialog { max-height: 80vh; }
+  .max-w-dialog { max-width: calc(var(--container-app) - var(--spacing-48)); }
+  .max-w-toast { max-width: 80%; }
+  .bottom-toast { bottom: calc(var(--bottom-nav-height) + var(--spacing-48) + env(safe-area-inset-bottom)); }
+  .gap-char    { gap: 0.3em; } /* 一個空白字寬（「TWD」與金額之間） */
+
+  /* 置底區、導覽列：安全區 */
+  .pb-sticky { padding-bottom: calc(var(--spacing-16) + env(safe-area-inset-bottom)); }
+  .pb-nav    { padding-bottom: calc(var(--spacing-12) + env(safe-area-inset-bottom)); }
+  .max-h-sticky { max-height: 90vh; max-height: 90dvh; }
+  .pb-tab    { padding-bottom: calc(var(--spacing-8) + 2px); } /* 與選中項底線（2px）等高 */
+
+  /* 文字一行的高度（讓勾選框、排序 icon 與第一行文字垂直置中） */
+  .h-subtitle-line { height: calc(var(--font-subtitle-b-tc-size) * var(--font-subtitle-b-tc-line-height)); }
+  .h-caption-line  { height: calc(1em * var(--font-caption-r-tc-line-height)); }
+
+  /* 控制項固有尺寸（Guideline 沒有對應 token，沿用 ui-kit 數值） */
+  .p-checkbox      { padding: 3px; }                                  /* 勾選框外框 24 = 18 + 3×2（含點擊留白） */
+  .checkbox-box    { position: relative; width: 18px; height: 18px; border-width: 1.5px; border-style: solid; }
+  .checkbox-mark   { position: absolute; left: -0.5px; top: -0.5px; }
+  .radio-circle    { width: 20px; height: 20px; border-width: 1.5px; border-style: solid; }
+  .radio-dot       { width: 10px; height: 10px; }
+  .h-qty           { height: 34px; }                                  /* QtyStepper */
+  .h-qty-divider   { height: 22px; }
+  .w-dot-active    { width: 22px; }                                   /* Carousel 指示點（選中） */
+  .size-result-image { width: 160px; height: 160px; }
+  .min-h-result    { min-height: 400px; }
+  .min-h-service   { min-height: 84px; }
+  .border-hairline { border-width: 0.4px; border-style: solid; }      /* 國旗外框 */
+  .no-callout      { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; } /* 長按不跳系統選單 */
+  .scrollbar-hidden { scrollbar-width: none; }
+  .scrollbar-hidden::-webkit-scrollbar { display: none; }
+  .carousel-item   { flex: 0 0 var(--carousel-item-width, 280px); }
+  .list-cell-clamp p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; } /* 列表欄位每段文字最多 2 行 */
+
+  /* 搜尋 icon 的握把、「選股」icon（Figma 為組合圖層） */
+  .search-handle   { position: absolute; left: 17.2px; top: 15px; width: 2.2px; height: 7.1px; border-radius: var(--radius-full); transform: rotate(-46deg); }
+  .nav-fund        { position: relative; width: 20px; height: 20px; }
+  .nav-fund-bar    { position: absolute; width: 3.226px; background: currentColor; }
+  .nav-fund-line   { position: absolute; left: 2.37px; top: 2.13px; display: flex; }
+}

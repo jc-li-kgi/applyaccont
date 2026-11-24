@@ -1,0 +1,56 @@
+{
+  "name": "@kgi/ui-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "One KGI Design Guideline UI kit — Nuxt 4.5 layer (Vue 3.5 + Reka UI 2.10 + Tailwind CSS 3.4)",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./components": "./app/kgi.ts",
+    "./tailwind.config": "./tailwind.config.ts",
+    "./tailwind.guideline.preset": "./tailwind.guideline.preset.ts",
+    "./css": "./app/assets/css/kgi.css",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": "^22.19.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "npm run theme && nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "theme": "node scripts/build-theme.mjs && node scripts/build-typography.mjs",
+    "theme:check": "node scripts/build-theme.mjs --check && node scripts/build-typography.mjs --check && node scripts/build-components.mjs --check && node scripts/check-rules.mjs",
+    "components": "node scripts/build-components.mjs",
+    "check:tokens": "node scripts/check-tokens.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "~6.14.0",
+    "nuxt": "~4.5.2",
+    "reka-ui": "~2.10.5",
+    "tailwindcss": "~3.4.19",
+    "vue": "~3.5.45"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "~10.6.7",
+    "@storybook/addon-docs": "~10.6.7",
+    "@storybook/vue3-vite": "~10.6.7",
+    "@types/node": "^22.19.0",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "remark-gfm": "^4.0.1",
+    "storybook": "~10.6.7",
+    "typescript": "~5.8.3",
+    "vite": "^8.2.0",
+    "vue-component-meta": "~3.3.14",
+    "vue-router": "~5.5.1",
+    "vue-tsc": "^3.3.14"
+  }
+}

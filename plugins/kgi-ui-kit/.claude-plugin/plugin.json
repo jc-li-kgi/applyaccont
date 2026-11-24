@@ -1,0 +1,6 @@
+{
+  "name": "kgi-ui-kit",
+  "version": "0.3.0",
+  "description": "KGI ui kit 工具包。generate-ui：用 @kgi/ui-kit 與 One KGI Guideline 生成介面（先檢查描述、缺資訊一次追問完）。sync-figma：從 Figma 補充 kit 的 Foundation 與元件（差異逐項回報、由使用者決定，只在 kit repo 執行）。",
+  "keywords": ["kgi", "ui-kit", "nuxt", "vue", "design-system", "page-generation", "generate-ui", "sync-figma", "figma"]
+}

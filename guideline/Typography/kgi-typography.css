@@ -1,0 +1,1067 @@
+/**
+ * One KGI Typography — 設計系統 Typography Design Tokens
+ * 來源: design-tokens.tokens.json (Figma Design Tokens 導出, 最終確認版本)
+ * 更新日期: 2026-10-19（2026-11-19 依 Figma Typography Scale 修正：Caption-R 的 mWeb / iOS / Android 改為 13，加大字級改為 16）
+ * 涵蓋: 主尺度(60 組)、kgi-大字級「標準」/「加大」字級設定值(60 組),共 120 組
+ */
+
+:root {
+
+  /* ======== 主尺度(Figma 主庫) ======== */
+
+  /* ---- Web ---- */
+  /* display - l / 🌊 web-tc | styleId: S:ef321b366c8a90a324ffb2cec95565686410841e, */
+  --font-display-l-web-tc-family: "Noto Sans TC";
+  --font-display-l-web-tc-weight: 300;
+  --font-display-l-web-tc-size: 4.5rem;
+  --font-display-l-web-tc-size-px: 72px;
+  --font-display-l-web-tc-line-height: 1.4;
+
+  /* display - l / 🌊 web-en | styleId: S:ebef8d2919b1e430072b8fff192c322f92b421b8, */
+  --font-display-l-web-en-family: "Montserrat";
+  --font-display-l-web-en-weight: 300;
+  --font-display-l-web-en-size: 4.5rem;
+  --font-display-l-web-en-size-px: 72px;
+  --font-display-l-web-en-line-height: 1.2;
+
+  /* display - m / 🌊 web-tc | styleId: S:3e251dd190dec188c75c910bd81fbb4f78fc941b, */
+  --font-display-m-web-tc-family: "Noto Sans TC";
+  --font-display-m-web-tc-weight: 300;
+  --font-display-m-web-tc-size: 3.75rem;
+  --font-display-m-web-tc-size-px: 60px;
+  --font-display-m-web-tc-line-height: 1.4;
+
+  /* display - m / 🌊 web-en | styleId: S:6edd6b9aaedc748f18c23db768fd273c589526d3, */
+  --font-display-m-web-en-family: "Montserrat";
+  --font-display-m-web-en-weight: 300;
+  --font-display-m-web-en-size: 3.75rem;
+  --font-display-m-web-en-size-px: 60px;
+  --font-display-m-web-en-line-height: 1.2;
+
+  /* display - s / 🌊 web-tc | styleId: S:989ce584e9603e3762f0671d8f4229a0bbcdbbf7, */
+  --font-display-s-web-tc-family: "Noto Sans TC";
+  --font-display-s-web-tc-weight: 300;
+  --font-display-s-web-tc-size: 3rem;
+  --font-display-s-web-tc-size-px: 48px;
+  --font-display-s-web-tc-line-height: 1.4;
+
+  /* display - s / 🌊 web-en | styleId: S:f7617cb12c22f7bceeb519b78f949e2a871daa1b, */
+  --font-display-s-web-en-family: "Montserrat";
+  --font-display-s-web-en-weight: 300;
+  --font-display-s-web-en-size: 3rem;
+  --font-display-s-web-en-size-px: 48px;
+  --font-display-s-web-en-line-height: 1.2;
+
+  /* headline / 🌊 web-tc | styleId: S:f68036a99ff79028af0e3f757521ff0ff415059e, */
+  --font-headline-web-tc-family: "Noto Sans TC";
+  --font-headline-web-tc-weight: 400;
+  --font-headline-web-tc-size: 2rem;
+  --font-headline-web-tc-size-px: 32px;
+  --font-headline-web-tc-line-height: 1.5;
+
+  /* headline / 🌊 web-en | styleId: S:12c2f47cb5d221bd60dc8bf8569243fb18cd0729, */
+  --font-headline-web-en-family: "Montserrat";
+  --font-headline-web-en-weight: 500;
+  --font-headline-web-en-size: 2rem;
+  --font-headline-web-en-size-px: 32px;
+  --font-headline-web-en-line-height: 1.4;
+
+  /* title / 🌊 web-tc | styleId: S:817f99bde937d054368145aba8d87890fa0633cd, */
+  --font-title-web-tc-family: "Noto Sans TC";
+  --font-title-web-tc-weight: 500;
+  --font-title-web-tc-size: 1.5rem;
+  --font-title-web-tc-size-px: 24px;
+  --font-title-web-tc-line-height: 1.5;
+
+  /* title / 🌊 web-en | styleId: S:d4c76224ea5627a4d6061d6e2bb61957887d5399, */
+  --font-title-web-en-family: "Montserrat";
+  --font-title-web-en-weight: 600;
+  --font-title-web-en-size: 1.5rem;
+  --font-title-web-en-size-px: 24px;
+  --font-title-web-en-line-height: 1.4;
+
+  /* subtitle - b / 🌊 web-tc | styleId: S:c0470ecbe97cfe25ea0a055db0c73574e9aabcf8, */
+  --font-subtitle-b-web-tc-family: "Noto Sans TC";
+  --font-subtitle-b-web-tc-weight: 500;
+  --font-subtitle-b-web-tc-size: 1.3125rem;
+  --font-subtitle-b-web-tc-size-px: 21px;
+  --font-subtitle-b-web-tc-line-height: 1.5;
+
+  /* subtitle - b / 🌊 web-en | styleId: S:9460dbbbb1241d928533988fa17d70bf1e3dbbe6, */
+  --font-subtitle-b-web-en-family: "Montserrat";
+  --font-subtitle-b-web-en-weight: 600;
+  --font-subtitle-b-web-en-size: 1.3125rem;
+  --font-subtitle-b-web-en-size-px: 21px;
+  --font-subtitle-b-web-en-line-height: 1.5;
+
+  /* subtitle - r / 🌊 web-tc | styleId: S:328f55c4e4a44892bf4ec42e1952e0e010bbc86e, */
+  --font-subtitle-r-web-tc-family: "Noto Sans TC";
+  --font-subtitle-r-web-tc-weight: 400;
+  --font-subtitle-r-web-tc-size: 1.3125rem;
+  --font-subtitle-r-web-tc-size-px: 21px;
+  --font-subtitle-r-web-tc-line-height: 1.5;
+
+  /* subtitle - r / 🌊 web-en | styleId: S:9467ed1cb606cf12d472c796518b6dfc1eab83b6, */
+  --font-subtitle-r-web-en-family: "Montserrat";
+  --font-subtitle-r-web-en-weight: 500;
+  --font-subtitle-r-web-en-size: 1.3125rem;
+  --font-subtitle-r-web-en-size-px: 21px;
+  --font-subtitle-r-web-en-line-height: 1.5;
+
+  /* body - b / 🌊 web-tc | styleId: S:372e5aaaa7d1110f1eb01a67369b60084eaf3a14, */
+  --font-body-b-web-tc-family: "Noto Sans TC";
+  --font-body-b-web-tc-weight: 500;
+  --font-body-b-web-tc-size: 1.0625rem;
+  --font-body-b-web-tc-size-px: 17px;
+  --font-body-b-web-tc-line-height: 1.6;
+
+  /* body - b / 🌊 web-en | styleId: S:7bab7e2a42287ea9ef6eb2bbb88fffa84da33b42, */
+  --font-body-b-web-en-family: "Montserrat";
+  --font-body-b-web-en-weight: 600;
+  --font-body-b-web-en-size: 1.0625rem;
+  --font-body-b-web-en-size-px: 17px;
+  --font-body-b-web-en-line-height: 1.5;
+
+  /* body - r / 🌊 web-tc | styleId: S:b1d10b828ad428c56bd9b2e1bc0d53e5a68a7f88, */
+  --font-body-r-web-tc-family: "Noto Sans TC";
+  --font-body-r-web-tc-weight: 400;
+  --font-body-r-web-tc-size: 1.0625rem;
+  --font-body-r-web-tc-size-px: 17px;
+  --font-body-r-web-tc-line-height: 1.6;
+
+  /* body - r / 🌊 web-en | styleId: S:7e2275376d9f6ce87ba0da48fb41bb60db975e94, */
+  --font-body-r-web-en-family: "Montserrat";
+  --font-body-r-web-en-weight: 500;
+  --font-body-r-web-en-size: 1.0625rem;
+  --font-body-r-web-en-size-px: 17px;
+  --font-body-r-web-en-line-height: 1.5;
+
+  /* caption - r / 🌊 web-tc | styleId: S:efa9d09bebb1ff593c13bd53e4bbffbcdb4b29f0, */
+  --font-caption-r-web-tc-family: "Noto Sans TC";
+  --font-caption-r-web-tc-weight: 400;
+  --font-caption-r-web-tc-size: 0.875rem;
+  --font-caption-r-web-tc-size-px: 14px;
+  --font-caption-r-web-tc-line-height: 1.5;
+
+  /* caption - r / 🌊 web-en | styleId: S:7480b89f89c175e50c7030e5f9d6da2f4ad70c3e, */
+  --font-caption-r-web-en-family: "Montserrat";
+  --font-caption-r-web-en-weight: 400;
+  --font-caption-r-web-en-size: 0.875rem;
+  --font-caption-r-web-en-size-px: 14px;
+  --font-caption-r-web-en-line-height: 1.6;
+
+
+  /* ---- MWeb ---- */
+  /* display - l / 💧 mweb-tc | styleId: S:d2317534906565ea30b4d31e088f8cbe727a34d0, */
+  --font-display-l-mweb-tc-family: "Noto Sans TC";
+  --font-display-l-mweb-tc-weight: 300;
+  --font-display-l-mweb-tc-size: 4rem;
+  --font-display-l-mweb-tc-size-px: 64px;
+  --font-display-l-mweb-tc-line-height: 1.4;
+
+  /* display - l / 💧 mweb-en | styleId: S:ef345d3408f9967efa21d8ebffcada7e520165b0, */
+  --font-display-l-mweb-en-family: "Montserrat";
+  --font-display-l-mweb-en-weight: 300;
+  --font-display-l-mweb-en-size: 4rem;
+  --font-display-l-mweb-en-size-px: 64px;
+  --font-display-l-mweb-en-line-height: 1.2;
+
+  /* display - m / 💧 mweb-tc | styleId: S:806e34a20d8c9a9ea49fd08a1ea2b590fe8c7856, */
+  --font-display-m-mweb-tc-family: "Noto Sans TC";
+  --font-display-m-mweb-tc-weight: 300;
+  --font-display-m-mweb-tc-size: 3rem;
+  --font-display-m-mweb-tc-size-px: 48px;
+  --font-display-m-mweb-tc-line-height: 1.4;
+
+  /* display - m / 💧 mweb-en | styleId: S:238cda1e6f6e7213aa61e6761cd877c8436706b0, */
+  --font-display-m-mweb-en-family: "Montserrat";
+  --font-display-m-mweb-en-weight: 300;
+  --font-display-m-mweb-en-size: 3rem;
+  --font-display-m-mweb-en-size-px: 48px;
+  --font-display-m-mweb-en-line-height: 1.3;
+
+  /* display - s / 💧 mweb - tc | styleId: S:5088396c93e5c888304dcd00e9db025ad20d9848, */
+  --font-display-s-mweb-tc-family: "Noto Sans TC";
+  --font-display-s-mweb-tc-weight: 300;
+  --font-display-s-mweb-tc-size: 2.5rem;
+  --font-display-s-mweb-tc-size-px: 40px;
+  --font-display-s-mweb-tc-line-height: 1.4;
+
+  /* display - s / 💧 mweb - en | styleId: S:7cf440699d8087a6600f98d0479e4ab0115ee452, */
+  --font-display-s-mweb-en-family: "Montserrat";
+  --font-display-s-mweb-en-weight: 300;
+  --font-display-s-mweb-en-size: 2.5rem;
+  --font-display-s-mweb-en-size-px: 40px;
+  --font-display-s-mweb-en-line-height: 1.3;
+
+  /* headline / 💧 mweb-tc | styleId: S:a3064040312a1f73fde50787f1b69959d1b8c071, */
+  --font-headline-mweb-tc-family: "Noto Sans TC";
+  --font-headline-mweb-tc-weight: 400;
+  --font-headline-mweb-tc-size: 1.625rem;
+  --font-headline-mweb-tc-size-px: 26px;
+  --font-headline-mweb-tc-line-height: 1.5;
+
+  /* headline / 💧 mweb-en | styleId: S:411302ae2e373b719d6b3245f06965306a899313, */
+  --font-headline-mweb-en-family: "Montserrat";
+  --font-headline-mweb-en-weight: 500;
+  --font-headline-mweb-en-size: 1.625rem;
+  --font-headline-mweb-en-size-px: 26px;
+  --font-headline-mweb-en-line-height: 1.4;
+
+  /* title / 💧 mweb-tc | styleId: S:c055335298118bc8f245ed60fa0f3a3194b62fc0, */
+  --font-title-mweb-tc-family: "Noto Sans TC";
+  --font-title-mweb-tc-weight: 500;
+  --font-title-mweb-tc-size: 1.3125rem;
+  --font-title-mweb-tc-size-px: 21px;
+  --font-title-mweb-tc-line-height: 1.5;
+
+  /* title / 💧 mweb-en | styleId: S:6b67317a9e44838e19f21a88449c267793b291bd, */
+  --font-title-mweb-en-family: "Montserrat";
+  --font-title-mweb-en-weight: 600;
+  --font-title-mweb-en-size: 1.3125rem;
+  --font-title-mweb-en-size-px: 21px;
+  --font-title-mweb-en-line-height: 1.4;
+
+  /* subtitle - b / 💧 mweb-tc | styleId: S:a7e6f80c20620af01d51d0b286c4c8123f494ba5, */
+  --font-subtitle-b-mweb-tc-family: "Noto Sans TC";
+  --font-subtitle-b-mweb-tc-weight: 500;
+  --font-subtitle-b-mweb-tc-size: 1.125rem;
+  --font-subtitle-b-mweb-tc-size-px: 18px;
+  --font-subtitle-b-mweb-tc-line-height: 1.6;
+
+  /* subtitle - b / 💧 mweb-en | styleId: S:bc8d12ab2ca179ec0b71d3f5c31256b3916d2191, */
+  --font-subtitle-b-mweb-en-family: "Montserrat";
+  --font-subtitle-b-mweb-en-weight: 600;
+  --font-subtitle-b-mweb-en-size: 1.125rem;
+  --font-subtitle-b-mweb-en-size-px: 18px;
+  --font-subtitle-b-mweb-en-line-height: 1.5;
+
+  /* subtitle - r / 💧 mweb-tc | styleId: S:c92b50c0a5a6340874d65c5fff6029e5137d8e4b, */
+  --font-subtitle-r-mweb-tc-family: "Noto Sans TC";
+  --font-subtitle-r-mweb-tc-weight: 400;
+  --font-subtitle-r-mweb-tc-size: 1.125rem;
+  --font-subtitle-r-mweb-tc-size-px: 18px;
+  --font-subtitle-r-mweb-tc-line-height: 1.6;
+
+  /* subtitle - r / 💧 mweb-en | styleId: S:6420d32a5aeb9fc7baa278ec93ee5e306b4010f5, */
+  --font-subtitle-r-mweb-en-family: "Montserrat";
+  --font-subtitle-r-mweb-en-weight: 500;
+  --font-subtitle-r-mweb-en-size: 1.125rem;
+  --font-subtitle-r-mweb-en-size-px: 18px;
+  --font-subtitle-r-mweb-en-line-height: 1.5;
+
+  /* body - b / 💧 mweb-tc | styleId: S:2a1d63429880373f9fd7370d7e0ff83af85d4ded, */
+  --font-body-b-mweb-tc-family: "Noto Sans TC";
+  --font-body-b-mweb-tc-weight: 500;
+  --font-body-b-mweb-tc-size: 1rem;
+  --font-body-b-mweb-tc-size-px: 16px;
+  --font-body-b-mweb-tc-line-height: 1.5;
+
+  /* body - b / 💧 mweb-en | styleId: S:195f22224be6d99c8cd06c07f2849f9c1c777b16, */
+  --font-body-b-mweb-en-family: "Montserrat";
+  --font-body-b-mweb-en-weight: 600;
+  --font-body-b-mweb-en-size: 1rem;
+  --font-body-b-mweb-en-size-px: 16px;
+  --font-body-b-mweb-en-line-height: 1.5;
+
+  /* body - r / 💧 mweb-tc | styleId: S:e983e56190c39f2e35bcad6aaec8edfcbc018c6b, */
+  --font-body-r-mweb-tc-family: "Noto Sans TC";
+  --font-body-r-mweb-tc-weight: 400;
+  --font-body-r-mweb-tc-size: 1rem;
+  --font-body-r-mweb-tc-size-px: 16px;
+  --font-body-r-mweb-tc-line-height: 1.5;
+
+  /* body - r / 💧 mweb-en | styleId: S:90c45f267f11d0e4c8db8413ba58f7a538597cca, */
+  --font-body-r-mweb-en-family: "Montserrat";
+  --font-body-r-mweb-en-weight: 500;
+  --font-body-r-mweb-en-size: 1rem;
+  --font-body-r-mweb-en-size-px: 16px;
+  --font-body-r-mweb-en-line-height: 1.5;
+
+  /* caption - r / 💧 mweb-tc | styleId: S:66f9f2d156aea2b8070652c8d42f6a2b55fee4a7, */
+  --font-caption-r-mweb-tc-family: "Noto Sans TC";
+  --font-caption-r-mweb-tc-weight: 400;
+  --font-caption-r-mweb-tc-size: 0.8125rem; /* 2026-11-19 依 Figma 改為 13px（原 14px） */
+  --font-caption-r-mweb-tc-size-px: 13px;
+  --font-caption-r-mweb-tc-line-height: 1.5;
+
+  /* caption - r / 💧 mweb-en | styleId: S:db3b5bfaba49115aef20299d365a4e421e5de466, */
+  --font-caption-r-mweb-en-family: "Montserrat";
+  --font-caption-r-mweb-en-weight: 400;
+  --font-caption-r-mweb-en-size: 0.8125rem; /* 2026-11-19 依 Figma 改為 13px（原 14px） */
+  --font-caption-r-mweb-en-size-px: 13px;
+  --font-caption-r-mweb-en-line-height: 1.6;
+
+
+  /* ---- iOS (Native App,使用 pt,不提供 rem/px) ---- */
+  /* display - l / 🍎 ios-tc | styleId: S:154bad37f757805948b7980f465bb1d7f4037e36, */
+  --font-display-l-ios-tc-family: "PingFang TC";
+  --font-display-l-ios-tc-weight: 300;
+  --font-display-l-ios-tc-size-pt: 64pt;
+  --font-display-l-ios-tc-line-height: 1.4;
+
+  /* display - l / 🍎 ios-en | styleId: S:4d1967e9fec4ccbec560c7ca305d153e612c2b74, */
+  --font-display-l-ios-en-family: "SF Pro";
+  --font-display-l-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-display-l-ios-en-size-pt: 64pt;
+  --font-display-l-ios-en-line-height: 1.2;
+
+  /* display - m / 🍎 ios-tc | styleId: S:d1fe1612e29d0a01cb657a02f05afe9ee48b7642, */
+  --font-display-m-ios-tc-family: "PingFang TC";
+  --font-display-m-ios-tc-weight: 300;
+  --font-display-m-ios-tc-size-pt: 48pt;
+  --font-display-m-ios-tc-line-height: 1.4;
+
+  /* display - m / 🍎 ios-en | styleId: S:a15e43c9bfb7685dd03021ab400c212452997909, */
+  --font-display-m-ios-en-family: "SF Pro";
+  --font-display-m-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-display-m-ios-en-size-pt: 48pt;
+  --font-display-m-ios-en-line-height: 1.3;
+
+  /* display - s / 🍎 ios - tc | styleId: S:3274f78ef29a786d940da1fae0959ff4517f8737, */
+  --font-display-s-ios-tc-family: "PingFang TC";
+  --font-display-s-ios-tc-weight: 300;
+  --font-display-s-ios-tc-size-pt: 40pt;
+  --font-display-s-ios-tc-line-height: 1.4;
+
+  /* display - s / 🍎 ios - en | styleId: S:ff03687a9562fb853ae500dadb5a2f74855cb88c, */
+  --font-display-s-ios-en-family: "SF Pro";
+  --font-display-s-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-display-s-ios-en-size-pt: 40pt;
+  --font-display-s-ios-en-line-height: 1.3;
+
+  /* headline / 🍎 ios-tc | styleId: S:c69c075eb9d0968f6066acf76b467b37a5d13359, */
+  --font-headline-ios-tc-family: "PingFang TC";
+  --font-headline-ios-tc-weight: 400;
+  --font-headline-ios-tc-size-pt: 26pt;
+  --font-headline-ios-tc-line-height: 1.5;
+
+  /* headline / 🍎 ios-en | styleId: S:7f218f7a1d45866673efce186268e36d9fc9929a, */
+  --font-headline-ios-en-family: "SF Pro";
+  --font-headline-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-headline-ios-en-size-pt: 26pt;
+  --font-headline-ios-en-line-height: 1.4;
+
+  /* title / 🍎 ios-tc | styleId: S:107ee177b630d4be98c0ef9422e0e8c0c65797bb, */
+  --font-title-ios-tc-family: "PingFang TC";
+  --font-title-ios-tc-weight: 500;
+  --font-title-ios-tc-size-pt: 21pt;
+  --font-title-ios-tc-line-height: 1.5;
+
+  /* title / 🍎 ios-en | styleId: S:4e9c541fc10dd1035e937d083f43c3b4893ef0bb, */
+  --font-title-ios-en-family: "SF Pro";
+  --font-title-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-title-ios-en-size-pt: 21pt;
+  --font-title-ios-en-line-height: 1.4;
+
+  /* subtitle - b / 🍎 ios-tc | styleId: S:4c71590c984afc5be679a3e53a2742afc6fcbd90, */
+  --font-subtitle-b-ios-tc-family: "PingFang TC";
+  --font-subtitle-b-ios-tc-weight: 500;
+  --font-subtitle-b-ios-tc-size-pt: 18pt;
+  --font-subtitle-b-ios-tc-line-height: 1.6;
+
+  /* subtitle - b / 🍎 ios-en | styleId: S:acfa7d56148556d927d191e33e192cdcf9f6fc55, */
+  --font-subtitle-b-ios-en-family: "SF Pro";
+  --font-subtitle-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-subtitle-b-ios-en-size-pt: 18pt;
+  --font-subtitle-b-ios-en-line-height: 1.5;
+
+  /* subtitle - r / 🍎 ios-tc | styleId: S:42ceaf946fdf65335f4759c83e7ac77151bee7bc, */
+  --font-subtitle-r-ios-tc-family: "PingFang TC";
+  --font-subtitle-r-ios-tc-weight: 400;
+  --font-subtitle-r-ios-tc-size-pt: 18pt;
+  --font-subtitle-r-ios-tc-line-height: 1.6;
+
+  /* subtitle - r / 🍎 ios-en | styleId: S:46cef6986c20ea51181d50d0c6fdfad6a8e39193, */
+  --font-subtitle-r-ios-en-family: "SF Pro";
+  --font-subtitle-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-subtitle-r-ios-en-size-pt: 18pt;
+  --font-subtitle-r-ios-en-line-height: 1.5;
+
+  /* body - b / 🍎 ios-tc | styleId: S:ad180e3237282aa11d1e1aa3fe2462eba9771794, */
+  --font-body-b-ios-tc-family: "PingFang TC";
+  --font-body-b-ios-tc-weight: 500;
+  --font-body-b-ios-tc-size-pt: 16pt;
+  --font-body-b-ios-tc-line-height: 1.5;
+
+  /* body - b / 🍎 ios-en | styleId: S:6c7d61775f1cbf4df16e664d48e5528d7fed0a99, */
+  --font-body-b-ios-en-family: "SF Pro";
+  --font-body-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-body-b-ios-en-size-pt: 16pt;
+  --font-body-b-ios-en-line-height: 1.5;
+
+  /* body - r / 🍎 ios-tc | styleId: S:ffde9057028044a86fcf4ae8e7050783cb09a1ef, */
+  --font-body-r-ios-tc-family: "PingFang TC";
+  --font-body-r-ios-tc-weight: 400;
+  --font-body-r-ios-tc-size-pt: 16pt;
+  --font-body-r-ios-tc-line-height: 1.5;
+
+  /* body - r / 🍎 ios-en | styleId: S:47216177ad8b11dbede29f48313ac5c2c05854f0, */
+  --font-body-r-ios-en-family: "SF Pro";
+  --font-body-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-body-r-ios-en-size-pt: 16pt;
+  --font-body-r-ios-en-line-height: 1.5;
+
+  /* caption - r / 🍎 ios-tc | styleId: S:8490e79eba7a70a5d8db1f031546f95a8852b0e4, */
+  --font-caption-r-ios-tc-family: "PingFang TC";
+  --font-caption-r-ios-tc-weight: 400;
+  --font-caption-r-ios-tc-size-pt: 13pt; /* 2026-11-19 依 Figma 改為 13pt（原 14pt） */
+  --font-caption-r-ios-tc-line-height: 1.5;
+
+  /* caption - r / 🍎 ios-en | styleId: S:ffbc122efb0498e7c82b2cb4eeb4540545024719, */
+  --font-caption-r-ios-en-family: "SF Pro";
+  --font-caption-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-caption-r-ios-en-size-pt: 13pt; /* 2026-11-19 依 Figma 改為 13pt（原 14pt） */
+  --font-caption-r-ios-en-line-height: 1.6;
+
+
+  /* ---- Android (Native App,使用 sp,依 iOS 定義換算) ---- */
+  /* display - l / 🤖 android-tc */
+  --font-display-l-android-tc-family: "Noto Sans TC";
+  --font-display-l-android-tc-weight: 300;
+  --font-display-l-android-tc-size-sp: 64sp;
+  --font-display-l-android-tc-line-height: 1.4;
+
+  /* display - l / 🤖 android-en */
+  --font-display-l-android-en-family: "Roboto";
+  --font-display-l-android-en-weight: 300;
+  --font-display-l-android-en-size-sp: 64sp;
+  --font-display-l-android-en-line-height: 1.2;
+
+  /* display - m / 🤖 android-tc */
+  --font-display-m-android-tc-family: "Noto Sans TC";
+  --font-display-m-android-tc-weight: 300;
+  --font-display-m-android-tc-size-sp: 48sp;
+  --font-display-m-android-tc-line-height: 1.4;
+
+  /* display - m / 🤖 android-en */
+  --font-display-m-android-en-family: "Roboto";
+  --font-display-m-android-en-weight: 300;
+  --font-display-m-android-en-size-sp: 48sp;
+  --font-display-m-android-en-line-height: 1.3;
+
+  /* display - s / 🤖 android-tc */
+  --font-display-s-android-tc-family: "Noto Sans TC";
+  --font-display-s-android-tc-weight: 300;
+  --font-display-s-android-tc-size-sp: 40sp;
+  --font-display-s-android-tc-line-height: 1.4;
+
+  /* display - s / 🤖 android-en */
+  --font-display-s-android-en-family: "Roboto";
+  --font-display-s-android-en-weight: 300;
+  --font-display-s-android-en-size-sp: 40sp;
+  --font-display-s-android-en-line-height: 1.3;
+
+  /* headline / 🤖 android-tc */
+  --font-headline-android-tc-family: "Noto Sans TC";
+  --font-headline-android-tc-weight: 400;
+  --font-headline-android-tc-size-sp: 26sp;
+  --font-headline-android-tc-line-height: 1.5;
+
+  /* headline / 🤖 android-en */
+  --font-headline-android-en-family: "Roboto";
+  --font-headline-android-en-weight: 400;
+  --font-headline-android-en-size-sp: 26sp;
+  --font-headline-android-en-line-height: 1.4;
+
+  /* title / 🤖 android-tc */
+  --font-title-android-tc-family: "Noto Sans TC";
+  --font-title-android-tc-weight: 500;
+  --font-title-android-tc-size-sp: 21sp;
+  --font-title-android-tc-line-height: 1.5;
+
+  /* title / 🤖 android-en */
+  --font-title-android-en-family: "Roboto";
+  --font-title-android-en-weight: 500;
+  --font-title-android-en-size-sp: 21sp;
+  --font-title-android-en-line-height: 1.4;
+
+  /* subtitle - b / 🤖 android-tc */
+  --font-subtitle-b-android-tc-family: "Noto Sans TC";
+  --font-subtitle-b-android-tc-weight: 500;
+  --font-subtitle-b-android-tc-size-sp: 18sp;
+  --font-subtitle-b-android-tc-line-height: 1.6;
+
+  /* subtitle - b / 🤖 android-en */
+  --font-subtitle-b-android-en-family: "Roboto";
+  --font-subtitle-b-android-en-weight: 500;
+  --font-subtitle-b-android-en-size-sp: 18sp;
+  --font-subtitle-b-android-en-line-height: 1.5;
+
+  /* subtitle - r / 🤖 android-tc */
+  --font-subtitle-r-android-tc-family: "Noto Sans TC";
+  --font-subtitle-r-android-tc-weight: 400;
+  --font-subtitle-r-android-tc-size-sp: 18sp;
+  --font-subtitle-r-android-tc-line-height: 1.6;
+
+  /* subtitle - r / 🤖 android-en */
+  --font-subtitle-r-android-en-family: "Roboto";
+  --font-subtitle-r-android-en-weight: 400;
+  --font-subtitle-r-android-en-size-sp: 18sp;
+  --font-subtitle-r-android-en-line-height: 1.5;
+
+  /* body - b / 🤖 android-tc */
+  --font-body-b-android-tc-family: "Noto Sans TC";
+  --font-body-b-android-tc-weight: 500;
+  --font-body-b-android-tc-size-sp: 16sp;
+  --font-body-b-android-tc-line-height: 1.5;
+
+  /* body - b / 🤖 android-en */
+  --font-body-b-android-en-family: "Roboto";
+  --font-body-b-android-en-weight: 500;
+  --font-body-b-android-en-size-sp: 16sp;
+  --font-body-b-android-en-line-height: 1.5;
+
+  /* body - r / 🤖 android-tc */
+  --font-body-r-android-tc-family: "Noto Sans TC";
+  --font-body-r-android-tc-weight: 400;
+  --font-body-r-android-tc-size-sp: 16sp;
+  --font-body-r-android-tc-line-height: 1.5;
+
+  /* body - r / 🤖 android-en */
+  --font-body-r-android-en-family: "Roboto";
+  --font-body-r-android-en-weight: 400;
+  --font-body-r-android-en-size-sp: 16sp;
+  --font-body-r-android-en-line-height: 1.5;
+
+  /* caption - r / 🤖 android-tc */
+  --font-caption-r-android-tc-family: "Noto Sans TC";
+  --font-caption-r-android-tc-weight: 400;
+  --font-caption-r-android-tc-size-sp: 13sp; /* 2026-11-19 依 Figma 改為 13sp（原 14sp，與 iOS 相同） */
+  --font-caption-r-android-tc-line-height: 1.5;
+
+  /* caption - r / 🤖 android-en */
+  --font-caption-r-android-en-family: "Roboto";
+  --font-caption-r-android-en-weight: 400;
+  --font-caption-r-android-en-size-sp: 13sp; /* 2026-11-19 依 Figma 改為 13sp（原 14sp，與 iOS 相同） */
+  --font-caption-r-android-en-line-height: 1.6;
+
+  /* ======== kgi-大字級(「標準」/「加大」字級設定值) ======== */
+
+  /* ---- Web ---- */
+  /* display - l / 🌊 web-tc | styleId: S:df14cf573703479349418ff58fdfbb474382f4d9, */
+  --font-kgi-大字級-display-l-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-l-web-tc-weight: 300;
+  --font-kgi-大字級-display-l-web-tc-size: 4.6875rem;
+  --font-kgi-大字級-display-l-web-tc-size-px: 75px;
+  --font-kgi-大字級-display-l-web-tc-line-height: 1.4;
+
+  /* display - l / 🌊 web-en | styleId: S:890da24d7abb2c1d9fdda5452c62c3418195cf43, */
+  --font-kgi-大字級-display-l-web-en-family: "Montserrat";
+  --font-kgi-大字級-display-l-web-en-weight: 300;
+  --font-kgi-大字級-display-l-web-en-size: 4.6875rem;
+  --font-kgi-大字級-display-l-web-en-size-px: 75px;
+  --font-kgi-大字級-display-l-web-en-line-height: 1.2;
+
+  /* display - m / 🌊 web-tc | styleId: S:548e23823b90445b41c3e322001a404b8f82b4e9, */
+  --font-kgi-大字級-display-m-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-m-web-tc-weight: 300;
+  --font-kgi-大字級-display-m-web-tc-size: 3.9375rem;
+  --font-kgi-大字級-display-m-web-tc-size-px: 63px;
+  --font-kgi-大字級-display-m-web-tc-line-height: 1.4;
+
+  /* display - m / 🌊 web-en | styleId: S:49bfd755d1d7aefe8d3a957cddcab8cfed8e73e7, */
+  --font-kgi-大字級-display-m-web-en-family: "Montserrat";
+  --font-kgi-大字級-display-m-web-en-weight: 300;
+  --font-kgi-大字級-display-m-web-en-size: 3.9375rem;
+  --font-kgi-大字級-display-m-web-en-size-px: 63px;
+  --font-kgi-大字級-display-m-web-en-line-height: 1.2;
+
+  /* display - s / 🌊 web-tc | styleId: S:7730f92ad3be2979dd05d2c27f4849b74a0cc31d, */
+  --font-kgi-大字級-display-s-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-s-web-tc-weight: 300;
+  --font-kgi-大字級-display-s-web-tc-size: 3.1875rem;
+  --font-kgi-大字級-display-s-web-tc-size-px: 51px;
+  --font-kgi-大字級-display-s-web-tc-line-height: 1.4;
+
+  /* display - s / 🌊 web-en | styleId: S:85751550800be4b57c1c5cf5cf0793dd98accbf9, */
+  --font-kgi-大字級-display-s-web-en-family: "Montserrat";
+  --font-kgi-大字級-display-s-web-en-weight: 300;
+  --font-kgi-大字級-display-s-web-en-size: 3.1875rem;
+  --font-kgi-大字級-display-s-web-en-size-px: 51px;
+  --font-kgi-大字級-display-s-web-en-line-height: 1.2;
+
+  /* headline / 🌊 web-tc | styleId: S:171378115208d6eca8457d9692746eab999bd17d, */
+  --font-kgi-大字級-headline-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-headline-web-tc-weight: 400;
+  --font-kgi-大字級-headline-web-tc-size: 2.1875rem;
+  --font-kgi-大字級-headline-web-tc-size-px: 35px;
+  --font-kgi-大字級-headline-web-tc-line-height: 1.5;
+
+  /* headline / 🌊 web-en | styleId: S:acf7cccef44283cebd064fe55208e8af304e8bb9, */
+  --font-kgi-大字級-headline-web-en-family: "Montserrat";
+  --font-kgi-大字級-headline-web-en-weight: 500;
+  --font-kgi-大字級-headline-web-en-size: 2.1875rem;
+  --font-kgi-大字級-headline-web-en-size-px: 35px;
+  --font-kgi-大字級-headline-web-en-line-height: 1.4;
+
+  /* title / 🌊 web-tc | styleId: S:f74c495992cab839079bc8b42d771d6a0b8685a2, */
+  --font-kgi-大字級-title-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-title-web-tc-weight: 500;
+  --font-kgi-大字級-title-web-tc-size: 1.6875rem;
+  --font-kgi-大字級-title-web-tc-size-px: 27px;
+  --font-kgi-大字級-title-web-tc-line-height: 1.5;
+
+  /* title / 🌊 web-en | styleId: S:195c15c41957beb81f97e452220207eae8f4afdd, */
+  --font-kgi-大字級-title-web-en-family: "Montserrat";
+  --font-kgi-大字級-title-web-en-weight: 600;
+  --font-kgi-大字級-title-web-en-size: 1.6875rem;
+  --font-kgi-大字級-title-web-en-size-px: 27px;
+  --font-kgi-大字級-title-web-en-line-height: 1.4;
+
+  /* subtitle - b / 🌊 web-tc | styleId: S:2ef10cbbbd918755722a86b531e11554452ba348, */
+  --font-kgi-大字級-subtitle-b-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-b-web-tc-weight: 500;
+  --font-kgi-大字級-subtitle-b-web-tc-size: 1.5rem;
+  --font-kgi-大字級-subtitle-b-web-tc-size-px: 24px;
+  --font-kgi-大字級-subtitle-b-web-tc-line-height: 1.5;
+
+  /* subtitle - b / 🌊 web-en | styleId: S:5f1afb565e9b95c3e41cf745bdb6aba0e65d0bc1, */
+  --font-kgi-大字級-subtitle-b-web-en-family: "Montserrat";
+  --font-kgi-大字級-subtitle-b-web-en-weight: 600;
+  --font-kgi-大字級-subtitle-b-web-en-size: 1.5rem;
+  --font-kgi-大字級-subtitle-b-web-en-size-px: 24px;
+  --font-kgi-大字級-subtitle-b-web-en-line-height: 1.5;
+
+  /* subtitle - r / 🌊 web-tc | styleId: S:d40a94f7d5d2ef6ec642a27ea50c4faea6363011, */
+  --font-kgi-大字級-subtitle-r-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-r-web-tc-weight: 400;
+  --font-kgi-大字級-subtitle-r-web-tc-size: 1.5rem;
+  --font-kgi-大字級-subtitle-r-web-tc-size-px: 24px;
+  --font-kgi-大字級-subtitle-r-web-tc-line-height: 1.5;
+
+  /* subtitle - r / 🌊 web-en | styleId: S:a96f66f800de66e91d869d5d7dcfc9b6899647c4, */
+  --font-kgi-大字級-subtitle-r-web-en-family: "Montserrat";
+  --font-kgi-大字級-subtitle-r-web-en-weight: 500;
+  --font-kgi-大字級-subtitle-r-web-en-size: 1.5rem;
+  --font-kgi-大字級-subtitle-r-web-en-size-px: 24px;
+  --font-kgi-大字級-subtitle-r-web-en-line-height: 1.5;
+
+  /* body - b / 🌊 web-tc | styleId: S:be8e659ae16442c4a6b0f851183340418303528e, */
+  --font-kgi-大字級-body-b-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-b-web-tc-weight: 500;
+  --font-kgi-大字級-body-b-web-tc-size: 1.25rem;
+  --font-kgi-大字級-body-b-web-tc-size-px: 20px;
+  --font-kgi-大字級-body-b-web-tc-line-height: 1.6;
+
+  /* body - b / 🌊 web-en | styleId: S:76ae166163bf16e87eb0bd364ca7f4ebfbe9ce47, */
+  --font-kgi-大字級-body-b-web-en-family: "Montserrat";
+  --font-kgi-大字級-body-b-web-en-weight: 600;
+  --font-kgi-大字級-body-b-web-en-size: 1.25rem;
+  --font-kgi-大字級-body-b-web-en-size-px: 20px;
+  --font-kgi-大字級-body-b-web-en-line-height: 1.5;
+
+  /* body - r / 🌊 web-tc | styleId: S:d91332489d04095bda82d82e00688f65eb340957, */
+  --font-kgi-大字級-body-r-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-r-web-tc-weight: 400;
+  --font-kgi-大字級-body-r-web-tc-size: 1.25rem;
+  --font-kgi-大字級-body-r-web-tc-size-px: 20px;
+  --font-kgi-大字級-body-r-web-tc-line-height: 1.6;
+
+  /* body - r / 🌊 web-en | styleId: S:d1a3398cfdd7bf4944e5d8e97479803833087820, */
+  --font-kgi-大字級-body-r-web-en-family: "Montserrat";
+  --font-kgi-大字級-body-r-web-en-weight: 500;
+  --font-kgi-大字級-body-r-web-en-size: 1.25rem;
+  --font-kgi-大字級-body-r-web-en-size-px: 20px;
+  --font-kgi-大字級-body-r-web-en-line-height: 1.5;
+
+  /* caption - r / 🌊 web-tc | styleId: S:6ea9804b199803da2c21f57e31df1ee2c1587123, */
+  --font-kgi-大字級-caption-r-web-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-caption-r-web-tc-weight: 400;
+  --font-kgi-大字級-caption-r-web-tc-size: 1.0625rem;
+  --font-kgi-大字級-caption-r-web-tc-size-px: 17px;
+  --font-kgi-大字級-caption-r-web-tc-line-height: 1.5;
+
+  /* caption - r / 🌊 web-en | styleId: S:d356989d689938059a3d6cf4cee187136443e995, */
+  --font-kgi-大字級-caption-r-web-en-family: "Montserrat";
+  --font-kgi-大字級-caption-r-web-en-weight: 400;
+  --font-kgi-大字級-caption-r-web-en-size: 1.0625rem;
+  --font-kgi-大字級-caption-r-web-en-size-px: 17px;
+  --font-kgi-大字級-caption-r-web-en-line-height: 1.6;
+
+
+  /* ---- MWeb ---- */
+  /* display - l / 💧 mweb-tc | styleId: S:6ec3d8704095258007efe90c627679d05bc17a16, */
+  --font-kgi-大字級-display-l-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-l-mweb-tc-weight: 300;
+  --font-kgi-大字級-display-l-mweb-tc-size: 4.1875rem;
+  --font-kgi-大字級-display-l-mweb-tc-size-px: 67px;
+  --font-kgi-大字級-display-l-mweb-tc-line-height: 1.4;
+
+  /* display - l / 💧 mweb-en | styleId: S:90e75f5b899afc86cbf794ec1a8b857bb4e17ba2, */
+  --font-kgi-大字級-display-l-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-display-l-mweb-en-weight: 300;
+  --font-kgi-大字級-display-l-mweb-en-size: 4.1875rem;
+  --font-kgi-大字級-display-l-mweb-en-size-px: 67px;
+  --font-kgi-大字級-display-l-mweb-en-line-height: 1.2;
+
+  /* display - m / 💧 mweb-tc | styleId: S:5011f9d4e657e92e463de66cd5cef4a771e32871, */
+  --font-kgi-大字級-display-m-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-m-mweb-tc-weight: 300;
+  --font-kgi-大字級-display-m-mweb-tc-size: 3.1875rem;
+  --font-kgi-大字級-display-m-mweb-tc-size-px: 51px;
+  --font-kgi-大字級-display-m-mweb-tc-line-height: 1.4;
+
+  /* display - m / 💧 mweb-en | styleId: S:b4ffa57ac569402332d36359727d01f43d03bdb6, */
+  --font-kgi-大字級-display-m-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-display-m-mweb-en-weight: 300;
+  --font-kgi-大字級-display-m-mweb-en-size: 3.1875rem;
+  --font-kgi-大字級-display-m-mweb-en-size-px: 51px;
+  --font-kgi-大字級-display-m-mweb-en-line-height: 1.3;
+
+  /* display - s / 💧 mweb - tc | styleId: S:8a58354dcd93c14136859941873a3b2c80609872, */
+  --font-kgi-大字級-display-s-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-s-mweb-tc-weight: 300;
+  --font-kgi-大字級-display-s-mweb-tc-size: 2.6875rem;
+  --font-kgi-大字級-display-s-mweb-tc-size-px: 43px;
+  --font-kgi-大字級-display-s-mweb-tc-line-height: 1.4;
+
+  /* display - s / 💧 mweb - en | styleId: S:c9f4fbab04e9276cf14ecd9a8c9d65db3bdba23e, */
+  --font-kgi-大字級-display-s-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-display-s-mweb-en-weight: 300;
+  --font-kgi-大字級-display-s-mweb-en-size: 2.6875rem;
+  --font-kgi-大字級-display-s-mweb-en-size-px: 43px;
+  --font-kgi-大字級-display-s-mweb-en-line-height: 1.3;
+
+  /* headline / 💧 mweb-tc | styleId: S:51e8b39c57e453cf4cad5220375cd3d9f282de38, */
+  --font-kgi-大字級-headline-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-headline-mweb-tc-weight: 400;
+  --font-kgi-大字級-headline-mweb-tc-size: 1.8125rem;
+  --font-kgi-大字級-headline-mweb-tc-size-px: 29px;
+  --font-kgi-大字級-headline-mweb-tc-line-height: 1.5;
+
+  /* headline / 💧 mweb-en | styleId: S:1d393085ec17784ef9569e0f8ea06a556097dfdc, */
+  --font-kgi-大字級-headline-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-headline-mweb-en-weight: 500;
+  --font-kgi-大字級-headline-mweb-en-size: 1.8125rem;
+  --font-kgi-大字級-headline-mweb-en-size-px: 29px;
+  --font-kgi-大字級-headline-mweb-en-line-height: 1.4;
+
+  /* title / 💧 mweb-tc | styleId: S:46dc64baff5bbd2f0a593698fa55f7299bcc8b84, */
+  --font-kgi-大字級-title-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-title-mweb-tc-weight: 500;
+  --font-kgi-大字級-title-mweb-tc-size: 1.5rem;
+  --font-kgi-大字級-title-mweb-tc-size-px: 24px;
+  --font-kgi-大字級-title-mweb-tc-line-height: 1.5;
+
+  /* title / 💧 mweb-en | styleId: S:249f1e9f3457f0b6479dec18221dc7c9d0b2d1d7, */
+  --font-kgi-大字級-title-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-title-mweb-en-weight: 600;
+  --font-kgi-大字級-title-mweb-en-size: 1.5rem;
+  --font-kgi-大字級-title-mweb-en-size-px: 24px;
+  --font-kgi-大字級-title-mweb-en-line-height: 1.4;
+
+  /* subtitle - b / 💧 mweb-tc | styleId: S:846e2c714b5026b64218206ac866831f7ece746b, */
+  --font-kgi-大字級-subtitle-b-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-b-mweb-tc-weight: 500;
+  --font-kgi-大字級-subtitle-b-mweb-tc-size: 1.25rem;
+  --font-kgi-大字級-subtitle-b-mweb-tc-size-px: 20px;
+  --font-kgi-大字級-subtitle-b-mweb-tc-line-height: 1.6;
+
+  /* subtitle - b / 💧 mweb-en | styleId: S:66e89781e9567ae328ac7da99b30a817d7e1ae66, */
+  --font-kgi-大字級-subtitle-b-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-subtitle-b-mweb-en-weight: 600;
+  --font-kgi-大字級-subtitle-b-mweb-en-size: 1.25rem;
+  --font-kgi-大字級-subtitle-b-mweb-en-size-px: 20px;
+  --font-kgi-大字級-subtitle-b-mweb-en-line-height: 1.5;
+
+  /* subtitle - r / 💧 mweb-tc | styleId: S:0bd01df6dc94c2a85e0c970fd2cd07065ffb85d8, */
+  --font-kgi-大字級-subtitle-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-r-mweb-tc-weight: 400;
+  --font-kgi-大字級-subtitle-r-mweb-tc-size: 1.25rem;
+  --font-kgi-大字級-subtitle-r-mweb-tc-size-px: 20px;
+  --font-kgi-大字級-subtitle-r-mweb-tc-line-height: 1.6;
+
+  /* subtitle - r / 💧 mweb-en | styleId: S:51ee2af55663c277720067211ff35817e46edf6b, */
+  --font-kgi-大字級-subtitle-r-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-subtitle-r-mweb-en-weight: 500;
+  --font-kgi-大字級-subtitle-r-mweb-en-size: 1.25rem;
+  --font-kgi-大字級-subtitle-r-mweb-en-size-px: 20px;
+  --font-kgi-大字級-subtitle-r-mweb-en-line-height: 1.5;
+
+  /* body - b / 💧 mweb-tc | styleId: S:f752b473ec1baa3147cf1793186cfaa39941ae7f, */
+  --font-kgi-大字級-body-b-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-b-mweb-tc-weight: 500;
+  --font-kgi-大字級-body-b-mweb-tc-size: 1.125rem;
+  --font-kgi-大字級-body-b-mweb-tc-size-px: 18px;
+  --font-kgi-大字級-body-b-mweb-tc-line-height: 1.5;
+
+  /* body - b / 💧 mweb-en | styleId: S:8b7dfb47722b68a1d1751b1b37f94c5ee1a9b14a, */
+  --font-kgi-大字級-body-b-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-body-b-mweb-en-weight: 600;
+  --font-kgi-大字級-body-b-mweb-en-size: 1.125rem;
+  --font-kgi-大字級-body-b-mweb-en-size-px: 18px;
+  --font-kgi-大字級-body-b-mweb-en-line-height: 1.5;
+
+  /* body - r / 💧 mweb-tc | styleId: S:b3e4ebefb96fd3dc2df735772858910226b499a9, */
+  --font-kgi-大字級-body-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-r-mweb-tc-weight: 400;
+  --font-kgi-大字級-body-r-mweb-tc-size: 1.125rem;
+  --font-kgi-大字級-body-r-mweb-tc-size-px: 18px;
+  --font-kgi-大字級-body-r-mweb-tc-line-height: 1.5;
+
+  /* body - r / 💧 mweb-en | styleId: S:2d4973d7461294ebc72f05aac6bc1242bba296ef, */
+  --font-kgi-大字級-body-r-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-body-r-mweb-en-weight: 500;
+  --font-kgi-大字級-body-r-mweb-en-size: 1.125rem;
+  --font-kgi-大字級-body-r-mweb-en-size-px: 18px;
+  --font-kgi-大字級-body-r-mweb-en-line-height: 1.5;
+
+  /* caption - r / 💧 mweb-tc | styleId: S:5b4ffe0612f0c464f49d381129540a2f88a21139, */
+  --font-kgi-大字級-caption-r-mweb-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-caption-r-mweb-tc-weight: 400;
+  --font-kgi-大字級-caption-r-mweb-tc-size: 1rem; /* 2026-11-19 依 Figma 改為 16px（原 17px） */
+  --font-kgi-大字級-caption-r-mweb-tc-size-px: 16px;
+  --font-kgi-大字級-caption-r-mweb-tc-line-height: 1.5;
+
+  /* caption - r / 💧 mweb-en | styleId: S:b331b04fc5fa19d441dae810ed02e57e8f8cd6d9, */
+  --font-kgi-大字級-caption-r-mweb-en-family: "Montserrat";
+  --font-kgi-大字級-caption-r-mweb-en-weight: 400;
+  --font-kgi-大字級-caption-r-mweb-en-size: 1rem; /* 2026-11-19 依 Figma 改為 16px（原 17px） */
+  --font-kgi-大字級-caption-r-mweb-en-size-px: 16px;
+  --font-kgi-大字級-caption-r-mweb-en-line-height: 1.6;
+
+
+  /* ---- iOS (Native App,使用 pt,不提供 rem/px) ---- */
+  /* display - l / 🍎 ios-en | styleId: S:b12164eb667c425bac406c5ad143199b5f051754, */
+  --font-kgi-大字級-display-l-ios-en-family: "SF Pro";
+  --font-kgi-大字級-display-l-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgi-大字級-display-l-ios-en-size-pt: 68pt;
+  --font-kgi-大字級-display-l-ios-en-line-height: 1.2;
+
+  /* display - l / 🍎 ios-tc | styleId: S:c483db7a262a77533aa608a33989097db9b6d65b, */
+  --font-kgi-大字級-display-l-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-display-l-ios-tc-weight: 300;
+  --font-kgi-大字級-display-l-ios-tc-size-pt: 67pt;
+  --font-kgi-大字級-display-l-ios-tc-line-height: 1.4;
+
+  /* display - m / 🍎 ios-en | styleId: S:b62e0663784eb88866e4f364cd80b12569ac0326, */
+  --font-kgi-大字級-display-m-ios-en-family: "SF Pro";
+  --font-kgi-大字級-display-m-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgi-大字級-display-m-ios-en-size-pt: 52pt;
+  --font-kgi-大字級-display-m-ios-en-line-height: 1.3;
+
+  /* display - m / 🍎 ios-tc | styleId: S:3065098df20a5cd0c98c6f2df0a1dece2c755f2b, */
+  --font-kgi-大字級-display-m-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-display-m-ios-tc-weight: 300;
+  --font-kgi-大字級-display-m-ios-tc-size-pt: 51pt;
+  --font-kgi-大字級-display-m-ios-tc-line-height: 1.4;
+
+  /* display - s / 🍎 ios - en | styleId: S:f5901c0d71190ac9001c2cafc2445d75cdf0ab86, */
+  --font-kgi-大字級-display-s-ios-en-family: "SF Pro";
+  --font-kgi-大字級-display-s-ios-en-weight: 274; /* SF Pro Light → UIFont.Weight.light / Font.Weight.light */
+  --font-kgi-大字級-display-s-ios-en-size-pt: 44pt;
+  --font-kgi-大字級-display-s-ios-en-line-height: 1.3;
+
+  /* display - s / 🍎 ios - tc | styleId: S:b7cf0d7924c607fb7425b58df06d82664fa35e38, */
+  --font-kgi-大字級-display-s-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-display-s-ios-tc-weight: 300;
+  --font-kgi-大字級-display-s-ios-tc-size-pt: 43pt;
+  --font-kgi-大字級-display-s-ios-tc-line-height: 1.4;
+
+  /* headline / 🍎 ios-en | styleId: S:e63e25d930675be6aafd8131387b4b21b628dfea, */
+  --font-kgi-大字級-headline-ios-en-family: "SF Pro";
+  --font-kgi-大字級-headline-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgi-大字級-headline-ios-en-size-pt: 30pt;
+  --font-kgi-大字級-headline-ios-en-line-height: 1.4;
+
+  /* headline / 🍎 ios-tc | styleId: S:835fb0e38bdb2a4d9a0c2cbf6c3c42d9e285bc6f, */
+  --font-kgi-大字級-headline-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-headline-ios-tc-weight: 400;
+  --font-kgi-大字級-headline-ios-tc-size-pt: 29pt;
+  --font-kgi-大字級-headline-ios-tc-line-height: 1.5;
+
+  /* title / 🍎 ios-en | styleId: S:82a60153d9a5b706650b423d07fd05406892aa89, */
+  --font-kgi-大字級-title-ios-en-family: "SF Pro";
+  --font-kgi-大字級-title-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgi-大字級-title-ios-en-size-pt: 25pt;
+  --font-kgi-大字級-title-ios-en-line-height: 1.4;
+
+  /* title / 🍎 ios-tc | styleId: S:68bf36582db13489dc107d30efea68c1e57ffab8, */
+  --font-kgi-大字級-title-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-title-ios-tc-weight: 500;
+  --font-kgi-大字級-title-ios-tc-size-pt: 24pt;
+  --font-kgi-大字級-title-ios-tc-line-height: 1.5;
+
+  /* subtitle - b / 🍎 ios-en | styleId: S:a8b1c574d5911743a00166d54612d22feadcfaea, */
+  --font-kgi-大字級-subtitle-b-ios-en-family: "SF Pro";
+  --font-kgi-大字級-subtitle-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgi-大字級-subtitle-b-ios-en-size-pt: 21pt;
+  --font-kgi-大字級-subtitle-b-ios-en-line-height: 1.5;
+
+  /* subtitle - r / 🍎 ios-en | styleId: S:6066fa059980350579d18f92d23a21a8fa0757f6, */
+  --font-kgi-大字級-subtitle-r-ios-en-family: "SF Pro";
+  --font-kgi-大字級-subtitle-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgi-大字級-subtitle-r-ios-en-size-pt: 21pt;
+  --font-kgi-大字級-subtitle-r-ios-en-line-height: 1.5;
+
+  /* subtitle - b / 🍎 ios-tc | styleId: S:23409675b03e8cd0e4c285d2edbe9b533c8aa85d, */
+  --font-kgi-大字級-subtitle-b-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-subtitle-b-ios-tc-weight: 500;
+  --font-kgi-大字級-subtitle-b-ios-tc-size-pt: 20pt;
+  --font-kgi-大字級-subtitle-b-ios-tc-line-height: 1.6;
+
+  /* subtitle - r / 🍎 ios-tc | styleId: S:ab9ca0dcb7cab13ec3683b056856ff8f20de7053, */
+  --font-kgi-大字級-subtitle-r-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-subtitle-r-ios-tc-weight: 400;
+  --font-kgi-大字級-subtitle-r-ios-tc-size-pt: 20pt;
+  --font-kgi-大字級-subtitle-r-ios-tc-line-height: 1.6;
+
+  /* body - b / 🍎 ios-en | styleId: S:a4a904beba7f104c5d7ad261e350ef4823e98b18, */
+  --font-kgi-大字級-body-b-ios-en-family: "SF Pro";
+  --font-kgi-大字級-body-b-ios-en-weight: 510; /* SF Pro Medium → UIFont.Weight.medium / Font.Weight.medium */
+  --font-kgi-大字級-body-b-ios-en-size-pt: 19pt;
+  --font-kgi-大字級-body-b-ios-en-line-height: 1.5;
+
+  /* body - r / 🍎 ios-en | styleId: S:1a534aa2858c8cdd2b93acf10d0c5d6c08c2647a, */
+  --font-kgi-大字級-body-r-ios-en-family: "SF Pro";
+  --font-kgi-大字級-body-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgi-大字級-body-r-ios-en-size-pt: 19pt;
+  --font-kgi-大字級-body-r-ios-en-line-height: 1.5;
+
+  /* body - b / 🍎 ios-tc | styleId: S:70215bd74dc349aa5dd34c4590c5f3ee591b10a7, */
+  --font-kgi-大字級-body-b-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-body-b-ios-tc-weight: 500;
+  --font-kgi-大字級-body-b-ios-tc-size-pt: 18pt;
+  --font-kgi-大字級-body-b-ios-tc-line-height: 1.5;
+
+  /* body - r / 🍎 ios-tc | styleId: S:d54a816160c51e817bc60332a5c9ef397c76ecfb, */
+  --font-kgi-大字級-body-r-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-body-r-ios-tc-weight: 400;
+  --font-kgi-大字級-body-r-ios-tc-size-pt: 18pt;
+  --font-kgi-大字級-body-r-ios-tc-line-height: 1.5;
+
+  /* caption - r / 🍎 ios-tc | styleId: S:25d7cb4d7447e4995172f420e640e9c1f06c54d0, */
+  --font-kgi-大字級-caption-r-ios-tc-family: "PingFang TC";
+  --font-kgi-大字級-caption-r-ios-tc-weight: 400;
+  --font-kgi-大字級-caption-r-ios-tc-size-pt: 16pt; /* 2026-11-19 依 Figma 改為 16pt（原 17pt） */
+  --font-kgi-大字級-caption-r-ios-tc-line-height: 1.6;
+
+  /* caption - r / 🍎 ios-en | styleId: S:14b6273667e7aadc6af2e29f5896136b77bbfeb7, */
+  --font-kgi-大字級-caption-r-ios-en-family: "SF Pro";
+  --font-kgi-大字級-caption-r-ios-en-weight: 400; /* SF Pro Regular → UIFont.Weight.regular / Font.Weight.regular */
+  --font-kgi-大字級-caption-r-ios-en-size-pt: 16pt; /* 2026-11-19 依 Figma 改為 16pt（原 17pt） */
+  --font-kgi-大字級-caption-r-ios-en-line-height: 1.6;
+
+  /* ---- Android (Native App,使用 sp,依 iOS 定義換算) ---- */
+  /* display - l / 🤖 android-en */
+  --font-kgi-大字級-display-l-android-en-family: "Roboto";
+  --font-kgi-大字級-display-l-android-en-weight: 300;
+  --font-kgi-大字級-display-l-android-en-size-sp: 68sp;
+  --font-kgi-大字級-display-l-android-en-line-height: 1.2;
+
+  /* display - l / 🤖 android-tc */
+  --font-kgi-大字級-display-l-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-l-android-tc-weight: 300;
+  --font-kgi-大字級-display-l-android-tc-size-sp: 67sp;
+  --font-kgi-大字級-display-l-android-tc-line-height: 1.4;
+
+  /* display - m / 🤖 android-en */
+  --font-kgi-大字級-display-m-android-en-family: "Roboto";
+  --font-kgi-大字級-display-m-android-en-weight: 300;
+  --font-kgi-大字級-display-m-android-en-size-sp: 52sp;
+  --font-kgi-大字級-display-m-android-en-line-height: 1.3;
+
+  /* display - m / 🤖 android-tc */
+  --font-kgi-大字級-display-m-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-m-android-tc-weight: 300;
+  --font-kgi-大字級-display-m-android-tc-size-sp: 51sp;
+  --font-kgi-大字級-display-m-android-tc-line-height: 1.4;
+
+  /* display - s / 🤖 android-en */
+  --font-kgi-大字級-display-s-android-en-family: "Roboto";
+  --font-kgi-大字級-display-s-android-en-weight: 300;
+  --font-kgi-大字級-display-s-android-en-size-sp: 44sp;
+  --font-kgi-大字級-display-s-android-en-line-height: 1.3;
+
+  /* display - s / 🤖 android-tc */
+  --font-kgi-大字級-display-s-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-display-s-android-tc-weight: 300;
+  --font-kgi-大字級-display-s-android-tc-size-sp: 43sp;
+  --font-kgi-大字級-display-s-android-tc-line-height: 1.4;
+
+  /* headline / 🤖 android-en */
+  --font-kgi-大字級-headline-android-en-family: "Roboto";
+  --font-kgi-大字級-headline-android-en-weight: 400;
+  --font-kgi-大字級-headline-android-en-size-sp: 30sp;
+  --font-kgi-大字級-headline-android-en-line-height: 1.4;
+
+  /* headline / 🤖 android-tc */
+  --font-kgi-大字級-headline-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-headline-android-tc-weight: 400;
+  --font-kgi-大字級-headline-android-tc-size-sp: 29sp;
+  --font-kgi-大字級-headline-android-tc-line-height: 1.5;
+
+  /* title / 🤖 android-en */
+  --font-kgi-大字級-title-android-en-family: "Roboto";
+  --font-kgi-大字級-title-android-en-weight: 500;
+  --font-kgi-大字級-title-android-en-size-sp: 25sp;
+  --font-kgi-大字級-title-android-en-line-height: 1.4;
+
+  /* title / 🤖 android-tc */
+  --font-kgi-大字級-title-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-title-android-tc-weight: 500;
+  --font-kgi-大字級-title-android-tc-size-sp: 24sp;
+  --font-kgi-大字級-title-android-tc-line-height: 1.5;
+
+  /* subtitle - b / 🤖 android-en */
+  --font-kgi-大字級-subtitle-b-android-en-family: "Roboto";
+  --font-kgi-大字級-subtitle-b-android-en-weight: 500;
+  --font-kgi-大字級-subtitle-b-android-en-size-sp: 21sp;
+  --font-kgi-大字級-subtitle-b-android-en-line-height: 1.5;
+
+  /* subtitle - r / 🤖 android-en */
+  --font-kgi-大字級-subtitle-r-android-en-family: "Roboto";
+  --font-kgi-大字級-subtitle-r-android-en-weight: 400;
+  --font-kgi-大字級-subtitle-r-android-en-size-sp: 21sp;
+  --font-kgi-大字級-subtitle-r-android-en-line-height: 1.5;
+
+  /* subtitle - b / 🤖 android-tc */
+  --font-kgi-大字級-subtitle-b-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-b-android-tc-weight: 500;
+  --font-kgi-大字級-subtitle-b-android-tc-size-sp: 20sp;
+  --font-kgi-大字級-subtitle-b-android-tc-line-height: 1.6;
+
+  /* subtitle - r / 🤖 android-tc */
+  --font-kgi-大字級-subtitle-r-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-subtitle-r-android-tc-weight: 400;
+  --font-kgi-大字級-subtitle-r-android-tc-size-sp: 20sp;
+  --font-kgi-大字級-subtitle-r-android-tc-line-height: 1.6;
+
+  /* body - b / 🤖 android-en */
+  --font-kgi-大字級-body-b-android-en-family: "Roboto";
+  --font-kgi-大字級-body-b-android-en-weight: 500;
+  --font-kgi-大字級-body-b-android-en-size-sp: 19sp;
+  --font-kgi-大字級-body-b-android-en-line-height: 1.5;
+
+  /* body - r / 🤖 android-en */
+  --font-kgi-大字級-body-r-android-en-family: "Roboto";
+  --font-kgi-大字級-body-r-android-en-weight: 400;
+  --font-kgi-大字級-body-r-android-en-size-sp: 19sp;
+  --font-kgi-大字級-body-r-android-en-line-height: 1.5;
+
+  /* body - b / 🤖 android-tc */
+  --font-kgi-大字級-body-b-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-b-android-tc-weight: 500;
+  --font-kgi-大字級-body-b-android-tc-size-sp: 18sp;
+  --font-kgi-大字級-body-b-android-tc-line-height: 1.5;
+
+  /* body - r / 🤖 android-tc */
+  --font-kgi-大字級-body-r-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-body-r-android-tc-weight: 400;
+  --font-kgi-大字級-body-r-android-tc-size-sp: 18sp;
+  --font-kgi-大字級-body-r-android-tc-line-height: 1.5;
+
+  /* caption - r / 🤖 android-tc */
+  --font-kgi-大字級-caption-r-android-tc-family: "Noto Sans TC";
+  --font-kgi-大字級-caption-r-android-tc-weight: 400;
+  --font-kgi-大字級-caption-r-android-tc-size-sp: 16sp; /* 2026-11-19 依 Figma 改為 16sp（原 17sp，與 iOS 相同） */
+  --font-kgi-大字級-caption-r-android-tc-line-height: 1.6;
+
+  /* caption - r / 🤖 android-en */
+  --font-kgi-大字級-caption-r-android-en-family: "Roboto";
+  --font-kgi-大字級-caption-r-android-en-weight: 400;
+  --font-kgi-大字級-caption-r-android-en-size-sp: 16sp; /* 2026-11-19 依 Figma 改為 16sp（原 17sp，與 iOS 相同） */
+  --font-kgi-大字級-caption-r-android-en-line-height: 1.6;
+
+}

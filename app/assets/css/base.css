@@ -1,0 +1,15 @@
+/* Tailwind 3.4：放在 base layer（preflight 之後，蓋掉 html / body 的預設）
+ * 字體只在這裡用 var(--font-sans) 設定一次，元件與頁面不要個別指定 font-family */
+@layer base {
+html, body {
+  margin: 0;
+  background: var(--color-navy-0); /* 桌機預覽時手機框外的底色 */
+  color: var(--color-content-general-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+#__nuxt, #storybook-root { min-height: 100vh; }
+button { cursor: pointer; }
+}

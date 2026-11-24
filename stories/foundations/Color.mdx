@@ -1,0 +1,268 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { resolve, usedBy, contrast, SURFACE, CONTAINER, CONTENT, CHART_FAMILIES, ORDINALS, OVERVIEW, PALETTE, EXAMPLES } from './color-data'
+
+<Meta title="Foundations/Color" />
+
+export const Chip = ({ value, size = 'h-32 w-48' }) => (
+  <span className={`inline-block shrink-0 rounded-small border border-container-general-divider ${size}`} style={{ background: value }} title={value} />
+)
+export const Mode = ({ token, mode }) => {
+  const { value, global } = resolve(`--color-${token}`, mode)
+  return (
+    <div className="flex items-center gap-8">
+      <Chip value={value} />
+      <div className="flex min-w-0 flex-col">
+        <span className="n-caption-regular text-content-general-primary">{global}</span>
+        <span className="break-all n-caption-regular text-content-general-tertiary">{value}</span>
+      </div>
+    </div>
+  )
+}
+export const cls = (token) => (token.startsWith('content-') ? 'text-' : 'bg-') + token
+export const Ratio = ({ token }) => {
+  const r = ['light', 'dark'].map((m) => contrast(resolve(`--color-${token}`, m).value, resolve('--color-container-card-white', m).value))
+  return <span className="n-caption-regular text-content-general-secondary">{r.map((x) => (x == null ? '—' : x.toFixed(1))).join(' / ')}</span>
+}
+export const TokenTable = ({ rows, showContrast }) => (
+  <div className="sb-unstyled overflow-x-auto">
+    <div className="grid min-w-[760px] grid-cols-[1.3fr_1fr_1fr_1.6fr_1fr] gap-x-16 border-b border-container-general-divider py-8 t-caption-regular text-content-general-secondary">
+      <span>名稱 / class</span><span>Light</span><span>Dark</span><span>用途</span><span>{showContrast ? '對比度 L / D・使用元件' : '使用元件'}</span>
+    </div>
+    {rows.map((r) => (
+      <div key={r.token} className="grid min-w-[760px] grid-cols-[1.3fr_1fr_1fr_1.6fr_1fr] items-center gap-x-16 border-b border-container-general-divider py-12">
+        <div className="flex flex-col gap-2">
+          <span className="t-body-bold text-content-general-primary">{r.level ? `${r.level} ` : ''}{r.name}</span>
+          <code className="break-all n-caption-regular text-content-general-active">{cls(r.token)}</code>
+        </div>
+        <Mode token={r.token} mode="light" />
+        <Mode token={r.token} mode="dark" />
+        <span className="t-caption-regular text-content-general-primary">{r.use}</span>
+        <div className="flex flex-col gap-2">
+          {showContrast && <Ratio token={r.token} />}
+          <span className="n-caption-regular text-content-general-secondary">{usedBy(r.token).join('、') || '—'}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+)
+export const Box = ({ children, className = '' }) => <div className={`sb-unstyled rounded-medium bg-surface-white p-24 ${className}`}>{children}</div>
+
+# Color
+
+來源：Figma **MDS_Foundation › 顏色使用說明 / 輔助用色 / 交易狀態顏色顯示規範**；數值讀自 `guideline/Color_20261016 update/colors.css`（2026-10-16），Guideline 更新後本頁自動同步。
+
+> 本頁表格同時列出 Light / Dark 數值。工具列切到 **Theme: dark** 時，頁面上的元件示意也會切換。
+
+## 1. 色彩運用原則 Key Principles
+
+1. **對比度**：文字與背景須符合 WCAG 2.0 AA。文字 &lt; 19px 對比度至少 **4.5:1**；文字 ≥ 19px 至少 **3:1**。元件容器與背景至少 **3:1**。
+2. **基調**：KGI 數位觸點以白色與淺藍為基調，內容主色與輔色搭配少量藍色為強調色；插圖、圖表可用綠與橘做輔助色。
+3. **比例**：畫面約 **70% 背景、30% 元素**；背景再分為主要 50%、次級 30%、點綴 20%。
+
+<Box className="flex flex-wrap items-end gap-24">
+  <div className="flex flex-col items-center gap-8">
+    <span className="t-caption-regular text-content-general-secondary">30% 元素</span>
+    <div className="flex h-[220px] w-80 flex-col overflow-hidden rounded-small">
+      <div className="flex flex-[4]"><div className="flex-1" style={{ background: 'var(--color-teal-300)' }} /><div className="flex-1" style={{ background: 'var(--color-sky-blue-600)' }} /></div>
+      <div className="flex flex-[4]"><div className="flex-1" style={{ background: 'var(--color-blue-0)' }} /><div className="flex-1" style={{ background: 'var(--color-sky-blue-400)' }} /></div>
+      <div className="flex-1" style={{ background: 'var(--color-orange-500)' }} />
+      <div className="flex-1" style={{ background: 'var(--color-orange-400)' }} />
+      <div className="flex-[2]" style={{ background: 'var(--color-navy-500)' }} />
+    </div>
+  </div>
+  <div className="flex flex-col items-center gap-8">
+    <span className="t-caption-regular text-content-general-secondary">70% 背景</span>
+    <div className="flex h-[220px] w-[160px] flex-col overflow-hidden rounded-small border border-container-general-divider">
+      <div className="flex flex-[5] items-center justify-center bg-surface-blue n-caption-regular text-content-general-secondary">50% surface-blue</div>
+      <div className="flex flex-[3] items-center justify-center bg-surface-white n-caption-regular text-content-general-secondary">30% surface-white</div>
+      <div className="flex flex-[2] items-center justify-center bg-surface-yellow n-caption-regular text-content-general-secondary">20% surface-yellow</div>
+    </div>
+  </div>
+  <p className="max-w-[320px] t-caption-regular text-content-general-secondary">示意：背景以 Surface 為主；元素色取自 Content / Container 與 Chart 色。Figma 原圖的色塊標註為「Orange-40」佔位文字，實際色票待確認（見文末）。</p>
+</Box>
+
+## 2. 色彩名稱與意義 Color Naming
+
+Figma 命名規則：**介面用途 / 顏色任務**，例如 `Content/Primary`。程式裡 `/` 改成 `-`、全小寫，前面加 `--color-`：
+
+| Figma | CSS 變數 | Tailwind class |
+|---|---|---|
+| `Content/General/Primary` | `--color-content-general-primary` | `text-content-general-primary` |
+| `Container/Card/White` | `--color-container-card-white` | `bg-container-card-white`、`border-…` |
+| `Surface/Blue` | `--color-surface-blue` | `bg-surface-blue` |
+| `Chart/Blue 1st` | `--color-chart-blue-1st` | `bg-chart-blue-1st`、`fill-…` |
+
+| 介面用途 | 說明 | 用在 |
+|---|---|---|
+| **Surface** | 介面底色、區塊底色 | `bg-` |
+| **Container** | 組件、元件容器背景色（含邊框、分隔線） | `bg-`、`border-` |
+| **Content** | 文字、標題、標語、圖標、裝飾線 | `text-`（icon 用 `tint` 跟著文字色） |
+| **Chart** | 圖表用色、插圖可用的擴充色盤 | `bg-`、`fill-`、`stroke-` |
+
+顏色任務：**Primary** 主要／**Secondary** 次要（例如標題與內文）／**Tertiary** 三級（佔位詞、較不重要資訊）／**Active** 啟用、可點擊／**Positive** 成功／**Caution** 錯誤、警示／**Divider** 分隔線／**Disabled** 禁用／**Ascend** 升值／**Descend** 貶值。
+
+## 3. Token 架構
+
+```
+色值 #0044AD  →  Global token（原始色票）sky-blue-600  →  Semantic token  container-general-active-primary
+                                                                      └→ content-general-active
+```
+
+- 元件、頁面**只用 Semantic token**（Surface / Container / Content / Chart）。Dark Mode 只換 Semantic token 的對應，原始色票兩種模式相同。
+- 原始色票只在特例使用（例如紅色「證」徽章），並以 `lint-allow` 標註；`npm run check:tokens` 會擋未標註的原始色票。
+
+## 4. 背景色 Surface
+
+背景色的使用範圍包含介面底色、各內容區塊底色。
+
+<TokenTable rows={SURFACE} />
+
+## 5. 元件容器底色 Container
+
+組件、元件容器背景色。若容器內放置內容（文字、icon），請搭配下方 Content 色；**元件與背景的對比度需 3:1**。
+
+{CONTAINER.map((g) => (
+  <div key={g.group} className="sb-unstyled flex flex-col gap-8 py-16">
+    <p className="t-subtitle-bold text-content-general-primary">{g.group}</p>
+    <TokenTable rows={g.rows} />
+  </div>
+))}
+
+## 6. 內容色 Content
+
+內容色的使用範圍包含文本、標題、標語、圖標等提供資訊或帶有意義的內容。對比度欄位是放在 `container-card-white` 上的計算值（Light / Dark）。
+
+- **★ 重要且緊急**（Primary、Secondary、Tertiary、Active、Light Active、Caution）：對比度**必須** 4.5:1（AA）。
+- **☆ 重要不緊急**（Ascend、Descend、Positive…）：對比度**建議** 4.5:1。
+- **＊ 不重要不緊急**（Disabled）：依 WCAG 2.2，附帶性內容沒有對比度要求。
+- `Light Active` 是放在深色容器上的白字，不適用白底對比度。
+
+{CONTENT.map((g) => (
+  <div key={g.group} className="sb-unstyled flex flex-col gap-8 py-16">
+    <p className="t-subtitle-bold text-content-general-primary">{g.group}</p>
+    <TokenTable rows={g.rows} showContrast />
+  </div>
+))}
+
+## 7. 互動狀態 Hover & Disabled
+
+**Hover 不是獨立色票**：由容器色 / 文字色的 HSB **Brightness** 運算（`npm run theme` 自動產生 `--color-*-hover`，class 為 `hover:bg-…-hover`、`active:bg-…-hover`）。
+
+| Brightness | Light Mode | Dark Mode | 範例（Light） |
+|---|---|---|---|
+| ≤ 32% | +10% | +15% | hsba(216, 100%, 32%) → 42% |
+| 33% ～ 86% | −10% | +10% | hsba(216, 100%, 68%) → 58% |
+| ≥ 87% | −5% | −15% | hsba(0, 0%, 100%) → 95% |
+
+<Box className="flex flex-wrap gap-16">
+  {['container-general-active-primary', 'container-general-active-secondary', 'surface-white', 'content-general-active'].map((t) => (
+    <div key={t} className="flex flex-col gap-8">
+      <div className="flex gap-4"><Chip value={resolve(`--color-${t}`).value} size="size-48" /><Chip value={resolve(`--color-${t}-hover`).value} size="size-48" /></div>
+      <code className="n-caption-regular text-content-general-secondary">{t}</code>
+      <span className="n-caption-regular text-content-general-tertiary">{resolve(`--color-${t}`).value} → {resolve(`--color-${t}-hover`).value}</span>
+    </div>
+  ))}
+</Box>
+
+**Disabled**：容器一律 `container-general-disabled`、文字一律 `content-general-disabled`，不另做 hover。
+
+## 8. 交易狀態顏色顯示規範
+
+顏色應用：**先看畫面上有沒有交易動作**。
+
+<Box className="flex flex-col items-center gap-16">
+  <div className="rounded-medium border border-container-general-divider px-24 py-16 text-center t-body-bold text-content-general-primary">此畫面 / 元件是否同時顯示「交易動作」（買進 / 賣出 / 支出 / 收入）與其他狀態？</div>
+  <div className="grid w-full grid-cols-1 gap-16 tablet:grid-cols-2">
+    <div className="flex flex-col gap-8 rounded-medium bg-surface-blue p-16">
+      <span className="n-caption-regular text-content-general-active">Yes → 情境 A</span>
+      <p className="t-subtitle-bold text-content-general-primary">優先顯示交易狀態顏色</p>
+      <p className="t-body-regular text-content-general-secondary">交易動作（買賣與收支）優先顯示色彩，其餘統一降階為中性色（Primary / Secondary）。</p>
+      <p className="flex gap-16 t-body-bold"><span className="text-content-semantic-buy-in-expenditure">買進</span><span className="text-content-semantic-sell-off-income">賣出</span><span className="t-body-regular text-content-general-secondary">委託失敗（降階）</span></p>
+      <code className="n-caption-regular text-content-general-secondary">text-content-semantic-buy-in-expenditure / text-content-semantic-sell-off-income</code>
+    </div>
+    <div className="flex flex-col gap-8 rounded-medium bg-surface-blue p-16">
+      <span className="n-caption-regular text-content-general-active">No → 情境 B</span>
+      <p className="t-subtitle-bold text-content-general-primary">使用既有狀態的對應顏色</p>
+      <p className="t-body-regular text-content-general-secondary">警示（委託失敗 / 系統異常）用 Caution，其餘狀態（成功、處理中…）一律用中性色。</p>
+      <p className="flex gap-16 t-body-bold"><span className="text-content-semantic-caution">委託失敗</span><span className="text-content-general-primary">扣款成功</span><span className="t-body-regular text-content-general-secondary">處理中</span></p>
+    </div>
+  </div>
+</Box>
+
+## 9. 圖表色 Chart
+
+圖表佔比色（圓餅圖、長條圖等）。色票**依顯示順序**成組使用（1st → 6th 依序疊加）；總覽用 **Overview 1st～8th**。class 為 `bg-chart-blue-1st`、`fill-chart-blue-1st`。
+
+<div className="sb-unstyled flex flex-col gap-12">
+  {CHART_FAMILIES.map((f) => (
+    <div key={f} className="grid grid-cols-[80px_1fr] items-center gap-12">
+      <span className="t-body-bold capitalize text-content-general-primary">{f}</span>
+      <div className="flex flex-col gap-4">
+        {['light', 'dark'].map((m) => (
+          <div key={m} className="flex gap-4">
+            {ORDINALS.map((o) => <Chip key={o} value={resolve(`--color-chart-${f}-${o}`, m).value} size="h-32 flex-1" />)}
+            <span className="w-40 n-caption-regular text-content-general-tertiary">{m === 'light' ? 'Light' : 'Dark'}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+  <div className="grid grid-cols-[80px_1fr] items-center gap-12">
+    <span className="t-body-bold text-content-general-primary">Overview</span>
+    <div className="flex flex-col gap-4">
+      {['light', 'dark'].map((m) => (
+        <div key={m} className="flex gap-4">
+          {OVERVIEW.map((o) => <Chip key={o} value={resolve(`--color-chart-overview-${o}`, m).value} size="h-32 flex-1" />)}
+          <span className="w-40 n-caption-regular text-content-general-tertiary">{m === 'light' ? 'Light' : 'Dark'}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+## 10. 原始色票 KGI Color Palette
+
+以 KGI 品牌色中的輔助色與彩度延伸的色階。只給 Semantic token 引用；名稱結尾 `D` 為 Dark Mode 專用色，`-75`、`-30`、`-50` 為透明度版本。
+
+<div className="sb-unstyled flex flex-col gap-16">
+  {PALETTE.map(({ family, tokens }) => (
+    <div key={family} className="flex flex-col gap-8">
+      <span className="t-body-bold text-content-general-primary">{family}</span>
+      <div className="grid grid-cols-4 gap-8 tablet:grid-cols-6">
+        {tokens.map((t) => (
+          <div key={t} className="flex flex-col gap-4">
+            <Chip value={resolve(t).value} size="h-40 w-full" />
+            <span className="n-caption-regular text-content-general-primary">{t.replace('--color-', '')}</span>
+            <span className="break-all n-caption-regular text-content-general-tertiary">{resolve(t).value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+## 11. 使用範例
+
+對照 Figma「顏色使用範例」（帳務、我的、策略選股畫面）的標註：
+
+<div className="sb-unstyled flex flex-col">
+  {EXAMPLES.map(([el, token]) => (
+    <div key={el} className="grid grid-cols-[1fr_1.4fr_1fr] items-center gap-12 border-b border-container-general-divider py-8">
+      <span className="t-body-regular text-content-general-primary">{el}</span>
+      <span className="flex items-center gap-8"><Chip value={resolve(`--color-${token}`).value} size="size-24" /><code className="break-all n-caption-regular text-content-general-active">{cls(token)}</code></span>
+      <span className="n-caption-regular text-content-general-secondary">{usedBy(token).join('、') || '—'}</span>
+    </div>
+  ))}
+</div>
+
+## 12. 待確認事項
+
+Figma 與 `colors.css` 不同時只列出差異，採用哪一方逐項確認。2026-11-19 經確認依 Figma 修正 `colors.css`：Container/Semantic/Buy-in/Expenditure 改為 red-600、Chart/Red 4th 改為 red-300、Content/Tag/Error 改名為 Caution（`content-tag-caution`）。
+
+尚待確認：
+
+1. **圖表範例圓餅圖的變數**：輔助用色頁「圖表色 Chart」下方的 Investment / Overview 圓餅圖範例，色塊綁的是舊變數群組 `Chart/Oragne 1st`、`Chart/Green 1st`…（Light 值 `#E74622`、`#309543` 等），和同頁色票表用的 `Chart/Series Colors/*` 不同。色票表數值正確，範例需換成新變數。
+2. **Ascend / Descend 的用途文字**：Content/Semantic/Ascend 寫「上漲、買進」、Descend 寫「下跌、賣出」，與 Buy-in/Expenditure、Sell-off/Income 重疊。交易狀態頁買進 / 賣出用的是 Buy-in / Sell-off，建議把 Ascend / Descend 用途裡的「買進、賣出」拿掉。
+3. **Color Naming 的顏色任務**仍列 Accent、Inactive、Negative、Warning，但 2026-10 已沒有這些 token；Content 對比度說明仍提到 Warning。
+4. **Figma 文字錯字**：Gerenal、Active-Single-Fillter-D、content/general/actvie。
+5. **70/30 比例圖**的色塊標註為「Orange-40」佔位文字，背景 50 / 30 / 20 與元素色實際對應哪些 token？

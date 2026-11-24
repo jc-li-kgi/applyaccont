@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import spacingCss from '../../guideline/Spacing/spacing.css?raw'
+import radiusCss from '../../guideline/Radius/radius-tokens.css?raw'
+import shadowCss from '../../guideline/Shadow/shadow.css?raw'
+
+<Meta title="Foundations/Spacing, Radius, Shadow" />
+
+export const vars = (css, prefix) => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(new RegExp(`(--${prefix}-[\\w-]+)\\s*:\\s*([^;]+);`, 'g'))].map((m) => [m[1], m[2].trim()])
+
+# Spacing, Radius, Shadow
+
+## Spacing
+只有這些值：class 數字就是 px（`p-16` = 16px）。沒有的值（例如 10、14）不能用，先找最接近的 token。
+
+<div className="sb-unstyled flex flex-col gap-8">
+  {vars(spacingCss, 'spacing').map(([name, value]) => (
+    <div key={name} className="flex items-center gap-16">
+      <code className="w-80 n-caption-regular text-content-general-primary">{name.replace('--spacing-', 'p-')}</code>
+      <div className="h-16 bg-container-general-active-primary" style={{ width: `var(${name})` }} />
+      <span className="n-caption-regular text-content-general-tertiary">{value}</span>
+    </div>
+  ))}
+</div>
+
+## Radius
+卡片 `rounded-medium`；膠囊按鈕、Tag、Search Bar `rounded-full`；Selection Chip `rounded-small`；滿版卡片 `rounded-none`。
+
+<div className="sb-unstyled flex flex-wrap gap-16 py-12">
+  {vars(radiusCss, 'radius').map(([name, value]) => (
+    <div key={name} className="flex flex-col items-center gap-8">
+      <div className="size-80 border border-container-general-active-primary bg-container-general-active-secondary" style={{ borderRadius: `var(${name})` }} />
+      <code className="n-caption-regular text-content-general-primary">{name.replace('--radius-', 'rounded-')}</code>
+      <span className="n-caption-regular text-content-general-tertiary">{value}</span>
+    </div>
+  ))}
+</div>
+
+## Shadow
+藍底上的卡片 `shadow-basic`；白底上的浮層、Dialog、Action Sheet、Toast、導覽列 `shadow-popover`；未選取 / 停用 `shadow-light`。
+
+<div className="sb-unstyled flex flex-wrap gap-24 bg-surface-blue p-24">
+  {vars(shadowCss, 'shadow').map(([name, value]) => (
+    <div key={name} className="flex flex-col items-center gap-8">
+      <div className="size-80 rounded-medium bg-surface-white" style={{ boxShadow: `var(${name})` }} />
+      <code className="n-caption-regular text-content-general-primary">{name.replace('--shadow-', 'shadow-')}</code>
+    </div>
+  ))}
+</div>

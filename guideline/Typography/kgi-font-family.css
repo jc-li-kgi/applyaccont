@@ -1,0 +1,140 @@
+/**
+ * KGI Font Family — 全站字體規範(Font Stack)
+ * 來源: Figma / MDS_Foundation — 「前端開發前,建立 Font Family 參考!」
+ *       https://www.figma.com/design/FJXqf9mYYqclahNPGXYzR3/MDS_Foundation?node-id=28524-24055
+ *
+ * ============================================================
+ * 一、全站字體規範 — 因應平台變化的字型規則
+ * ============================================================
+ *   - Web          : 中文用思源黑體(Noto Sans TC),英文與數字用 Montserrat
+ *   - iOS 原生      : 中文用蘋方(PingFang TC),英文與數字用 SF Pro
+ *   - Android 原生  : 中文用思源黑體(Noto Sans CJK TC),英文與數字用 Roboto
+ *   - In-App WebView(App 內嵌網頁): 優先跟隨所在平台的原生字型
+ *
+ * ============================================================
+ * 二、設定原則
+ * ============================================================
+ *   1. 全站只在根層(:root 與 html[data-platform])設定一次字型。
+ *   2. 英數字型放第一順位,中文字型放第二順位;遇到中文字元時,
+ *      瀏覽器 / WebView 會自動改用下一個字型,不需要額外判斷語系。
+ *   3. 元件與頁面請勿個別指定 font-family,一律使用 var(--font-sans)。
+ *      需要調整字體層疊時,只改這份檔案,不要在個別元件覆寫。
+ *
+ * 與 kgi-typography.css / kgib-typography.css 的關係:
+ *   那兩份檔案定義「每個文字階級(Display/Headline/Title...)在各平台
+ *   對應哪個確切字體」,是設計系統的字體 token,給比對 Figma 規格與
+ *   原生開發(iOS/Android)參考用;這份檔案才是網頁 / WebView 實際
+ *   套用的 CSS 字體層疊規則與字型載入設定。兩邊使用的字體名稱
+ *   (Montserrat / Noto Sans TC / PingFang TC / SF Pro / Roboto)必須
+ *   保持一致 —— 若 Figma 端的字體來源有變動,這份檔案也要同步更新。
+ *
+ * 更新日期: 2026-10-19
+ */
+
+/* ============================================================
+   三、Web 參考設定(含 WebView)
+   ============================================================ */
+
+/*
+  html 設定語系 —— 必加,避免中文出現簡體或日文字形:
+
+    <html lang="zh-Hant-TW">
+
+  載入字型(放在 <head>):
+
+    <!-- 預先連線 Google Fonts,加快字型下載速度 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 載入 Montserrat(英數)與思源黑體(中文) -->
+    <!-- display=swap:字型下載完成前先用系統字顯示,避免畫面空白 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap">
+*/
+
+/* Web(預設) */
+:root {
+  /* 一般情境使用:中英文混排時由瀏覽器逐字元判斷,自動分流至對應字體 */
+  --font-sans: "Montserrat", -apple-system, "Helvetica Neue", Arial,
+               "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  /* 英數 Montserrat → 英文系統字(Montserrat 載入失敗時的備援)
+     → 中文思源黑體 → Mac 備援蘋方 → Windows 備援正黑體 → 系統字 */
+
+  /* 僅限確定整個元素不會與中文混排的純英數情境使用(例如純數字金額、英文品牌字) */
+  --font-en: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* 僅限確定整個元素不會與英文混排的純中文情境使用 */
+  --font-tc: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+/* WebView - iOS:跟隨原生字型 */
+/* App 端需在 <html> 加上 data-platform="ios" */
+html[data-platform="ios"] {
+  --font-sans: -apple-system, "PingFang TC", sans-serif;
+  /* 英數 SF Pro(透過 -apple-system 取得系統字重對應)→ 中文蘋方 → 系統字 */
+
+  --font-en: -apple-system, sans-serif;
+  --font-tc: "PingFang TC", sans-serif;
+}
+
+/* WebView - Android:跟隨原生字型 */
+/* App 端需在 <html> 加上 data-platform="android" */
+html[data-platform="android"] {
+  --font-sans: Roboto, "Noto Sans CJK TC", "Noto Sans TC", sans-serif;
+  /* 英數 Roboto → 中文系統思源黑體(CJK)→ 雲端思源黑體 → 系統字 */
+
+  --font-en: Roboto, sans-serif;
+  --font-tc: "Noto Sans CJK TC", "Noto Sans TC", sans-serif;
+}
+
+/**
+ * 使用方式(給前端工程師):
+ *
+ *   body {
+ *     font-family: var(--font-sans);
+ *   }
+ *
+ * 不要在元件或頁面裡另外寫 font-family / 字體名稱。若某個畫面在
+ * WebView 裡顯示字體跟原生不一致,請先確認 App 端是否已在 <html>
+ * 標籤加上對應的 data-platform 屬性,而不是在該元件硬寫字體。
+ *
+ * --font-en / --font-tc 只在「確定整個元素只會是單一語言」時才明確
+ * 套用(例如純數字金額、純英文品牌字、純中文標題),一般情境一律用
+ * --font-sans 讓瀏覽器自動依字符分流即可,不需要逐元件判斷語系。
+ *
+ * Google Fonts 字重對照(配合上方 <link> 載入的字重範圍):
+ *   Montserrat   : 300(Light)/ 400(Regular)/ 500(Medium)/ 600(SemiBold)
+ *   Noto Sans TC : 300(Light)/ 400(Regular)/ 500(Medium)/ 600(SemiBold)
+ *   若 kgi-typography.css 新增其他字重的文字階級,需同步更新上方
+ *   Google Fonts <link> 的 wght 範圍,否則該字重會被瀏覽器合成
+ *   (faux bold/synthetic weight),顯示效果會與 Figma 設計不符。
+ *
+ * 中英文混排注意事項(確保文案完整呈現):
+ *   1. 字重務必兩邊都載入 —— 混排文字套用同一個 font-weight 時,若中文
+ *      字體沒有該字重的字型檔,會被瀏覽器合成假粗體,筆畫會變形。
+ *   2. 中文語境一律使用全形標點(,。!?),不要用半形標點再依賴字體
+ *      渲染,標點形狀是內容層的問題,字體層解決不了。
+ *   3. 不同字階級的中英文字級/行高已在 kgi-typography.css 個別校正過
+ *      (中西文字體度量不同),不要在這份檔案裡用統一數值覆蓋。
+ *   4. Google Fonts <link> 用 wght@ 載入完整字符集,不要加 text= 參數
+ *      做子集化,避免動態文案出現缺字。
+ */
+
+/* ============================================================
+   四、iOS 原生 — 使用系統字型
+   ============================================================
+   - 做法: SwiftUI 用 .system(...)、UIKit 用 UIFont.systemFont(...)
+   - SF Pro 與蘋方(PingFang TC)都是系統內建字型,不需要打包進 App
+   - App 的語系設定務必為 zh-Hant,中文才會正確使用蘋方(繁體),
+     若誤設為 zh-Hans 等其他語系,系統可能改用簡體字形顯示
+*/
+
+/* ============================================================
+   五、Android 原生 — 使用系統字型
+   ============================================================
+   - 做法: Jetpack Compose 用 FontFamily.Default
+   - Roboto 與 Noto Sans CJK(即思源黑體)都是系統內建字型,
+     不需要打包進 App
+   - 注意: 部分廠牌(如三星、小米)會以自家字型覆蓋系統預設字型,
+     若需確保跨品牌顯示一致,就必須把 Noto Sans TC 字型檔實際
+     打包進 App,而不是單純依賴系統內建字型
+*/
